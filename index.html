@@ -83,13 +83,18 @@
     .btn-grad:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(34,211,238,.3);}
     .btn-outline{padding:.8rem 2.1rem;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--text);font-weight:600;font-size:.92rem;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:all .25s;display:inline-block;}
     .btn-outline:hover{border-color:var(--cyan-border);color:var(--cyan);background:var(--cyan-dim);transform:translateY(-3px);}
-    .hero-counters{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;animation:fadeUp .5s ease .4s both;}
-    .hc-card{text-align:center;padding:1.4rem 2rem;background:rgba(7,21,36,.6);border:1px solid var(--border);border-radius:14px;backdrop-filter:blur(14px);position:relative;overflow:hidden;min-width:130px;transition:all .3s;cursor:default;}
-    .hc-card::before{content:'';position:absolute;top:0;left:20%;right:20%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);}
-    .hc-card:hover{border-color:var(--cyan-border);transform:translateY(-4px);box-shadow:0 12px 32px rgba(34,211,238,.12);}
-    .hc-icon{width:28px;height:28px;margin:0 auto .6rem;color:var(--cyan);opacity:.85;}
-    .hc-val{font-family:'JetBrains Mono',monospace;font-size:clamp(1.7rem,3.5vw,2.2rem);font-weight:700;background:linear-gradient(130deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
-    .hc-lbl{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.4rem;}
+    /* Hero tech ticker */
+    .hero-tech{width:100%;margin-top:2.5rem;animation:fadeUp .5s ease .4s both;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,black 12%,black 88%,transparent);mask:linear-gradient(90deg,transparent,black 12%,black 88%,transparent);}
+    .ticker-row{display:flex;gap:.75rem;width:max-content;margin-bottom:.6rem;}
+    .ticker-row.rev{animation:tickerL 28s linear infinite;}
+    .ticker-row:not(.rev){animation:tickerR 22s linear infinite;}
+    .ticker-row:hover{animation-play-state:paused;}
+    .t-tag{display:inline-flex;align-items:center;gap:.45rem;padding:.38rem .9rem;border-radius:20px;border:1px solid var(--cyan-border);background:rgba(34,211,238,.05);font-size:.75rem;font-family:'JetBrains Mono',monospace;color:var(--text-dim);white-space:nowrap;transition:all .25s;cursor:default;}
+    .t-tag:hover{background:rgba(34,211,238,.12);color:var(--cyan);border-color:rgba(34,211,238,.5);box-shadow:0 0 14px rgba(34,211,238,.15);}
+    .t-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);opacity:.7;flex-shrink:0;}
+    .t-tag .dot.p{background:var(--purple);}
+    @keyframes tickerR{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes tickerL{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
     .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--text-muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;animation:fadeUp .5s ease .55s both;}
     .scroll-bar{width:1px;height:48px;background:linear-gradient(to bottom,var(--cyan),transparent);animation:scrollPulse 2s ease-in-out infinite;}
     @keyframes scrollPulse{0%,100%{opacity:0;transform:translateY(-8px)}50%{opacity:1;transform:translateY(0)}}
@@ -312,16 +317,62 @@
       <a href="#projects" class="btn-grad">View My Work</a>
       <a href="mailto:iqranawaz9353@gmail.com" class="btn-outline">Get In Touch</a>
     </div>
-    <div class="hero-counters">
-      <div class="hc-card">
-        <svg class="hc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        <div class="hc-val" data-target="3.66" data-dec="2">3.66</div>
-        <div class="hc-lbl">CGPA / 4.00</div>
+    <div class="hero-tech">
+      <!-- Row 1 — duplicated for seamless loop -->
+      <div class="ticker-row">
+        <span class="t-tag"><span class="dot"></span>Python</span>
+        <span class="t-tag"><span class="dot"></span>MLOps</span>
+        <span class="t-tag"><span class="dot p"></span>Scikit-learn</span>
+        <span class="t-tag"><span class="dot"></span>SQL</span>
+        <span class="t-tag"><span class="dot p"></span>TensorFlow</span>
+        <span class="t-tag"><span class="dot"></span>Pandas</span>
+        <span class="t-tag"><span class="dot p"></span>NLP</span>
+        <span class="t-tag"><span class="dot"></span>Streamlit</span>
+        <span class="t-tag"><span class="dot p"></span>Power BI</span>
+        <span class="t-tag"><span class="dot"></span>Tableau</span>
+        <span class="t-tag"><span class="dot p"></span>FastAPI</span>
+        <span class="t-tag"><span class="dot"></span>GitHub</span>
+        <!-- duplicate -->
+        <span class="t-tag"><span class="dot"></span>Python</span>
+        <span class="t-tag"><span class="dot"></span>MLOps</span>
+        <span class="t-tag"><span class="dot p"></span>Scikit-learn</span>
+        <span class="t-tag"><span class="dot"></span>SQL</span>
+        <span class="t-tag"><span class="dot p"></span>TensorFlow</span>
+        <span class="t-tag"><span class="dot"></span>Pandas</span>
+        <span class="t-tag"><span class="dot p"></span>NLP</span>
+        <span class="t-tag"><span class="dot"></span>Streamlit</span>
+        <span class="t-tag"><span class="dot p"></span>Power BI</span>
+        <span class="t-tag"><span class="dot"></span>Tableau</span>
+        <span class="t-tag"><span class="dot p"></span>FastAPI</span>
+        <span class="t-tag"><span class="dot"></span>GitHub</span>
       </div>
-      <div class="hc-card">
-        <svg class="hc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        <div class="hc-val" data-target="5" data-plus="true">5+</div>
-        <div class="hc-lbl">Projects Shipped</div>
+      <!-- Row 2 reverse — duplicated -->
+      <div class="ticker-row rev">
+        <span class="t-tag"><span class="dot p"></span>Claude AI</span>
+        <span class="t-tag"><span class="dot"></span>MySQL</span>
+        <span class="t-tag"><span class="dot p"></span>NumPy</span>
+        <span class="t-tag"><span class="dot"></span>Forecasting</span>
+        <span class="t-tag"><span class="dot p"></span>Data Analytics</span>
+        <span class="t-tag"><span class="dot"></span>Automation</span>
+        <span class="t-tag"><span class="dot p"></span>Deep Learning</span>
+        <span class="t-tag"><span class="dot"></span>Canva</span>
+        <span class="t-tag"><span class="dot p"></span>Docker</span>
+        <span class="t-tag"><span class="dot"></span>Matplotlib</span>
+        <span class="t-tag"><span class="dot p"></span>Seaborn</span>
+        <span class="t-tag"><span class="dot"></span>VS Code</span>
+        <!-- duplicate -->
+        <span class="t-tag"><span class="dot p"></span>Claude AI</span>
+        <span class="t-tag"><span class="dot"></span>MySQL</span>
+        <span class="t-tag"><span class="dot p"></span>NumPy</span>
+        <span class="t-tag"><span class="dot"></span>Forecasting</span>
+        <span class="t-tag"><span class="dot p"></span>Data Analytics</span>
+        <span class="t-tag"><span class="dot"></span>Automation</span>
+        <span class="t-tag"><span class="dot p"></span>Deep Learning</span>
+        <span class="t-tag"><span class="dot"></span>Canva</span>
+        <span class="t-tag"><span class="dot p"></span>Docker</span>
+        <span class="t-tag"><span class="dot"></span>Matplotlib</span>
+        <span class="t-tag"><span class="dot p"></span>Seaborn</span>
+        <span class="t-tag"><span class="dot"></span>VS Code</span>
       </div>
     </div>
   </div>
@@ -887,32 +938,6 @@ function filterSkills(btn,cat){
 }
 filterSkills(document.querySelector('.tab.on'),'all');
 
-/* ANIMATED COUNTERS */
-(function(){
-  function animateCounter(el){
-    const target=parseFloat(el.dataset.target);
-    const dec=parseInt(el.dataset.dec||0);
-    const plus=!!el.dataset.plus;
-    const pct=!!el.dataset.pct;
-    const dur=1600;
-    const start=performance.now();
-    function tick(now){
-      const p=Math.min((now-start)/dur,1);
-      const e=1-Math.pow(1-p,3);
-      const val=target*e;
-      el.textContent=(dec?val.toFixed(dec):Math.floor(val))+(plus?'+':'')+(pct?'%':'');
-      if(p<1)requestAnimationFrame(tick);
-      else el.textContent=(dec?target.toFixed(dec):target)+(plus?'+':'')+(pct?'%':'');
-    }
-    requestAnimationFrame(tick);
-  }
-  let done=false;
-  function run(){
-    if(done)return;done=true;
-    document.querySelectorAll('.hc-val[data-target]').forEach(animateCounter);
-  }
-  setTimeout(run,600);
-})();
 
 /* SCROLL REVEAL */
 (function(){
