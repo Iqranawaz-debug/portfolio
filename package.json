@@ -1,0 +1,16 @@
+{
+  "name": "iqra-nawaz-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Accessible, dependency-free static AI/ML portfolio",
+  "scripts": {
+    "check": "node --check script.js && node --check tools/build.mjs && node --check tools/serve.mjs",
+    "test": "node --test tests/site.test.mjs",
+    "build": "node tools/build.mjs",
+    "start": "node tools/serve.mjs",
+    "test:browser": "node tests/browser.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
