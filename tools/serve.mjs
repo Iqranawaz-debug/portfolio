@@ -10,11 +10,14 @@ const allowed = new Set([
   "/script.js",
   "/IMG.jpg",
   "/assets/favicon.svg",
-  "/assets/Iqra-Nawaz-CV.docx",
+  "/assets/images/fyp-teacher.png",
+  "/assets/images/fyp-teacher.webp",
+  "/assets/Iqra-Nawaz-Resume.pdf",
 ]);
 const types = {
-  ".docx":
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ".webp": "image/webp",
+  ".pdf": "application/pdf",
+  ".png": "image/png",
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",

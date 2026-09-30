@@ -30,8 +30,12 @@ Optional browser regression: with Playwright available and Microsoft Edge instal
 
 The supplied current profile is the content source of truth. The medicine project is in development. SentixAI's supplied result is approximately 92% on 1,000+ product reviews; no evaluation protocol or other project metrics have been invented.
 
-The user-supplied CV is preserved unchanged at `assets/Iqra-Nawaz-CV.docx` and linked as a DOCX download. The supplied GitHub profile and matching public LeafGuard AI and sentiment-analysis repositories are linked. No medicine repository, verified live demos, or production domain was supplied. The FYP repository has no README, so it is not linked to the revised project description without a confirmed match. Existing certificate files have been preserved; their contents were not independently matched to the supplied current certification dates, so they are not linked as evidence.
+The supplied PDF is preserved unchanged at `assets/Iqra-Nawaz-Resume.pdf` and is the primary resume download in the navbar and hero. The previously supplied DOCX is preserved in source. The supplied GitHub profile and matching public LeafGuard AI and sentiment-analysis repositories are linked. No medicine repository, verified live demos, or production domain was supplied. The FYP repository is empty, so it is not linked. The existing `fyp-teacher.png` is used with the precise caption “FYP interface · document library & upload”; its UI statistics are not presented as project performance metrics. A 39 KB WebP preview is lazy-loaded, with the original available on click. No standalone screenshot assets were found in the public LeafGuard/SentixAI file lists. Existing certificate files have been preserved; their contents were not independently matched to the supplied current certification dates, so they are not linked as evidence.
 
 After choosing a production domain, add its canonical URL, `og:url`, an absolute social preview image URL, and a sitemap. Relative asset paths already support deployment in a subdirectory. No environment variables are needed. The preview server is for local development only.
 
 Email actions open the visitor's email application. They do not claim to submit a message. No analytics or user data collection is implemented.
+
+## Second-pass interaction details
+
+Desktop navigation remains visible above 900px, with a separate PDF Resume CTA. The menu collapses at tablet/mobile widths. Case studies use native `details` with progressive CSS height transitions where supported and an immediate reduced-motion fallback. Toolkit evidence links target real project/experience anchors. The original headline and “Built with ❤️ and dedication” footer are retained.
