@@ -1,41 +1,226 @@
-# Iqra Nawaz — Portfolio
+<div align="center">
 
-A static HTML, CSS, and JavaScript portfolio. No framework, external font, CDN, runtime dependency, API key, or contact backend is required. Content is semantic HTML, so it remains available without JavaScript. Native details elements provide project case studies.
+# ✨ Iqra Nawaz | Developer Portfolio
 
-## Run and verify
+### A little about me, a lot about what I love to build.
 
-Use Node.js 18 or newer. There are no packages to install.
+**A fast, responsive, thoughtfully crafted portfolio — made with HTML, CSS & JavaScript.**
 
-```sh
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Responsive](https://img.shields.io/badge/Responsive-Design-7952B3?style=for-the-badge)
+![Zero dependencies](https://img.shields.io/badge/Runtime_Dependencies-0-16A34A?style=for-the-badge)
+
+**[Explore the projects](#-what-youll-find) · [Run locally](#-quick-start) · [How it works](#-project-structure)**
+
+</div>
+
+---
+
+## 👋 Hello, world!
+
+Welcome to my personal corner of the web! This portfolio brings together my projects, technical skills, experience, education, and learning journey in one place.
+
+I wanted it to feel **clean, easy to explore, and personal** — without sacrificing accessibility or performance. So I built it with the web's fundamentals: **semantic HTML, modern CSS, and vanilla JavaScript**.
+
+> **The idea:** Let the work tell the story — no unnecessary frameworks, heavy bundles, or complicated setup.
+
+## 🌟 Highlights
+
+| ✨ Feature | 💡 What it offers |
+|---|---|
+| **Responsive layout** | Designed for mobile, tablet, and desktop screens |
+| **Project case studies** | Expandable project details with native HTML `<details>` |
+| **Skills & experience** | A clear overview of tools, work, and learning |
+| **Education & certifications** | Dedicated sections for academic and professional growth |
+| **Resume access** | Downloadable PDF resume from the navbar and hero section |
+| **Accessible by design** | Semantic content available even with JavaScript disabled |
+| **Smooth navigation** | Responsive menu and active-section highlighting |
+| **Lightweight build** | No framework, CDN, external fonts, or production dependencies |
+| **Privacy-friendly** | No analytics, API keys, or backend data collection |
+| **Reduced-motion support** | Respects visitors' motion preferences |
+
+## 🖼️ Sneak peek
+
+<!-- Add an actual screenshot of your portfolio at the indicated path. -->
+<!-- Example: ![Portfolio home page](assets/portfolio-preview.png) -->
+
+**Portfolio preview coming soon.** Add a real screenshot of the home page to showcase the finished design.
+
+For the best GitHub preview, consider including a desktop screenshot and a mobile screenshot. Avoid using images that haven't been added to the repository.
+
+## 🧭 What you'll find
+
+- **About** — Who I am and what motivates me.
+- **Projects** — Selected builds and expandable case studies, including work in AI and software development.
+- **Experience** — Practical work and relevant responsibilities.
+- **Education** — My academic background.
+- **Certifications** — Courses and credentials I've completed.
+- **Contact** — Ways to connect; email links open the visitor's own mail app.
+
+The project's content reflects the profile and portfolio materials supplied during development. **Projects and demos aren't presented as deployed unless a verified link exists.**
+
+## 🛠️ Built with
+
+| Technology | Role |
+|---|---|
+| **HTML5** | Semantic structure and accessible content |
+| **CSS3** | Styling, responsive layouts, transitions, and design tokens |
+| **Vanilla JavaScript** | Mobile navigation, active-section behavior, and dynamic year |
+| **Node.js 18+** | Local checks, build, and preview scripts — **not** a site runtime dependency |
+| **Playwright + Edge (optional)** | Browser regression testing |
+
+### 💡 Why no frontend framework?
+
+This is a deliberately small static site. Vanilla web technologies keep it straightforward to host, inspect, and maintain. The important content remains readable without JavaScript.
+
+## 🚀 Quick start
+
+You'll need **Node.js 18 or newer** for the provided development scripts. No npm packages need to be installed.
+
+```bash
+# Verify project structure and assets
 npm run check
+
+# Run automated checks
 npm test
+
+# Build the static site
 npm run build
+
+# Preview the production output
 npm start
 ```
 
-The preview serves the production `dist` directory at http://127.0.0.1:4173. Publish the contents of `dist` to a static host. The build copies only public, referenced assets; existing unused images and certificates are preserved in the source repository.
+Open **http://127.0.0.1:4173** to see the local production preview.
 
-Optional browser regression: with Playwright available and Microsoft Edge installed, keep `npm start` running and use `npm run test:browser`. Set `PLAYWRIGHT_MODULE` to an installed Playwright module path if it is outside this repository. The test uses headless Edge and writes ignored screenshots to `test-results/`. Playwright is a QA tool only, not a site dependency.
+> The website itself is static. The Node scripts are development and build utilities, not a required backend server in production.
 
-## Editing
+## 🗂️ Project structure
 
-- `index.html`: profile, projects, experience, education, certifications, contact, and metadata. Each content item has one canonical location.
-- `style.css`: shared design tokens and responsive layouts (640, 900, 1100, and 1500px), reduced-motion and print styles.
-- `script.js`: responsive navigation, active section, and current year.
-- `assets/favicon.svg`: initials favicon.
-- `tools/`: dependency-free build and local preview.
-- `tests/`: navigation, asset, privacy/contact, and factual-content regression checks.
+```text
+portfolio/
+├── index.html                    # Content, sections, case studies & metadata
+├── style.css                     # Design tokens and responsive styling
+├── script.js                     # Navigation and small UI enhancements
+├── assets/
+│   ├── favicon.svg               # Portfolio favicon
+│   └── Iqra-Nawaz-Resume.pdf     # Downloadable resume
+├── tools/                         # Dependency-free build and preview scripts
+├── tests/                         # Automated project checks
+├── package.json                   # Development commands
+└── dist/                          # Generated static deployment output
+```
 
-## Content and deployment notes
+`dist/` is generated by the build. It contains the public files needed for deployment; unrelated source images and certificates remain untouched in the source repository.
 
-The supplied current profile is the content source of truth. The medicine project is in development. SentixAI's supplied result is approximately 92% on 1,000+ product reviews; no evaluation protocol or other project metrics have been invented.
+## 🧩 How it works
 
-The supplied PDF is preserved unchanged at `assets/Iqra-Nawaz-Resume.pdf` and is the primary resume download in the navbar and hero. The previously supplied DOCX is preserved in source. The supplied GitHub profile and matching public LeafGuard AI and sentiment-analysis repositories are linked. No medicine repository, verified live demos, or production domain was supplied. The FYP repository is empty, so it is not linked. The existing `fyp-teacher.png` is used with the precise caption “FYP interface · document library & upload”; its UI statistics are not presented as project performance metrics. A 39 KB WebP preview is lazy-loaded, with the original available on click. No standalone screenshot assets were found in the public LeafGuard/SentixAI file lists. Existing certificate files have been preserved; their contents were not independently matched to the supplied current certification dates, so they are not linked as evidence.
+```mermaid
+flowchart TD
+    A[Semantic HTML content] --> D[Portfolio web pages]
+    B[Responsive CSS styles] --> D
+    C[Vanilla JavaScript enhancements] --> D
+    D --> E[Local checks and build]
+    E --> F[dist/ static site]
+    F --> G[Static hosting provider]
+```
 
-After choosing a production domain, add its canonical URL, `og:url`, an absolute social preview image URL, and a sitemap. Relative asset paths already support deployment in a subdirectory. No environment variables are needed. The preview server is for local development only.
+- **HTML** holds the actual content, including the project case studies.
+- **CSS** handles the visual design, breakpoints, reduced-motion styles, and printing.
+- **JavaScript** enhances navigation without being required to read the core content.
+- **Build scripts** prepare only referenced public assets for static hosting.
 
-Email actions open the visitor's email application. They do not claim to submit a message. No analytics or user data collection is implemented.
+## 📱 Responsive and accessible
 
-## Second-pass interaction details
+The layout includes breakpoints at **640px, 900px, 1100px, and 1500px**. Desktop navigation stays visible above 900px; smaller screens use a collapsible menu.
 
-Desktop navigation remains visible above 900px, with a separate PDF Resume CTA. The menu collapses at tablet/mobile widths. Case studies use native `details` with progressive CSS height transitions where supported and an immediate reduced-motion fallback. Toolkit evidence links target real project/experience anchors. The original headline and “Built with ❤️ and dedication” footer are retained.
+Project case studies use native `<details>` elements. Where supported, CSS adds progressive transitions, with an immediate alternative when a visitor prefers reduced motion. The site also includes print styling.
+
+## 🧪 Testing and quality checks
+
+```bash
+npm run check
+npm test
+npm run build
+```
+
+The automated checks cover areas including **navigation, referenced assets, contact/privacy behavior, and factual content**.
+
+For optional browser-level regression tests, install/configure Playwright and Microsoft Edge separately, start the preview with `npm start`, then run:
+
+```bash
+npm run test:browser
+```
+
+If Playwright is installed outside the project, `PLAYWRIGHT_MODULE` can point to its module path. Headless browser test screenshots are saved under ignored `test-results/`. **Playwright is only for testing, not a website dependency.**
+
+## 🌍 Deployment
+
+Run:
+
+```bash
+npm run build
+```
+
+Deploy the **contents of `dist/`** to your preferred static hosting service. Since the site uses relative asset paths, it can also work under a repository subdirectory.
+
+Before publishing to a permanent domain, consider adding:
+
+- A canonical production URL and matching Open Graph `og:url`.
+- An absolute social-preview image URL.
+- A sitemap for the chosen domain.
+
+**Note:** The local preview server is intended for development, not as a public production server.
+
+## ✏️ Customizing the portfolio
+
+| File or folder | Update this when you want to… |
+|---|---|
+| `index.html` | Edit your introduction, projects, experience, education, certifications, or contact links |
+| `style.css` | Change colors, spacing, responsive styles, and animations |
+| `script.js` | Adjust navigation enhancements |
+| `assets/` | Update your resume, favicon, or referenced images |
+| `tests/` | Maintain regression checks after changing content or navigation |
+
+Your resume download currently points to `assets/Iqra-Nawaz-Resume.pdf`. Contact links open an email application; **there is no contact-form backend**.
+
+## 🔍 Content integrity and honest project showcases
+
+A portfolio should be attractive **and** accurate. This site avoids invented metrics or unsupported deployment claims.
+
+- The medicine-related project is described as **in development**.
+- The supplied sentiment-analysis result is presented as approximately **92% on 1,000+ reviews**, without inventing an evaluation protocol.
+- The FYP image caption identifies it as an interface preview, not as performance evidence.
+- Missing or empty repositories are not presented as working public demos.
+- Certificate files remain in source, but unverified certificates are not linked as evidence.
+- No contact analytics or user-data collection is implemented.
+
+## 🧭 What's next?
+
+Ideas for future improvements:
+
+- [ ] Add real desktop and mobile preview screenshots.
+- [ ] Add verified live demo links when projects are deployed.
+- [ ] Configure production SEO metadata and a sitemap.
+- [ ] Continue expanding project case studies as projects evolve.
+- [ ] Explore further accessibility and performance audits.
+
+## 🤝 Let's connect
+
+I'm always interested in learning new technologies, improving my work, and connecting with people who enjoy building things.
+
+**Find my contact and profile links directly on the portfolio website.**
+
+---
+
+<div align="center">
+
+### Built with ❤️ and dedication
+
+**Made by Iqra Nawaz**
+
+*Every project is another opportunity to learn something new.* ✨
+
+</div>
