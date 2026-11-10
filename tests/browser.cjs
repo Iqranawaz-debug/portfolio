@@ -147,6 +147,17 @@ fs.mkdirSync(outputDir, { recursive: true });
   );
   assert.equal(await page.locator("#navMenu").isVisible(), true);
   assert.equal(await page.locator("#menuToggle").isVisible(), false);
+  const toggle = page.locator("#themeToggle");
+  const before = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  await toggle.click();
+  const after = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  assert.notEqual(before, after, "Theme toggle changes the palette");
+  await page.reload();
+  assert.equal(
+    await page.evaluate(() => getComputedStyle(document.body).backgroundColor),
+    after,
+    "Chosen theme persists across reloads",
+  );
   const noJS = await browser.newPage({
     javaScriptEnabled: false,
     viewport: { width: 320, height: 800 },

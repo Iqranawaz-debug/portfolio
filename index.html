@@ -8,8 +8,17 @@
       name="description"
       content="Iqra Nawaz’s portfolio: Data Science, Machine Learning, AI, Business Intelligence, Data Analytics, and Data Engineering opportunities. Explore projects and experience."
     />
-    <meta name="theme-color" content="#101923" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#fbf7f1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1512" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // Apply a saved theme before first paint to avoid a flash.
+      try {
+        const saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark")
+          document.documentElement.dataset.theme = saved;
+      } catch {}
+    </script>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Iqra Nawaz | Data Science, Analytics &amp; AI" />
     <meta
@@ -79,7 +88,16 @@
           download="Iqra-Nawaz-Resume.pdf"
           >Resume <span aria-hidden="true">↓</span
           ><span class="sr-only"> (PDF download)</span></a
+        ><button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Switch colour theme"
+          hidden
         >
+          <span class="icon-moon" aria-hidden="true">☾</span
+          ><span class="icon-sun" aria-hidden="true">☀</span>
+        </button>
       </nav>
     </header>
     <main id="main" tabindex="-1">
@@ -89,11 +107,12 @@
             <span class="status-dot" aria-hidden="true"></span> Data Science,
             Analytics &amp; AI · Karachi, Pakistan
           </p>
+          <p class="hero-greeting">Hi there, I’m Iqra <span role="img" aria-label="waving hand">👋</span></p>
           <h1 id="hero-title">
             Data to insights.<br />Ideas to <span>systems.</span>
           </h1>
           <p class="hero-description">
-            I’m Iqra, a Data Science graduate who turns data into decisions with
+            A Data Science graduate who turns data into decisions with
             Python, SQL, and machine learning — from explainable models and
             data warehouses to RAG-powered AI applications you can actually
             use.
@@ -235,6 +254,79 @@
               </li>
             </ol>
           </div>
+        </div>
+        <div class="principles">
+          <p class="eyebrow">What I believe about data work</p>
+          <ul class="principles-grid">
+            <li>
+              <blockquote>“Check the evidence with code, not trust.”</blockquote>
+              <p>
+                In <a href="#deeptrace-project">DeepTrace AI</a>, a finding only
+                counts as cited when deterministic checks find its quote in a
+                saved source.
+              </p>
+            </li>
+            <li>
+              <blockquote>“A pattern is an association, not proof.”</blockquote>
+              <p>
+                In <a href="#bank-project">Bank Marketing Intelligence</a>,
+                insights guide what to test next — they never promise causal
+                uplift.
+              </p>
+            </li>
+            <li>
+              <blockquote>“Show the work behind every score.”</blockquote>
+              <p>
+                In <a href="#resumeiq-project">ResumeIQ</a>, every requirement
+                is backed by a quote and the exact scoring formula is visible.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="now" class="section container" aria-labelledby="now-title">
+        <div class="now-layout">
+          <div>
+            <p class="eyebrow">What I’m doing now</p>
+            <h2 id="now-title">Currently.</h2>
+            <p class="now-updated">Updated November 2026</p>
+          </div>
+          <ul class="now-list">
+            <li>
+              <span class="now-icon" aria-hidden="true">🔍</span>
+              <div>
+                <strong>Looking for my first full-time role</strong>
+                <p>
+                  Freshly graduated from NED University and open to Data
+                  Science, ML, AI, BI, Analytics and Data Engineering roles.
+                  <a href="#contact">Let’s talk.</a>
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="now-icon" aria-hidden="true">🌱</span>
+              <div>
+                <strong>Welcoming open-source contributors</strong>
+                <p>
+                  <a href="#screenshot-project">Smart Screenshot Organizer</a>
+                  has beginner-friendly issues for anyone making their first
+                  GitHub contribution.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="now-icon" aria-hidden="true">✅</span>
+              <div>
+                <strong>Wrapped up DeepTrace AI</strong>
+                <p>
+                  Closed the project after completing Milestone 1 and a real
+                  end-to-end run, with a written handoff for anyone who picks it
+                  up.
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
 

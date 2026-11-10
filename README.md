@@ -42,6 +42,8 @@ I wanted it to feel **clean, easy to explore, and personal** — without sacrifi
 | **Lightweight build** | No framework, CDN, external fonts, or production dependencies |
 | **Privacy-friendly** | No analytics, API keys, or backend data collection |
 | **Reduced-motion support** | Respects visitors' motion preferences |
+| **Warm light & dark themes** | Cream-and-terracotta palette with a warm dark mode; follows the system setting, with a toggle that remembers the visitor's choice |
+| **"Now" & principles** | A /now-style update on current focus, plus the data-work principles behind the projects |
 
 ## 🖼️ Sneak peek
 
@@ -70,7 +72,8 @@ Also on the site: the **Automated Data Pipeline** (final year project) and the *
 
 ## 🧭 What you'll find
 
-- **About** — Who I am and what motivates me.
+- **About** — Who I am, what motivates me, and the principles I bring to data work.
+- **Now** — What I'm focused on at the moment.
 - **Projects** — A project overview strip, four featured case studies (problem → approach → implementation → result), and a filterable grid of more projects with live-demo and source links.
 - **Experience** — Logiciel Services, Arch Technologies, NED University and KDA.
 - **Education** — My academic background.
@@ -196,7 +199,7 @@ The site is published with GitHub Pages at **https://iqranawaz-debug.github.io/p
 | File or folder | Update this when you want to… |
 |---|---|
 | `index.html` | Edit your introduction, projects, experience, education, certifications, or contact links |
-| `style.css` | Change colors, spacing, responsive styles, and animations |
+| `style.css` | Change colors (all palette tokens live in `:root` and the dark-theme blocks at the top), spacing, responsive styles, and animations |
 | `script.js` | Adjust navigation enhancements |
 | `assets/` | Update your resume, favicon, or referenced images |
 | `tests/` | Maintain regression checks after changing content or navigation |

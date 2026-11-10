@@ -107,3 +107,26 @@ if (filterGroup) {
     if (target && target.matches(".mini-card[hidden]")) buttons[0].click();
   });
 }
+
+// Theme toggle: follows the system setting until the visitor picks one.
+const themeToggle = document.getElementById("themeToggle");
+if (themeToggle) {
+  const root = document.documentElement;
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+  const current = () => root.dataset.theme || (systemDark.matches ? "dark" : "light");
+  const label = () => {
+    const next = current() === "dark" ? "light" : "dark";
+    themeToggle.setAttribute("aria-label", `Switch to ${next} theme`);
+  };
+  themeToggle.hidden = false;
+  label();
+  systemDark.addEventListener("change", label);
+  themeToggle.addEventListener("click", () => {
+    const next = current() === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+    label();
+  });
+}
