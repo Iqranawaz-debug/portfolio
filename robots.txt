@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iqranawaz-debug.github.io/portfolio/sitemap.xml

@@ -12,7 +12,9 @@
 ![Responsive](https://img.shields.io/badge/Responsive-Design-7952B3?style=for-the-badge)
 ![Zero dependencies](https://img.shields.io/badge/Runtime_Dependencies-0-16A34A?style=for-the-badge)
 
-**[Explore the projects](#-what-youll-find) · [Run locally](#-quick-start) · [How it works](#-project-structure)**
+### 🌐 [View the live portfolio](https://iqranawaz-debug.github.io/portfolio/)
+
+**[Featured projects](#-featured-projects) · [Run locally](#-quick-start) · [How it works](#-project-structure)**
 
 </div>
 
@@ -43,20 +45,36 @@ I wanted it to feel **clean, easy to explore, and personal** — without sacrifi
 
 ## 🖼️ Sneak peek
 
-<!-- Add an actual screenshot of your portfolio at the indicated path. -->
-<!-- Example: ![Portfolio home page](assets/portfolio-preview.png) -->
+![Portfolio home page on desktop](assets/screenshots/desktop-home.png)
 
-**Portfolio preview coming soon.** Add a real screenshot of the home page to showcase the finished design.
+| Projects section | Mobile |
+|---|---|
+| ![Featured projects and filterable project grid](assets/screenshots/desktop-projects.png) | <img src="assets/screenshots/mobile-home.png" alt="Portfolio home page on mobile" width="260" /> |
 
-For the best GitHub preview, consider including a desktop screenshot and a mobile screenshot. Avoid using images that haven't been added to the repository.
+## 📂 Featured projects
+
+| Project | Area | Highlights | Links |
+|---|---|---|---|
+| **DeepTrace AI** | GenAI · RAG | Agentic research workspace; citations checked by code — 9/9 quotes matched, 2 bad citations caught in first live run | [Code](https://github.com/Iqranawaz-debug/DeepTrace-AI) |
+| **Bank Marketing Intelligence** | ML · Analytics | Leakage-aware, explainable ML with threshold analysis and batch scoring | [Live demo](https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/) · [Code](https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence) |
+| **ResumeIQ** | NLP · Full-stack | Explainable resume–job matching with React + FastAPI, grounded AI rewrites | [Code](https://github.com/Iqranawaz-debug/ResumeIQ) |
+| **SQL Data Warehouse** | Data Engineering · BI | SQL Server Medallion architecture (Bronze → Silver → Gold), star schema, data quality checks | [Code](https://github.com/Iqranawaz-debug/SQL_DATAWAREHOUSE_PROJECT) |
+| **SentixAI** | NLP | ~92% accuracy on 1,000+ product reviews | [Code](https://github.com/Iqranawaz-debug/Sentiment_Analysis_On_Product_Reviews) |
+| **LeafGuard AI** | Computer Vision | CNN plant-disease classifier + OpenAI care guidance | [Code](https://github.com/Iqranawaz-debug/LeafGuard-AI) |
+| **CineMatch** | Recommender | Content-based movie recommendations with TMDB metadata | [Live demo](https://iqra-movie-recommender.streamlit.app/) · [Code](https://github.com/Iqranawaz-debug/Movie-Recommender-Sys-app) |
+| **Smart Screenshot Organizer** | OCR · Automation | Local Tesseract OCR, rule-based categorisation, SQLite search | [Code](https://github.com/Iqranawaz-debug/Screenshot_Organizer) |
+| **RouteWise** | AI Search | Dijkstra vs A* route finding to NED University | [Code](https://github.com/Iqranawaz-debug/NED-Route-Finder) |
+| **Shopify Product API** | Backend | Express, JWT auth, SQLite CRUD, Shopify GraphQL Admin API | [Code](https://github.com/Iqranawaz-debug/nodejs-shopify-product-management) |
+
+Also on the site: the **Automated Data Pipeline** (final year project) and the **AI-Based Medicine Recommendation System** (in development).
 
 ## 🧭 What you'll find
 
 - **About** — Who I am and what motivates me.
-- **Projects** — Selected builds and expandable case studies, including work in AI and software development.
-- **Experience** — Practical work and relevant responsibilities.
+- **Projects** — A project overview strip, four featured case studies (problem → approach → implementation → result), and a filterable grid of more projects with live-demo and source links.
+- **Experience** — Logiciel Services, Arch Technologies, NED University and KDA.
 - **Education** — My academic background.
-- **Certifications** — Courses and credentials I've completed.
+- **Certifications** — Professional certificates plus additional courses (IBM, DeepLearning.AI, DataCamp).
 - **Contact** — Ways to connect; email links open the visitor's own mail app.
 
 The project's content reflects the profile and portfolio materials supplied during development. **Projects and demos aren't presented as deployed unless a verified link exists.**
@@ -67,9 +85,9 @@ The project's content reflects the profile and portfolio materials supplied duri
 |---|---|
 | **HTML5** | Semantic structure and accessible content |
 | **CSS3** | Styling, responsive layouts, transitions, and design tokens |
-| **Vanilla JavaScript** | Mobile navigation, active-section behavior, and dynamic year |
+| **Vanilla JavaScript** | Mobile navigation, active-section behavior, project filters, and dynamic year |
 | **Node.js 18+** | Local checks, build, and preview scripts — **not** a site runtime dependency |
-| **Playwright + Edge (optional)** | Browser regression testing |
+| **Playwright (optional)** | Browser regression testing |
 
 ### 💡 Why no frontend framework?
 
@@ -106,7 +124,10 @@ portfolio/
 ├── script.js                     # Navigation and small UI enhancements
 ├── assets/
 │   ├── favicon.svg               # Portfolio favicon
+│   ├── images/                   # Project images
+│   ├── screenshots/              # README previews
 │   └── Iqra-Nawaz-Resume.pdf     # Downloadable resume
+├── sitemap.xml / robots.txt      # SEO for the GitHub Pages URL
 ├── tools/                         # Dependency-free build and preview scripts
 ├── tests/                         # Automated project checks
 ├── package.json                   # Development commands
@@ -148,7 +169,7 @@ npm run build
 
 The automated checks cover areas including **navigation, referenced assets, contact/privacy behavior, and factual content**.
 
-For optional browser-level regression tests, install/configure Playwright and Microsoft Edge separately, start the preview with `npm start`, then run:
+For optional browser-level regression tests, install Playwright separately, start the preview with `npm start`, then run (set `BROWSER_CHANNEL=msedge` or `chrome` to use a branded browser instead of bundled Chromium):
 
 ```bash
 npm run test:browser
@@ -166,11 +187,7 @@ npm run build
 
 Deploy the **contents of `dist/`** to your preferred static hosting service. Since the site uses relative asset paths, it can also work under a repository subdirectory.
 
-Before publishing to a permanent domain, consider adding:
-
-- A canonical production URL and matching Open Graph `og:url`.
-- An absolute social-preview image URL.
-- A sitemap for the chosen domain.
+The site is published with GitHub Pages at **https://iqranawaz-debug.github.io/portfolio/**. The canonical URL, Open Graph URL/image, JSON-LD `Person` data, `sitemap.xml` and `robots.txt` all point there — update them if you move to a custom domain.
 
 **Note:** The local preview server is intended for development, not as a public production server.
 
@@ -201,10 +218,12 @@ A portfolio should be attractive **and** accurate. This site avoids invented met
 
 Ideas for future improvements:
 
-- [ ] Add real desktop and mobile preview screenshots.
-- [ ] Add verified live demo links when projects are deployed.
-- [ ] Configure production SEO metadata and a sitemap.
-- [ ] Continue expanding project case studies as projects evolve.
+- [x] Add real desktop and mobile preview screenshots.
+- [x] Add verified live demo links for deployed projects.
+- [x] Configure production SEO metadata and a sitemap.
+- [ ] Add screenshots or short demo GIFs for each featured project.
+- [ ] Deploy ResumeIQ and DeepTrace AI demos (mock mode) for recruiters to try.
+- [ ] Add a short blog / write-ups section explaining project decisions.
 - [ ] Explore further accessibility and performance audits.
 
 ## 🤝 Let's connect

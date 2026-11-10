@@ -77,3 +77,33 @@ function requestUpdate() {
 window.addEventListener("scroll", requestUpdate, { passive: true });
 window.addEventListener("resize", requestUpdate);
 updateActiveSection();
+
+// Project filters: progressive enhancement; without JS every project stays visible.
+const filterGroup = document.querySelector(".project-filters");
+if (filterGroup) {
+  const cards = [...document.querySelectorAll(".mini-card")];
+  const buttons = [...filterGroup.querySelectorAll("button")];
+  const status = document.querySelector(".filter-status");
+  filterGroup.hidden = false;
+  filterGroup.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-filter]");
+    if (!button) return;
+    const filter = button.dataset.filter;
+    buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+    let shown = 0;
+    for (const card of cards) {
+      const match =
+        filter === "all" || card.dataset.category.split(" ").includes(filter);
+      card.hidden = !match;
+      if (match) shown += 1;
+    }
+    if (status)
+      status.textContent = `Showing ${shown} project${shown === 1 ? "" : "s"}`;
+  });
+  // Links to a filtered-out project (e.g. from the skills section) reset the filter.
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href^="#"]');
+    const target = link && document.getElementById(link.hash.slice(1));
+    if (target && target.matches(".mini-card[hidden]")) buttons[0].click();
+  });
+}
