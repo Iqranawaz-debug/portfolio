@@ -17,6 +17,10 @@
       content="From data to insights and usable systems. Explore Iqra’s projects in machine learning, AI applications, data pipelines, and automated reporting."
     />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://iqranawaz-debug.github.io/portfolio/" />
+    <meta property="og:image" content="https://iqranawaz-debug.github.io/portfolio/IMG.jpg" />
+    <meta property="og:image:alt" content="Portrait of Iqra Nawaz" />
+    <link rel="canonical" href="https://iqranawaz-debug.github.io/portfolio/" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Iqra Nawaz | Data Science, Analytics &amp; AI" />
     <meta
@@ -25,6 +29,20 @@
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Iqra Nawaz",
+        "jobTitle": "Data Scientist",
+        "url": "https://iqranawaz-debug.github.io/portfolio/",
+        "image": "https://iqranawaz-debug.github.io/portfolio/IMG.jpg",
+        "address": { "@type": "PostalAddress", "addressLocality": "Karachi", "addressCountry": "PK" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "NED University of Engineering and Technology" },
+        "knowsAbout": ["Data Science", "Machine Learning", "Generative AI", "RAG", "Data Analytics", "Data Engineering", "SQL", "Python"],
+        "sameAs": ["https://github.com/Iqranawaz-debug", "https://www.linkedin.com/in/iqra-nawaz-b2216a25a/"]
+      }
+    </script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -75,9 +93,10 @@
             Data to insights.<br />Ideas to <span>systems.</span>
           </h1>
           <p class="hero-description">
-            I’m Iqra, a Data Science graduate working with Python, SQL, and
-            machine learning. My work connects data preparation, analysis,
-            automated reporting, data pipelines, and usable AI applications.
+            I’m Iqra, a Data Science graduate who turns data into decisions with
+            Python, SQL, and machine learning — from explainable models and
+            data warehouses to RAG-powered AI applications you can actually
+            use.
           </p>
           <div class="hero-buttons">
             <a href="#projects" class="btn btn-primary"
@@ -146,12 +165,12 @@
           <div>
             <span class="fact-label">Education</span
             ><strong>NED University</strong
-            ><span>B.S. Computer Science (Data Science)</span>
+            ><span>B.S. CS (Data Science) · 3.70 CGPA</span>
           </div>
           <div>
-            <span class="fact-label">Academic foundation</span
-            ><strong>3.70 <small>/ 4.00 CGPA</small></strong
-            ><span>Class of 2026</span>
+            <span class="fact-label">Portfolio</span
+            ><strong>12 projects <small>· 2 live apps</small></strong
+            ><span>ML · GenAI · Analytics · Data Eng.</span>
           </div>
           <div>
             <span class="fact-label">Recent experience</span
@@ -179,9 +198,11 @@
           <div class="about-method">
             <p>
               My work connects data preparation, machine learning, and
-              application development. At Logiciel Services, I put that process
-              into practice with AI-powered automation, testing, and feedback
-              from QA and engineering teams.
+              application development. I care about results people can trust:
+              leakage-aware evaluation, explainable scores, and citations that
+              are checked by code. At Logiciel Services, I put that process into
+              practice with AI-powered automation, testing, and feedback from QA
+              and engineering teams.
             </p>
             <ol class="workflow" aria-label="My development process">
               <li>
@@ -229,47 +250,46 @@
               <h2 id="projects-title">Ideas, built into systems.</h2>
             </div>
             <p>
-              Machine learning, language, vision,<br />and the data that
-              connects them.
+              Machine learning, analytics, data engineering, and the
+              applications that put them to work.
             </p>
           </div>
+          <dl class="project-stats" aria-label="Project overview">
+            <div><dt>Projects</dt><dd>12</dd></div>
+            <div><dt>Live demos</dt><dd>2</dd></div>
+            <div><dt>Public repos</dt><dd>10</dd></div>
+            <div><dt>Focus</dt><dd>ML · Analytics · Data Eng.</dd></div>
+          </dl>
+          <h3 class="subsection-title">Featured case studies</h3>
           <div class="projects-grid">
-            <article
-              id="medicine-project"
-              class="project-card project-featured"
-            >
+            <article id="deeptrace-project" class="project-card project-featured">
               <div class="project-top">
-                <span class="project-number">01 / MACHINE LEARNING</span
-                ><span class="status ongoing"
-                  ><span class="status-dot" aria-hidden="true"></span> In
-                  development</span
-                >
+                <span class="project-number">01 / GENERATIVE AI · RAG</span
+                ><span class="status">Milestone 1 complete</span>
               </div>
-              <div class="project-visual medicine-visual" aria-hidden="true">
-                <span class="diagram-node">DATASET</span
-                ><span class="diagram-line"></span
-                ><span class="model-symbol">+</span
-                ><span class="diagram-line"></span
-                ><span class="diagram-node">RECOMMENDATION</span>
+              <div class="project-visual flow-visual" aria-hidden="true">
+                <span>PLAN</span><i></i><span>DISCOVER</span><i></i
+                ><span>READ</span><i></i><span class="flow-accent">CHECK</span
+                ><i></i><span>REPORT</span>
               </div>
               <div class="project-content">
-                <h3>AI-Based Medicine<br />Recommendation System</h3>
+                <h3>DeepTrace AI</h3>
                 <p>
-                  Developing a machine-learning application that connects
-                  prepared data, candidate models, and recommendation
-                  generation.
+                  A local-first agentic research workspace: it plans bounded
+                  research, saves each source, and writes reports where every
+                  finding cites a saved passage — verified by code, not a model.
                 </p>
                 <ul class="tags" aria-label="Technologies">
                   <li>Python</li>
-                  <li>Machine Learning</li>
-                  <li>Data Preparation</li>
+                  <li>RAG</li>
+                  <li>LLM Agents</li>
+                  <li>Gemini</li>
+                  <li>Tavily</li>
+                  <li>SQLite</li>
                 </ul>
-                <div class="project-result">
-                  <span>Current focus</span>
-                  <p>
-                    Dataset cleaning, candidate model training, evaluation, and
-                    application development.
-                  </p>
+                <div class="project-result result-metrics">
+                  <div><strong>9 / 9</strong><span>Quotations matched in first live run</span></div>
+                  <div><strong>2</strong><span>Invalid citations caught &amp; suppressed</span></div>
                 </div>
                 <details class="project-details">
                   <summary>
@@ -277,9 +297,7 @@
                       ><span class="summary-title">Read the case study</span
                       ><span class="summary-caption"
                         >Problem, implementation &amp; outcome</span
-                      ><span class="sr-only">
-                        — Medicine Recommendation System</span
-                      ></span
+                      ><span class="sr-only"> — DeepTrace AI</span></span
                     ><span class="detail-toggle" aria-hidden="true">+</span>
                   </summary>
                   <div class="case-study">
@@ -289,79 +307,89 @@
                     <div class="case-step">
                       <h4>Problem</h4>
                       <p>
-                        Explore how machine learning can support medicine
-                        recommendation generation in a usable application.
+                        AI research assistants are fast but hard to trust: they
+                        cite sources that don't contain the quoted words, mix
+                        opinion with evidence, and send data off your machine.
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Approach</h4>
                       <p>
-                        Prepare and clean the dataset before training and
-                        evaluating candidate models.
+                        A bounded Plan → Discover → Read → Check → Report
+                        pipeline with hard limits on searches, pages, tokens and
+                        time. A finding is “Cited” only if deterministic checks
+                        confirm its passage and quotation.
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Technical implementation</h4>
                       <p>
-                        Connect data preparation, model evaluation, and
-                        recommendation generation through a Python application
-                        layer.
+                        Python backend with SQLite storage, an evidence
+                        inspector UI, robots.txt-aware fetching, SSRF
+                        protection, mock mode by default, and versioned
+                        SHA-256-checked Markdown reports.
                       </p>
                     </div>
                     <div class="case-step">
-                      <h4>Current outcome</h4>
+                      <h4>Result</h4>
                       <p>
-                        In development. Dataset preparation, candidate training,
-                        evaluation, and application work are ongoing.
+                        Run end to end against real Tavily and Gemini free
+                        tiers: 7 cited findings, 9 of 9 quotations matched, 2
+                        invalid citations caught. Backend test coverage last
+                        measured at 92%.
                       </p>
                     </div>
                   </div>
                 </details>
+                <div class="project-links">
+                  <a
+                    class="project-source"
+                    href="https://github.com/Iqranawaz-debug/DeepTrace-AI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View source on GitHub <span aria-hidden="true">↗</span
+                    ><span class="sr-only"> — DeepTrace AI (opens in a new tab)</span></a
+                  >
+                </div>
               </div>
             </article>
-            <article id="leafguard-project" class="project-card">
+
+            <article id="bank-project" class="project-card project-featured">
               <div class="project-top">
-                <span class="project-number">02 / COMPUTER VISION</span
-                ><span class="status">Streamlit app</span>
-              </div>
-              <div class="project-visual leaf-visual" aria-hidden="true">
-                <svg viewBox="0 0 140 100" fill="none">
-                  <path
-                    d="M31 82C15 33 67 9 112 17c8 47-26 83-69 63"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="m27 91 64-53M48 73l-1-29m18 14 27 2"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M15 25V10h16m78 0h16v15M15 77v15h16m78 0h16V77"
-                    stroke="currentColor"
-                    opacity=".35"
-                  /></svg
-                ><span class="visual-label"
-                  >IMAGE → INFERENCE → CLASSIFICATION</span
+                <span class="project-number">02 / MACHINE LEARNING · ANALYTICS</span
+                ><span class="status live"
+                  ><span class="status-dot" aria-hidden="true"></span> Live
+                  app</span
                 >
               </div>
+              <div class="project-visual bars-visual" aria-hidden="true">
+                <div class="bars">
+                  <span style="--h: 38%"></span><span style="--h: 62%"></span
+                  ><span style="--h: 46%"></span><span style="--h: 84%"></span
+                  ><span style="--h: 55%"></span><span style="--h: 72%"></span>
+                </div>
+                <span class="visual-label">CAMPAIGN DATA → SCORE → STRATEGY</span>
+              </div>
               <div class="project-content">
-                <h3>LeafGuard AI</h3>
+                <h3>Bank Marketing Intelligence</h3>
                 <p>
-                  Plant disease detection that brings an image-classification
-                  model into an interactive, user-facing application.
+                  Turns historical bank campaign data into decisions: interactive
+                  analytics, explainable ML, customer scoring and decision-threshold
+                  analysis for term-deposit outreach.
                 </p>
                 <ul class="tags" aria-label="Technologies">
                   <li>Python</li>
-                  <li>CNN</li>
-                  <li>Transfer Learning</li>
+                  <li>scikit-learn</li>
+                  <li>Explainable ML</li>
+                  <li>EDA</li>
                   <li>Streamlit</li>
                 </ul>
                 <div class="project-result">
                   <span>Delivered</span>
                   <p>
-                    An evaluated deep-learning workflow, deployed as an
-                    interactive Streamlit application.
+                    A deployed app with an executive dashboard, EDA, business
+                    insights, single-customer and CSV batch scoring, and model
+                    analysis — no retraining at inference time.
                   </p>
                 </div>
                 <details class="project-details">
@@ -370,7 +398,7 @@
                       ><span class="summary-title">Read the case study</span
                       ><span class="summary-caption"
                         >Problem, implementation &amp; outcome</span
-                      ><span class="sr-only"> — LeafGuard AI</span></span
+                      ><span class="sr-only"> — Bank Marketing Intelligence</span></span
                     ><span class="detail-toggle" aria-hidden="true">+</span>
                   </summary>
                   <div class="case-study">
@@ -380,75 +408,92 @@
                     <div class="case-step">
                       <h4>Problem</h4>
                       <p>
-                        Make plant disease classification available through an
-                        application that accepts leaf images.
+                        Contacting every customer is expensive. Which customers
+                        are more likely to subscribe to a term deposit
+                        <em>before</em> a planned marketing call?
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Approach</h4>
                       <p>
-                        Use a CNN / transfer-learning workflow and evaluate the
-                        classification model before application integration.
+                        Leakage-aware feature selection, a preprocessing
+                        pipeline, cross-validated model comparison, ROC-AUC,
+                        threshold trade-off analysis and held-out evaluation.
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Technical implementation</h4>
                       <p>
-                        Integrate image input, model inference, and disease
-                        classification into an interactive Streamlit
-                        application.
+                        Saved preprocessing and model artifacts served through
+                        a multi-page Streamlit app with validated CSV upload and
+                        downloadable scored output.
                       </p>
                     </div>
                     <div class="case-step">
-                      <h4>Result</h4>
+                      <h4>Business framing</h4>
                       <p>
-                        An evaluated deep-learning workflow deployed as a
-                        user-facing plant disease classification application.
+                        Findings are presented as associations, not causal
+                        effects — guiding which segments to test next rather
+                        than promising campaign uplift.
                       </p>
                     </div>
                   </div>
                 </details>
-                <a
-                  class="project-source"
-                  href="https://github.com/Iqranawaz-debug/-LeafGuard-AI-Disease-Detection-AI-Powered-Cure-Suggestion"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View source on GitHub <span aria-hidden="true">↗</span
-                  ><span class="sr-only">
-                    — LeafGuard AI (opens in a new tab)</span
-                  ></a
-                >
+                <div class="project-links">
+                  <a
+                    class="project-demo"
+                    href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Live demo <span aria-hidden="true">↗</span
+                    ><span class="sr-only"> — Bank Marketing Intelligence (opens in a new tab)</span></a
+                  ><a
+                    class="project-source"
+                    href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Source <span aria-hidden="true">↗</span
+                    ><span class="sr-only"> — Bank Marketing Intelligence (opens in a new tab)</span></a
+                  >
+                </div>
               </div>
             </article>
-            <article id="sentix-project" class="project-card">
+
+            <article id="resumeiq-project" class="project-card">
               <div class="project-top">
-                <span class="project-number">03 / NATURAL LANGUAGE</span
-                ><span class="status">Streamlit app</span>
+                <span class="project-number">03 / NLP · FULL-STACK AI</span
+                ><span class="status">React + FastAPI</span>
               </div>
-              <div class="project-visual sentiment-visual" aria-hidden="true">
-                <div class="review-lines">
-                  <span></span><span></span><span></span>
+              <div class="project-visual match-visual" aria-hidden="true">
+                <div class="match-rows">
+                  <span><b class="ok"></b>Python</span>
+                  <span><b class="ok"></b>SQL</span>
+                  <span><b class="part"></b>Docker</span>
+                  <span><b></b>Kubernetes</span>
                 </div>
-                <span class="sentiment-arrow">→</span>
-                <div class="sentiment-output">
-                  <span>POSITIVE</span><span>NEUTRAL</span><span>NEGATIVE</span>
-                </div>
+                <span class="visual-label">RESUME ↔ JOB · EXPLAINED SCORE</span>
               </div>
               <div class="project-content">
-                <h3>SentixAI</h3>
+                <h3>ResumeIQ</h3>
                 <p>
-                  Turning product reviews into sentiment classifications with an
-                  evaluated NLP model and a Streamlit interface.
+                  Explainable resume evaluation: requirement-by-requirement
+                  matching with quoted evidence, a transparent score formula,
+                  and opt-in AI rewrites checked by a grounding validator.
                 </p>
                 <ul class="tags" aria-label="Technologies">
                   <li>Python</li>
-                  <li>NLP</li>
-                  <li>Machine Learning</li>
-                  <li>Streamlit</li>
+                  <li>FastAPI</li>
+                  <li>React</li>
+                  <li>LLM APIs</li>
+                  <li>Docker</li>
                 </ul>
-                <div class="project-result result-metrics">
-                  <div><strong>1,000+</strong><span>Product reviews</span></div>
-                  <div><strong>~92%</strong><span>Accuracy</span></div>
+                <div class="project-result">
+                  <span>Delivered</span>
+                  <p>
+                    Rule-based matching by default, a recruiter workspace with
+                    side-by-side comparison, privacy controls, CI, and a
+                    Docker Compose deployment.
+                  </p>
                 </div>
                 <details class="project-details">
                   <summary>
@@ -456,7 +501,7 @@
                       ><span class="summary-title">Read the case study</span
                       ><span class="summary-caption"
                         >Problem, implementation &amp; outcome</span
-                      ><span class="sr-only"> — SentixAI</span></span
+                      ><span class="sr-only"> — ResumeIQ</span></span
                     ><span class="detail-toggle" aria-hidden="true">+</span>
                   </summary>
                   <div class="case-study">
@@ -466,88 +511,80 @@
                     <div class="case-step">
                       <h4>Problem</h4>
                       <p>
-                        Turn product-review text into sentiment classifications
-                        that people can explore.
+                        Most resume checkers return a single opaque number with
+                        no explanation of what matched or what to improve.
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Approach</h4>
                       <p>
-                        Train and evaluate an NLP model on 1,000+ product
-                        reviews.
+                        Mark each job requirement as Matched, Partial, Not
+                        evidenced or Can't assess, with a quote from the resume,
+                        and show the exact scoring formula and weights.
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Technical implementation</h4>
                       <p>
-                        Use Python and machine learning for sentiment
-                        classification, with a Streamlit application presenting
-                        the results.
+                        FastAPI backend with PDF/DOCX parsing and rule-based
+                        extraction; React + Vite frontend; optional
+                        OpenAI-compatible AI validated and shown beside the
+                        local result.
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Result</h4>
                       <p>
-                        Approximately 92% classification accuracy on the
-                        supplied project evaluation, with results deployed
-                        through Streamlit.
+                        A full-stack app with “what would change this score”
+                        simulations, resume versioning, readability checks and
+                        a safe CSV/PDF comparison export.
                       </p>
                     </div>
                   </div>
                 </details>
-                <a
-                  class="project-source"
-                  href="https://github.com/Iqranawaz-debug/Sentiment_Analysis_On_Product_Reviews"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View source on GitHub <span aria-hidden="true">↗</span
-                  ><span class="sr-only">
-                    — SentixAI (opens in a new tab)</span
-                  ></a
-                >
+                <div class="project-links">
+                  <a
+                    class="project-source"
+                    href="https://github.com/Iqranawaz-debug/ResumeIQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View source on GitHub <span aria-hidden="true">↗</span
+                    ><span class="sr-only"> — ResumeIQ (opens in a new tab)</span></a
+                  >
+                </div>
               </div>
             </article>
-            <article id="pipeline-project" class="project-card">
+
+            <article id="warehouse-project" class="project-card">
               <div class="project-top">
-                <span class="project-number">04 / DATA ENGINEERING</span
-                ><span class="status">Final year project</span>
+                <span class="project-number">04 / DATA ENGINEERING · BI</span
+                ><span class="status">SQL Server</span>
               </div>
-              <figure class="project-screenshot">
-                <a
-                  href="assets/images/fyp-teacher.png"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View full FYP document library screenshot (opens in a new tab)"
-                  ><img
-                    src="assets/images/fyp-teacher.webp"
-                    alt="Existing final year project interface showing the document library and upload controls"
-                    width="1440"
-                    height="695"
-                    loading="lazy"
-                    decoding="async"
-                /></a>
-                <figcaption>
-                  FYP interface · document library &amp; upload
-                  <span aria-hidden="true">↗</span>
-                </figcaption>
-              </figure>
+              <div class="project-visual medallion-visual" aria-hidden="true">
+                <span class="layer-src">ERP · CRM</span><i></i
+                ><span class="layer-bronze">BRONZE</span><i></i
+                ><span class="layer-silver">SILVER</span><i></i
+                ><span class="layer-gold">GOLD</span>
+              </div>
               <div class="project-content">
-                <h3>Automated Data Pipeline</h3>
+                <h3>SQL Data Warehouse &amp; Analytics</h3>
                 <p>
-                  Converting unstructured documents into structured, analyzable
-                  data through an end-to-end automated pipeline.
+                  An end-to-end SQL Server warehouse that integrates ERP and CRM
+                  sales data through a Medallion architecture into an
+                  analytics-ready star schema.
                 </p>
                 <ul class="tags" aria-label="Technologies">
-                  <li>Python</li>
-                  <li>Automation</li>
-                  <li>Data Processing</li>
-                  <li>Reporting</li>
+                  <li>SQL Server</li>
+                  <li>T-SQL</li>
+                  <li>ETL</li>
+                  <li>Data Modeling</li>
+                  <li>Power BI</li>
                 </ul>
                 <div class="project-result">
                   <span>Delivered</span>
                   <p>
-                    A connected workflow from document processing to structured
-                    data and automated reporting.
+                    Layered ETL scripts, data quality checks, a data catalog,
+                    and SQL analysis of customers, products and sales trends.
                   </p>
                 </div>
                 <details class="project-details">
@@ -556,9 +593,7 @@
                       ><span class="summary-title">Read the case study</span
                       ><span class="summary-caption"
                         >Problem, implementation &amp; outcome</span
-                      ><span class="sr-only">
-                        — Automated Data Pipeline</span
-                      ></span
+                      ><span class="sr-only"> — SQL Data Warehouse</span></span
                     ><span class="detail-toggle" aria-hidden="true">+</span>
                   </summary>
                   <div class="case-study">
@@ -568,35 +603,209 @@
                     <div class="case-step">
                       <h4>Problem</h4>
                       <p>
-                        Unstructured documents need to become usable data before
-                        they can support analysis and reporting.
+                        Sales data spread across ERP and CRM systems makes even
+                        basic business questions hard to answer consistently.
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Approach</h4>
                       <p>
-                        Connect document processing, data structuring, and
-                        report generation in an end-to-end pipeline.
+                        Bronze for raw ingestion, Silver for cleaning and
+                        standardisation, Gold for analytics-oriented models.
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Technical implementation</h4>
                       <p>
-                        Use Python, automation, and data processing to convert
-                        documents into structured, analyzable data.
+                        T-SQL ETL scripts per layer, star-schema data models,
+                        Draw.io architecture and data-flow diagrams, naming
+                        conventions and SQL data-quality tests.
                       </p>
                     </div>
                     <div class="case-step">
                       <h4>Result</h4>
                       <p>
-                        A final year project that produces structured data and
-                        automated reporting from unstructured documents.
+                        A documented, query-friendly warehouse supporting
+                        customer-behaviour, product-performance and sales-trend
+                        analysis.
                       </p>
                     </div>
                   </div>
                 </details>
+                <div class="project-links">
+                  <a
+                    class="project-source"
+                    href="https://github.com/Iqranawaz-debug/SQL_DATAWAREHOUSE_PROJECT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View source on GitHub <span aria-hidden="true">↗</span
+                    ><span class="sr-only"> — SQL Data Warehouse (opens in a new tab)</span></a
+                  >
+                </div>
               </div>
             </article>
+          </div>
+
+          <div class="more-projects">
+            <div class="more-heading">
+              <h3 class="subsection-title">More projects</h3>
+              <div
+                class="project-filters"
+                role="group"
+                aria-label="Filter projects by area"
+                hidden
+              >
+                <button type="button" data-filter="all" aria-pressed="true">All</button
+                ><button type="button" data-filter="ml" aria-pressed="false">ML &amp; AI</button
+                ><button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button
+                ><button type="button" data-filter="apps" aria-pressed="false">Apps &amp; Tools</button>
+              </div>
+            </div>
+            <p class="filter-status sr-only" aria-live="polite"></p>
+            <ul class="mini-grid">
+              <li class="mini-card" id="sentix-project" data-category="ml">
+                <div class="mini-top">
+                  <span class="project-number">NLP</span><span class="status">Streamlit app</span>
+                </div>
+                <h4>SentixAI — Product Review Sentiment</h4>
+                <p>
+                  Classifies customer reviews as positive, negative or neutral
+                  with an evaluated NLP model and a Streamlit interface.
+                </p>
+                <p class="mini-metric"><strong>~92%</strong> accuracy on <strong>1,000+</strong> product reviews</p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Python</li><li>NLP</li><li>scikit-learn</li><li>Streamlit</li>
+                </ul>
+                <div class="project-links">
+                  <a class="project-source" href="https://github.com/Iqranawaz-debug/Sentiment_Analysis_On_Product_Reviews" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — SentixAI (opens in a new tab)</span></a>
+                </div>
+              </li>
+              <li class="mini-card" id="leafguard-project" data-category="ml">
+                <div class="mini-top">
+                  <span class="project-number">COMPUTER VISION</span><span class="status">CNN + GenAI</span>
+                </div>
+                <h4>LeafGuard AI — Plant Disease Detection</h4>
+                <p>
+                  A CNN classifies leaf diseases from images; an OpenAI
+                  integration adds treatment and prevention guidance for the
+                  predicted class.
+                </p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>TensorFlow / Keras</li><li>OpenCV</li><li>Transfer Learning</li><li>OpenAI API</li>
+                </ul>
+                <div class="project-links">
+                  <a class="project-source" href="https://github.com/Iqranawaz-debug/LeafGuard-AI" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — LeafGuard AI (opens in a new tab)</span></a>
+                </div>
+              </li>
+              <li class="mini-card" id="cinematch-project" data-category="ml apps">
+                <div class="mini-top">
+                  <span class="project-number">RECOMMENDER SYSTEM</span><span class="status live"><span class="status-dot" aria-hidden="true"></span> Live app</span>
+                </div>
+                <h4>CineMatch — Movie Recommender</h4>
+                <p>
+                  Content-based recommendations from a precomputed cosine
+                  similarity matrix, with TMDB posters, ratings and a
+                  “Surprise me” mode.
+                </p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Python</li><li>Pandas</li><li>Cosine Similarity</li><li>TMDB API</li><li>Streamlit</li>
+                </ul>
+                <div class="project-links">
+                  <a class="project-demo" href="https://iqra-movie-recommender.streamlit.app/" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span><span class="sr-only"> — CineMatch (opens in a new tab)</span></a><a class="project-source" href="https://github.com/Iqranawaz-debug/Movie-Recommender-Sys-app" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — CineMatch (opens in a new tab)</span></a>
+                </div>
+              </li>
+              <li class="mini-card" id="pipeline-project" data-category="data">
+                <div class="mini-top">
+                  <span class="project-number">DATA ENGINEERING</span><span class="status">Final year project</span>
+                </div>
+                <h4>Automated Data Pipeline</h4>
+                <p>
+                  Converts unstructured documents into structured, analyzable
+                  data with an end-to-end pipeline from document processing to
+                  automated reporting.
+                </p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Python</li><li>Automation</li><li>Data Processing</li><li>Reporting</li>
+                </ul>
+                <div class="project-links">
+                  <a class="project-source" href="assets/images/fyp-teacher.png" target="_blank" rel="noopener noreferrer">View interface screenshot <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+              </li>
+              <li class="mini-card" id="screenshot-project" data-category="data apps">
+                <div class="mini-top">
+                  <span class="project-number">OCR · AUTOMATION</span><span class="status">Open source</span>
+                </div>
+                <h4>Smart Screenshot Organizer</h4>
+                <p>
+                  Watches a folder, extracts text with Tesseract OCR, then
+                  renames, categorises and de-duplicates screenshots into a
+                  searchable SQLite history — fully local.
+                </p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Python</li><li>Tesseract OCR</li><li>Pillow</li><li>SQLite</li>
+                </ul>
+                <div class="project-links">
+                  <a class="project-source" href="https://github.com/Iqranawaz-debug/Screenshot_Organizer" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Smart Screenshot Organizer (opens in a new tab)</span></a>
+                </div>
+              </li>
+              <li class="mini-card" id="routewise-project" data-category="ml apps">
+                <div class="mini-top">
+                  <span class="project-number">AI SEARCH ALGORITHMS</span><span class="status">Streamlit app</span>
+                </div>
+                <h4>RouteWise — NED Route Finder</h4>
+                <p>
+                  Compares Dijkstra and A* search on a weighted graph of Karachi
+                  landmarks, with route distance and travel-time estimates.
+                </p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Python</li><li>Graph Algorithms</li><li>A* Search</li><li>Streamlit</li>
+                </ul>
+                <div class="project-links">
+                  <a class="project-source" href="https://github.com/Iqranawaz-debug/NED-Route-Finder" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — RouteWise (opens in a new tab)</span></a>
+                </div>
+              </li>
+              <li class="mini-card" id="shopify-project" data-category="apps">
+                <div class="mini-top">
+                  <span class="project-number">BACKEND API</span><span class="status">Node.js</span>
+                </div>
+                <h4>Shopify Product Management API</h4>
+                <p>
+                  An Express backend with local product CRUD in SQLite and
+                  Shopify GraphQL Admin API integration, secured with JWT auth,
+                  validation and rate limits.
+                </p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Node.js</li><li>Express</li><li>GraphQL</li><li>JWT</li><li>SQLite</li>
+                </ul>
+                <div class="project-links">
+                  <a class="project-source" href="https://github.com/Iqranawaz-debug/nodejs-shopify-product-management" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Shopify Product Management API (opens in a new tab)</span></a>
+                </div>
+              </li>
+              <li class="mini-card" id="medicine-project" data-category="ml">
+                <div class="mini-top">
+                  <span class="project-number">MACHINE LEARNING</span><span class="status ongoing"><span class="status-dot" aria-hidden="true"></span> In development</span>
+                </div>
+                <h4>AI-Based Medicine Recommendation System</h4>
+                <p>
+                  A machine-learning application connecting prepared data,
+                  candidate models and recommendation generation. Currently in
+                  dataset cleaning, training and evaluation.
+                </p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Python</li><li>Machine Learning</li><li>Data Preparation</li>
+                </ul>
+              </li>
+            </ul>
+            <p class="more-cta">
+              <a
+                class="btn btn-secondary"
+                href="https://github.com/Iqranawaz-debug?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                >See all repositories on GitHub <span aria-hidden="true">↗</span
+                ><span class="sr-only"> (opens in a new tab)</span></a
+              >
+            </p>
           </div>
         </div>
       </section>
@@ -653,6 +862,21 @@
           </article>
           <article class="experience-item">
             <div class="experience-date">
+              Nov 2025 – Dec 2025<span>8-week program</span>
+            </div>
+            <div class="experience-content">
+              <p class="company">Arch Technologies</p>
+              <h3>Data Science Intern</h3>
+              <ul>
+                <li>
+                  Completed an 8-week Data Science Internship and Training
+                  Program covering hands-on data science work in Python.
+                </li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-item">
+            <div class="experience-date">
               Fall 2025<span>Karachi, Pakistan</span>
             </div>
             <div class="experience-content">
@@ -701,57 +925,87 @@
           <div class="skills-grid">
             <article class="skill-category">
               <span class="skill-index">01</span>
-              <h3>Machine Learning &amp; AI</h3>
+              <h3>Machine Learning &amp; Deep Learning</h3>
               <p>
-                Data Preprocessing · Model Development · Model Evaluation · NLP
-                · CNN · Deep Learning
+                scikit-learn · TensorFlow / Keras · Feature Engineering ·
+                Cross-Validation · ROC-AUC &amp; Threshold Analysis ·
+                Explainability · NLP · CNN · Recommender Systems
               </p>
               <div class="skill-proof">
                 <span>Applied in</span
-                ><a href="#sentix-project">NLP &amp; ML → SentixAI</a
-                ><a href="#leafguard-project"
-                  >CNN &amp; Deep Learning → LeafGuard AI</a
-                ><a href="#medicine-project"
-                  >Model development → Medicine Recommendation</a
-                >
+                ><a href="#bank-project">Explainable ML → Bank Marketing Intelligence</a
+                ><a href="#sentix-project">NLP → SentixAI</a
+                ><a href="#leafguard-project">CNN → LeafGuard AI</a
+                ><a href="#cinematch-project">Similarity search → CineMatch</a>
               </div>
             </article>
             <article class="skill-category">
               <span class="skill-index">02</span>
-              <h3>Programming &amp; Data</h3>
-              <p>Python · SQL · Pandas · NumPy · MySQL</p>
+              <h3>Generative AI &amp; LLM Apps</h3>
+              <p>
+                RAG · LLM Agents · Prompt Engineering · Gemini · OpenAI API ·
+                Citation Validation · Grounded Generation · AI Automation
+              </p>
               <div class="skill-proof">
                 <span>Applied in</span
-                ><a href="#pipeline-project"
-                  >Python &amp; data processing → Automated Data Pipeline</a
-                >
+                ><a href="#deeptrace-project">RAG &amp; verified citations → DeepTrace AI</a
+                ><a href="#resumeiq-project">Grounded AI rewrites → ResumeIQ</a
+                ><a href="#logiciel-experience">AI automation → Logiciel Services</a>
               </div>
             </article>
             <article class="skill-category">
               <span class="skill-index">03</span>
-              <h3>AI Workflows &amp; Deployment</h3>
+              <h3>Data Analytics &amp; BI</h3>
               <p>
-                AI/LLM Workflows · Prompt Engineering · AI Automation ·
-                Streamlit · Jupyter · Google Colab · VS Code · Git
+                Python · SQL · Pandas · NumPy · Matplotlib · EDA · Power BI ·
+                Tableau · Business Insight Communication
               </p>
               <div class="skill-proof">
                 <span>Applied in</span
-                ><a href="#logiciel-experience"
-                  >AI automation &amp; validation → Logiciel Services</a
-                ><a href="#leafguard-project"
-                  >Streamlit deployment → LeafGuard AI</a
-                >
+                ><a href="#bank-project">EDA &amp; dashboards → Bank Marketing Intelligence</a
+                ><a href="#warehouse-project">SQL analytics → Data Warehouse</a>
               </div>
             </article>
             <article class="skill-category">
               <span class="skill-index">04</span>
               <h3>Data Engineering</h3>
-              <p>Data Pipelines · ETL Concepts · Data Validation</p>
+              <p>
+                SQL Server · T-SQL · ETL Pipelines · Medallion Architecture ·
+                Star Schema Modeling · Data Quality Checks · SQLite · MySQL ·
+                OCR Pipelines
+              </p>
               <div class="skill-proof">
                 <span>Applied in</span
-                ><a href="#pipeline-project"
-                  >Document processing → Automated Data Pipeline</a
-                >
+                ><a href="#warehouse-project">Bronze → Silver → Gold → Data Warehouse</a
+                ><a href="#pipeline-project">Document processing → Automated Data Pipeline</a
+                ><a href="#screenshot-project">OCR → Screenshot Organizer</a>
+              </div>
+            </article>
+            <article class="skill-category">
+              <span class="skill-index">05</span>
+              <h3>Apps, APIs &amp; Deployment</h3>
+              <p>
+                Streamlit · FastAPI · React · Node.js / Express · REST &amp;
+                GraphQL · Docker · GitHub Actions · Git
+              </p>
+              <div class="skill-proof">
+                <span>Applied in</span
+                ><a href="#resumeiq-project">FastAPI + React + Docker → ResumeIQ</a
+                ><a href="#shopify-project">Express &amp; GraphQL → Shopify API</a>
+              </div>
+            </article>
+            <article class="skill-category">
+              <span class="skill-index">06</span>
+              <h3>Ways of working</h3>
+              <p>
+                Testing &amp; Validation · Structured Logging · Error Handling ·
+                Privacy by Design · Documentation · Jupyter · Google Colab ·
+                VS Code
+              </p>
+              <div class="skill-proof">
+                <span>Applied in</span
+                ><a href="#logiciel-experience">End-to-end testing with QA → Logiciel Services</a
+                ><a href="#deeptrace-project">92% backend test coverage → DeepTrace AI</a>
               </div>
             </article>
           </div>
@@ -800,7 +1054,7 @@
                 <span class="cert-number">02</span>
                 <div>
                   <h4>Deloitte Data Analytics Job Simulation</h4>
-                  <p>Forage</p>
+                  <p>Forage · Jul 2025</p>
                 </div>
               </li>
               <li>
@@ -817,6 +1071,17 @@
                   <p>Coursera · Jan 2026</p>
                 </div>
               </li>
+            </ul>
+            <h3 class="courses-title">Additional courses</h3>
+            <ul class="course-list">
+              <li>Introduction to Data Analytics <span>IBM · Coursera · 2025</span></li>
+              <li>AI For Everyone <span>DeepLearning.AI · Coursera · 2025</span></li>
+              <li>Python for Data Analysis: Pandas &amp; NumPy <span>Coursera Project Network · 2025</span></li>
+              <li>Understanding Data Science <span>DataCamp · 2025</span></li>
+              <li>Understanding Machine Learning <span>DataCamp · 2025</span></li>
+              <li>Introduction to Tableau <span>DataCamp · 2025</span></li>
+              <li>Understanding Prompt Engineering <span>DataCamp · 2025</span></li>
+              <li>Introduction to ChatGPT <span>DataCamp · 2025</span></li>
             </ul>
           </div>
         </div>

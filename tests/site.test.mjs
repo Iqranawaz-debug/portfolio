@@ -33,11 +33,20 @@ test("core content is available without JavaScript and factual status is retaine
   assert.match(html, /class="skip-link"/);
   for (const text of [
     "In development",
+    "DeepTrace AI",
+    "Bank Marketing Intelligence",
+    "ResumeIQ",
+    "SQL Data Warehouse",
     "LeafGuard AI",
     "SentixAI",
+    "CineMatch",
+    "Smart Screenshot Organizer",
+    "RouteWise",
+    "Shopify Product Management API",
     "1,000+",
     "~92%",
     "Automated Data Pipeline",
+    "Arch Technologies",
     "60+",
     "3.70",
     "2022–2026",
@@ -50,4 +59,21 @@ test("core content is available without JavaScript and factual status is retaine
     assert.match(tag, /width="\d+"/);
     assert.match(tag, /height="\d+"/);
   }
+});
+test("project filters degrade gracefully and every project card is categorised", () => {
+  assert.match(html, /class="project-filters"[^>]*\bhidden\b/, "Filters hidden until JS runs");
+  const cards = [...html.matchAll(/<li class="mini-card"[^>]*>/g)].map((m) => m[0]);
+  assert.ok(cards.length >= 6);
+  const filters = [...html.matchAll(/data-filter="([^"]+)"/g)].map((m) => m[1]);
+  for (const card of cards) {
+    const category = card.match(/data-category="([^"]+)"/);
+    assert.ok(category, `Uncategorised card: ${card}`);
+    for (const c of category[1].split(" "))
+      assert.ok(filters.includes(c), `Unknown category ${c}`);
+  }
+});
+test("live demos point to deployed Streamlit apps", () => {
+  const demos = [...html.matchAll(/class="project-demo"\s+href="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(demos.length, 2);
+  for (const url of demos) assert.match(url, /^https:\/\/[\w-]+\.streamlit\.app\/$/);
 });

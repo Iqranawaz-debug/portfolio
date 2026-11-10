@@ -11,8 +11,9 @@ const allowed = new Set([
   "/IMG.jpg",
   "/assets/favicon.svg",
   "/assets/images/fyp-teacher.png",
-  "/assets/images/fyp-teacher.webp",
   "/assets/Iqra-Nawaz-Resume.pdf",
+  "/sitemap.xml",
+  "/robots.txt",
 ]);
 const types = {
   ".webp": "image/webp",

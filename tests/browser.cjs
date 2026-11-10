@@ -6,7 +6,9 @@ const baseURL = process.env.PORTFOLIO_URL || "http://127.0.0.1:4173";
 const outputDir = path.resolve("test-results");
 fs.mkdirSync(outputDir, { recursive: true });
 (async () => {
-  const browser = await chromium.launch({ channel: "msedge", headless: true });
+  // Set BROWSER_CHANNEL=msedge (or chrome) to test a branded browser; defaults to bundled Chromium.
+  const channel = process.env.BROWSER_CHANNEL;
+  const browser = await chromium.launch({ headless: true, ...(channel && { channel }) });
   const page = await browser.newPage({ reducedMotion: "reduce" });
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -90,6 +92,13 @@ fs.mkdirSync(outputDir, { recursive: true });
       assert.equal(await detail.getAttribute("open"), "");
       await detail.locator("summary").click();
     }
+    const filters = page.getByRole("group", { name: "Filter projects by area" });
+    const allCards = await page.locator(".mini-card").count();
+    await filters.getByRole("button", { name: "Data & Analytics" }).click();
+    const shown = await page.locator(".mini-card:visible").count();
+    assert.ok(shown > 0 && shown < allCards, "Filter narrows projects");
+    await filters.getByRole("button", { name: "All" }).click();
+    assert.equal(await page.locator(".mini-card:visible").count(), allCards);
     for (const picture of await page.locator('img[loading="lazy"]').all()) {
       await picture.scrollIntoViewIfNeeded();
       await picture.evaluate((img) => img.decode());
@@ -145,6 +154,11 @@ fs.mkdirSync(outputDir, { recursive: true });
   await noJS.goto(baseURL);
   assert.equal(await noJS.locator("#navMenu").isVisible(), true);
   assert.equal(await noJS.locator("#projects").isVisible(), true);
+  assert.equal(await noJS.locator(".project-filters").isVisible(), false);
+  assert.equal(
+    await noJS.locator(".mini-card:visible").count(),
+    await noJS.locator(".mini-card").count(),
+  );
   await noJS.close();
   const response = await page.request.get(`${baseURL}/missing`);
   assert.equal(response.status(), 404);
