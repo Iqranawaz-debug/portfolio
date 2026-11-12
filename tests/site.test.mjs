@@ -5,7 +5,11 @@ import { pages, siteFiles } from "../tools/site-files.mjs";
 
 const root = new URL("../", import.meta.url);
 const read = (file) => readFile(new URL(file, root), "utf8");
-const docs = Object.fromEntries(await Promise.all(pages.map(async (p) => [p, await read(p)])));
+// HTML comments hold TODO templates for content not supplied yet; they are not rendered, so skip them.
+const stripComments = (html) => html.replace(/<!--[\s\S]*?-->/g, "");
+const docs = Object.fromEntries(
+  await Promise.all(pages.map(async (p) => [p, stripComments(await read(p))])),
+);
 const home = docs["index.html"];
 const text = (html) => html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
 const idsOf = (html) => [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
@@ -52,6 +56,8 @@ test("external links are safe and the contact address is consistent", () => {
     }
     const emails = [...html.matchAll(/href="mailto:([^"]+)"/g)].map((m) => m[1]);
     for (const email of emails) assert.equal(email, "iqranawaz9353@gmail.com");
+    // The address is shown once on the whole site: in the homepage contact block.
+    assert.equal(emails.length, page === "index.html" ? 1 : 0, `${page}: email shown once`);
   }
 });
 
@@ -84,8 +90,9 @@ test("verified facts stay on the homepage", () => {
     "0.795",
     "77.0%",
     "Arisha Salman",
-    "~92% accuracy on 1,000+ reviews",
+    "86.4% accuracy and 0.614 macro-F1 on 4,500 held-out reviews",
     "In development",
+    "Currently building",
     "Logiciel Services",
     "Arch Technologies",
     "60+",
@@ -121,6 +128,62 @@ test("live demos point to deployed Streamlit apps", () => {
   assert.equal(demos.size, 2);
 });
 
+test("hero proof numbers match the DeepTrace closure report and link to it", () => {
+  for (const [n] of [["9"], ["326"], ["92"]]) assert.match(home, new RegExp(`data-count="${n}">${n}<`));
+  assert.match(home, /DeepTrace-AI\/blob\/main\/docs\/PROJECT_CLOSURE\.md/);
+});
+
+test("each featured project has a problem line, a 'do differently' note and a clip slot", () => {
+  for (const id of ["deeptrace-project", "resumeiq-project", "bank-project", "screenshot-project"]) {
+    const start = home.indexOf(`id="${id}"`);
+    const block = home.slice(start, home.indexOf("</article>", start));
+    assert.match(block, /class="problem-line"/, `${id}: problem line`);
+    assert.match(block, /What I’d do differently/, `${id}: differently note`);
+    assert.match(block, /class="media-slot"[^>]*hidden/, `${id}: hidden clip slot`);
+  }
+  for (const page of ["work/deeptrace-ai.html", "work/resumeiq.html", "work/bank-marketing-intelligence.html"]) {
+    assert.match(docs[page], /What I’d do differently/, `${page}: differently chapter`);
+    assert.match(docs[page], /Where every number comes from/, `${page}: sources`);
+  }
+});
+
+test("Bank Marketing has a prominent Try it live link to the Streamlit app", () => {
+  for (const html of [home, docs["work/bank-marketing-intelligence.html"]])
+    assert.match(html, /class="try-live[^"]*" href="https:\/\/bank-marketing-intelligence-[\w-]+\.streamlit\.app\/"/);
+});
+
+test("every toolkit skill is tagged with how it was used, with no proficiency bars", () => {
+  const skills = [...home.matchAll(/<ul class="skills"[\s\S]*?<\/ul>/g)].flatMap((m) => [...m[0].matchAll(/<li>[\s\S]*?<\/li>/g)].map((x) => x[0]));
+  assert.ok(skills.length >= 30, `found ${skills.length} skills`);
+  for (const li of skills) assert.match(li, /class="tag tag--(prod|proj|learn)"[\s\S]*\((used in production|used in projects|learning)\)/, li);
+  assert.ok(!/progress|proficiency-bar|role="meter"/.test(home));
+});
+
+test("testimonial slot exists but stays hidden until filled", () => {
+  assert.match(home, /<figure class="testimonial"[^>]*hidden/);
+});
+
+test("command palette button is on every page, hidden until the script enables it", () => {
+  for (const page of ["index.html", "work/deeptrace-ai.html", "work/resumeiq.html", "work/bank-marketing-intelligence.html"])
+    assert.match(docs[page], /<button class="palette-btn" id="paletteOpen"[^>]*aria-keyshortcuts="Control\+K Meta\+K"[^>]*hidden>/, page);
+});
+
+test("every indexable page has description, canonical, Open Graph and Twitter card tags", () => {
+  for (const page of ["index.html", "work/deeptrace-ai.html", "work/resumeiq.html", "work/bank-marketing-intelligence.html"]) {
+    const html = docs[page];
+    for (const re of [
+      /<meta\s+name="description"\s+content="[^"]{60,}"/,
+      /<link rel="canonical" href="https:\/\/iqranawaz-debug\.github\.io\/portfolio\//,
+      /property="og:title"/, /property="og:description"/, /property="og:url"/,
+      /property="og:image" content="https:\/\/[^"]+og-card\.png"/, /property="og:image:width" content="1200"/,
+      /property="og:image:height" content="630"/, /property="og:image:alt"/,
+      /name="twitter:card" content="summary_large_image"/, /name="twitter:title"/,
+      /name="twitter:description"/, /name="twitter:image"/, /name="twitter:image:alt"/,
+    ])
+      assert.match(html, re, `${page}: ${re}`);
+  }
+});
+
 test("legacy anchors from the previous site still resolve", () => {
   const ids = idsOf(home);
   for (const id of [
@@ -131,4 +194,23 @@ test("legacy anchors from the previous site still resolve", () => {
     "logiciel-experience",
   ])
     assert.ok(ids.includes(id), `Missing legacy anchor #${id}`);
+});
+
+test("archive filter offers All, ML, LLM, Data Eng and Apps", () => {
+  const labels = [...home.matchAll(/data-filter="[^"]+"[^>]*>([^<]+)</g)].map((m) => m[1]);
+  assert.deepEqual(labels, ["All", "ML", "LLM", "Data Eng", "Apps"]);
+  for (const f of ["ml", "llm", "data", "apps"])
+    assert.ok(new RegExp(`data-category="[^"]*\\b${f}\\b`).test(home), `No row for ${f}`);
+});
+
+test("navigation numbers are consecutive and include Education", () => {
+  const nums = [...home.matchAll(/class="nav__link"[^>]*><span class="num">(\d+)<\/span>/g)].map((m) => m[1]);
+  assert.deepEqual(nums, ["01", "02", "03", "04", "05", "06", "07"]);
+  assert.match(home, /href="#education"><span class="num">06<\/span>Education/);
+});
+
+test("TODO slots stay hidden from visitors", () => {
+  for (const [page, html] of Object.entries(docs))
+    for (const [tag] of html.matchAll(/<[a-z]+\b[^>]*data-todo[^>]*>/g))
+      assert.match(tag, /\bhidden\b/, `${page}: visible TODO slot ${tag}`);
 });

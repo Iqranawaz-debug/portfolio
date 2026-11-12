@@ -18,6 +18,15 @@
     <meta property="og:url" content="https://iqranawaz-debug.github.io/portfolio/work/deeptrace-ai.html" />
     <meta property="og:image" content="https://iqranawaz-debug.github.io/portfolio/assets/og-card.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:site_name" content="Iqra Nawaz" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Iqra Nawaz — I build AI that shows its work." />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:title" content="DeepTrace AI — a case study by Iqra Nawaz" />
+    <meta name="twitter:description" content="A research assistant that has to show you the sentence before it’s allowed to make the claim." />
+    <meta name="twitter:image" content="https://iqranawaz-debug.github.io/portfolio/assets/og-card.png" />
+    <meta name="twitter:image:alt" content="Iqra Nawaz — I build AI that shows its work." />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="../assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../style.css" />
@@ -36,6 +45,10 @@
       <div class="wrap masthead__bar">
         <a class="wordmark" href="../index.html" aria-label="Iqra Nawaz, home"><span class="monogram" aria-hidden="true">in</span><span class="wordmark__name">Iqra Nawaz</span></a>
         <div class="masthead__actions">
+          <button class="palette-btn" id="paletteOpen" type="button" aria-label="Jump to a section or project" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.2-4.2" /></svg>
+            <span class="palette-btn__label">Jump to</span><kbd class="palette-btn__kbd">Ctrl K</kbd>
+          </button>
           <a class="btn" href="../index.html#projects">All work <span class="arrow" aria-hidden="true">←</span></a>
           <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch colour theme" hidden>
             <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" /></svg>
@@ -127,6 +140,20 @@
               </tbody>
             </table>
             <p class="caption">There are no published screenshots of the workspace yet, so this page shows the pipeline as a diagram rather than inventing one.</p>
+            <div class="sources">
+              <span class="label">Where every number comes from</span>
+              <ul>
+              <li><a href="https://github.com/Iqranawaz-debug/DeepTrace-AI/blob/main/docs/PROJECT_CLOSURE.md" target="_blank" rel="noopener noreferrer">Project closure report — verification table and live-run results <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://github.com/Iqranawaz-debug/DeepTrace-AI/blob/main/docs/TESTING.md" target="_blank" rel="noopener noreferrer">Testing notes <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://github.com/Iqranawaz-debug/DeepTrace-AI/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer">Architecture decisions <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              </ul>
+            </div>
+            <!-- TODO(iqra): add a short looping clip for DeepTrace AI (assets/work/deeptrace-demo.webm + poster),
+                 then replace this slot with a <video class="loop" muted loop playsinline preload="none"> element
+                 (see the template in index.html) and add the files to tools/site-files.mjs. -->
+            <figure class="media-slot" data-todo="DeepTrace AI — looping demo clip" hidden>
+              <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+            </figure>
           </div>
         </section>
 
@@ -152,6 +179,18 @@
             <p>The lasting lesson is about scope: deciding what a check can honestly claim — and printing that limit next to the result — mattered as much as the pipeline itself.</p>
           </div>
         </section>
+
+        <!-- TODO(iqra): confirm or rewrite in your own words; drawn from the documented limitations and next steps. -->
+        <section class="grid chapter" aria-labelledby="c8">
+          <div class="chapter__label"><span class="index">08</span><h2 id="c8">What I’d do differently</h2></div>
+          <div class="chapter__body">
+            <ul>
+              <li>Get the GitHub Actions workflow green before building more features — at closure it had never run on GitHub.</li>
+              <li>Design for a busy free-tier model from day one: a fallback model, or a “retry the answer only” step that reuses passages already read.</li>
+              <li>Build the independent claim-support check (Milestone 3) earlier, so “Cited” and “Supported” could be shown side by side.</li>
+            </ul>
+          </div>
+        </section>
       </div>
 
       <nav class="wrap study-next" aria-label="Next case study">
@@ -164,7 +203,7 @@
         <p class="contact__line">Bring a messy dataset. <em>I’ll bring the receipts.</em></p>
         <div class="colophon">
           <span><span class="monogram" aria-hidden="true">in</span> © <span id="currentYear">2026</span> Iqra Nawaz</span>
-          <a href="mailto:iqranawaz9353@gmail.com">iqranawaz9353@gmail.com</a>
+          <a href="../index.html#contact">Get in touch →</a>
           <a href="../index.html">Back to the portfolio ↑</a>
         </div>
       </div>

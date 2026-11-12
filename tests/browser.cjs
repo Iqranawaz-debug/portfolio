@@ -75,7 +75,7 @@ async function loadAllImages(page) {
   watch(desktop, errors);
   await desktop.goto(baseURL);
   assert.equal(await desktop.locator("#menuToggle").isVisible(), false);
-  assert.equal(await desktop.locator(".nav__link:visible").count(), 6);
+  assert.equal(await desktop.locator(".nav__link:visible").count(), 7);
   await desktop.getByRole("navigation").getByRole("link", { name: /Archive/ }).click();
   await desktop.waitForFunction(
     () => document.querySelector('.nav__link[href="#archive"]').getAttribute("aria-current") === "location",
@@ -84,19 +84,53 @@ async function loadAllImages(page) {
 
   const filters = desktop.getByRole("group", { name: "Filter projects by area" });
   const all = await desktop.locator(".archive__row").count();
-  await filters.getByRole("button", { name: "Data & Analytics" }).click();
+  await filters.getByRole("button", { name: "Data Eng" }).click();
   const shown = await desktop.locator(".archive__row:visible").count();
   assert.ok(shown > 0 && shown < all, "Filter narrows the archive");
   assert.equal(await desktop.locator(".filter-status").textContent(), `${shown} projects`);
   // A citation link to a filtered-out row resets the filter and lands on it.
-  await desktop.locator('.cite[href="#sentix-project"]').click();
+  await desktop.locator('.cite[href="#sentix-project"]').first().click();
   assert.equal(await desktop.locator(".archive__row:visible").count(), all);
   assert.equal(await desktop.locator("#sentix-project").evaluate((e) => document.activeElement === e), true);
+
+  await filters.getByRole("button", { name: "LLM" }).click();
+  assert.equal(await desktop.locator(".archive__row:visible").count(), 1);
+  assert.equal(await desktop.locator(".filter-status").textContent(), "1 project");
+  await filters.getByRole("button", { name: "All" }).click();
+  assert.equal(await desktop.locator(".archive__row:visible").count(), all);
+
+  // Email is shown once, with a copy button that confirms.
+  assert.equal(await desktop.locator('a[href^="mailto:"]').count(), 1);
+  await desktop.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+  await desktop.getByRole("button", { name: /Copy email address/ }).click();
+  await desktop.waitForFunction(() => document.querySelector(".copy-btn__label").textContent === "Copied");
+  assert.equal(await desktop.evaluate(() => navigator.clipboard.readText()), "iqranawaz9353@gmail.com");
+  assert.equal(await desktop.locator(".copy-status").textContent(), "Email address copied");
 
   await desktop.locator("#warehouse-project").hover();
   await desktop.waitForFunction(() => document.querySelector(".preview").classList.contains("is-visible"));
   await desktop.locator('.notes li[data-note="2"]').hover();
   assert.equal(await desktop.locator('.pin[data-note="2"]').evaluate((e) => e.classList.contains("is-active")), true);
+
+  // Sticky nav highlights Education (06) when that section is reached.
+  await desktop.getByRole("navigation").getByRole("link", { name: /Education/ }).click();
+  await desktop.waitForFunction(
+    () => document.querySelector('.nav__link[href="#education"]').getAttribute("aria-current") === "location",
+  );
+
+  // Command palette: shortcut, typing, arrows, Enter, focus on target, Escape returns focus.
+  await desktop.keyboard.press("Control+k");
+  await desktop.waitForSelector("dialog.palette[open]");
+  assert.equal(await desktop.evaluate(() => document.activeElement.id), "paletteInput");
+  await desktop.keyboard.type("routewise");
+  await desktop.keyboard.press("Enter");
+  await desktop.waitForFunction(() => document.activeElement.id === "routewise-project");
+  assert.equal(await desktop.evaluate(() => document.querySelector("dialog.palette").open), false);
+  await desktop.locator("#paletteOpen").click();
+  await desktop.keyboard.type("zzzz");
+  assert.equal(await desktop.locator(".palette__empty").isVisible(), true);
+  await desktop.keyboard.press("Escape");
+  assert.equal(await desktop.evaluate(() => document.activeElement.id), "paletteOpen");
 
   // Theme toggle changes the palette and persists.
   const bg = () => desktop.evaluate(() => getComputedStyle(document.body).backgroundColor);
@@ -161,6 +195,28 @@ async function loadAllImages(page) {
   const still = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion: "reduce" });
   await still.goto(baseURL);
   assert.equal(await still.locator(".reveal").first().evaluate((e) => getComputedStyle(e).opacity), "1");
+
+  // Proof numbers show final values and the citation demo steps manually under reduced motion.
+  assert.deepEqual(await still.locator(".count").allTextContents(), ["9", "326", "92"]);
+  assert.match(await still.locator(".cd-verdict").textContent(), /Quotation matched/);
+  await still.getByRole("button", { name: "Next example" }).click();
+  assert.match(await still.locator(".cd-verdict").textContent(), /Not in source/);
+
+  // With motion: numbers count up to their targets and the demo plays and pauses.
+  const moving = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  watch(moving, errors);
+  await moving.goto(baseURL);
+  await moving.waitForFunction(() => [...document.querySelectorAll(".count")].map((e) => e.textContent).join() === "9,326,92");
+  await moving.waitForFunction(() => document.querySelector(".cd-verdict").classList.contains("is-pass"), null, { timeout: 15000 });
+  await moving.getByRole("button", { name: "Pause" }).click();
+  // AUC bars start collapsed and grow to full width once the chart is on screen.
+  const barScale = () => moving.locator(".model-chart .is-selected .bar").evaluate((e) => getComputedStyle(e).transform);
+  assert.match(await barScale(), /^matrix\(0,/);
+  await moving.locator(".model-chart").scrollIntoViewIfNeeded();
+  await moving.waitForFunction(() => getComputedStyle(document.querySelector(".model-chart .is-selected .bar")).transform.startsWith("matrix(1,"));
+  assert.equal(await moving.getByRole("button", { name: "Play" }).getAttribute("aria-pressed"), "true");
+  await moving.close();
+  results.push({ hero: "count-up, citation demo pass/fail, pause, reduced-motion stepping" });
 
   // 5. Without JavaScript everything is readable and the filter is not offered.
   const noJS = await browser.newPage({ javaScriptEnabled: false, viewport: { width: 320, height: 800 } });

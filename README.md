@@ -26,6 +26,18 @@ An editor's proof sheet: warm paper, deep ink and one red pen. Projects are pres
 
 Every number on the site comes from the project's own repository: closure reports, phase reports, test files or the deployed app's evaluation pages.
 
+## Interactive details
+
+- **Ctrl/Cmd+K command palette** (or the "Jump to" button) to reach any section, project or case study.
+- **Live citation check** in the hero: a real quotation-matching check on sentences from the DeepTrace README.
+- **Archive filters** (All, ML, LLM, Data Eng, Apps), copy-to-clipboard email, and a remembered light/dark theme.
+- All motion respects `prefers-reduced-motion`; everything works without JavaScript.
+
+## Filling in missing content
+
+Unfinished content lives in hidden slots marked `TODO(iqra)`. Open the site with `?draft` at the end of the
+URL to see them outlined; the full list is in [`TODO.md`](TODO.md).
+
 ## Design system
 
 All tokens live at the top of `style.css`.

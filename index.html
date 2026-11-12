@@ -26,8 +26,13 @@
     <meta property="og:image:alt" content="Iqra Nawaz — I build AI that shows its work." />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Iqra Nawaz — I build AI that shows its work." />
+    <meta name="twitter:description" content="Evidence-checked research tools, explainable scoring and honest predictive models. Data science and applied AI portfolio." />
+    <meta name="twitter:image" content="https://iqranawaz-debug.github.io/portfolio/assets/og-card.png" />
+    <meta name="twitter:image:alt" content="Iqra Nawaz — I build AI that shows its work." />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-var-italic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
     <script>
       document.documentElement.classList.add("js");
@@ -62,7 +67,11 @@
           ><span class="monogram" aria-hidden="true">in</span><span class="wordmark__name">Iqra Nawaz</span></a
         >
         <div class="masthead__actions">
-          <a class="btn" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf"
+          <button class="palette-btn" id="paletteOpen" type="button" aria-label="Jump to a section or project" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.2-4.2" /></svg>
+            <span class="palette-btn__label">Jump to</span><kbd class="palette-btn__kbd">Ctrl K</kbd>
+          </button>
+          <a class="btn masthead__resume" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf"
             >Resume <span class="arrow arrow--down" aria-hidden="true">↓</span
             ><span class="sr-only"> (PDF download)</span></a
           >
@@ -81,6 +90,7 @@
             <li><a class="nav__link" href="#about"><span class="num">03</span>About</a></li>
             <li><a class="nav__link" href="#experience"><span class="num">04</span>Experience</a></li>
             <li><a class="nav__link" href="#skills"><span class="num">05</span>Toolkit</a></li>
+            <li><a class="nav__link" href="#education"><span class="num">06</span>Education</a></li>
             <li><a class="nav__link" href="#contact"><span class="num">07</span>Contact</a></li>
           </ul>
         </nav>
@@ -118,18 +128,82 @@
             <a class="btn" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf"
               >Download Resume <span class="arrow arrow--down" aria-hidden="true">↓</span><span class="sr-only"> (PDF)</span></a
             >
-            <a class="btn" href="mailto:iqranawaz9353@gmail.com">Email me <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn" href="#contact">Contact <span class="arrow arrow--down" aria-hidden="true">↓</span></a>
           </div>
           <p class="status status--open">Open to full-time roles in data science, ML and AI engineering</p>
         </div>
 
         <div class="hero__aside">
-          <figure class="portrait">
-            <img src="assets/images/portrait.webp" alt="Portrait of Iqra Nawaz" width="560" height="560" fetchpriority="high" />
-            <figcaption>Fig. 1 — Iqra Nawaz, Karachi.</figcaption>
+          <dl class="proof" aria-label="DeepTrace AI, verified at closure">
+            <div><dt>quotes verified</dt><dd><span class="count" data-count="9">9</span>/9</dd></div>
+            <div><dt>tests passing</dt><dd><span class="count" data-count="326">326</span></dd></div>
+            <div><dt>line &amp; branch coverage</dt><dd><span class="count" data-count="92">92</span>%</dd></div>
+          </dl>
+          <p class="caption proof__source">
+            <b>Source:</b> <a href="https://github.com/Iqranawaz-debug/DeepTrace-AI/blob/main/docs/PROJECT_CLOSURE.md" target="_blank" rel="noopener noreferrer">DeepTrace AI closure report <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          </p>
+
+          <figure class="cite-demo" aria-labelledby="cite-demo-caption" data-cite-demo>
+            <div class="cd-row">
+              <span class="label">Claim</span>
+              <p class="cd-claim">DeepTrace never lets the model pick which pages to read.</p>
+            </div>
+            <div class="cd-row">
+              <span class="label">Quote</span>
+              <p class="cd-quote">“never chooses a URL”</p>
+            </div>
+            <div class="cd-row">
+              <span class="label">Source</span>
+              <p class="cd-source">The model has no tools and <mark>never chooses a URL</mark>.</p>
+            </div>
+            <div class="cd-foot">
+              <p class="cd-verdict is-pass" role="status" aria-live="off"><span aria-hidden="true">✓</span> Quotation matched</p>
+              <button type="button" class="cd-toggle" hidden aria-pressed="false">Pause</button>
+            </div>
+            <figcaption id="cite-demo-caption" class="caption">
+              <b>Fig. 1</b> — A quotation check, actually running in your browser. Sentences are quoted
+              from the <a href="https://github.com/Iqranawaz-debug/DeepTrace-AI/blob/main/README.md" target="_blank" rel="noopener noreferrer">DeepTrace README <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>;
+              the rule mirrors the project’s check: the quote must appear in the saved source.
+            </figcaption>
           </figure>
-          <section class="labnotes" id="now" aria-labelledby="now-title">
-            <h2 id="now-title"><span>Lab notes</span><span class="pen">Nov 2026</span></h2>
+        </div>
+
+        <dl class="hero__facts">
+          <div>
+            <dt class="label">Education</dt>
+            <dd>NED University<small>B.S. Computer Science (Data Science) · 3.70 CGPA · 2026</small></dd>
+          </div>
+          <div>
+            <dt class="label">Most recently</dt>
+            <dd>Logiciel Services<small>AI / Data Science Intern · Jul–Aug 2026</small></dd>
+          </div>
+          <div>
+            <dt class="label">On GitHub</dt>
+            <dd>13 projects<small>11 public repositories · 2 live demos</small></dd>
+          </div>
+          <div>
+            <dt class="label">Focus</dt>
+            <dd>Checkable AI<small>ML · LLM tooling · data systems</small></dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Currently building --------------------------------------------- -->
+      <section id="now" class="building" aria-labelledby="now-title">
+        <div class="wrap grid building__inner">
+          <header class="building__head">
+            <p class="kicker"><span class="index">IN·00</span> · In the lab</p>
+            <h2 id="now-title">Currently building</h2>
+          </header>
+          <article class="building__card" id="medicine-project" aria-labelledby="medicine-title">
+            <span class="status status--open">In development</span>
+            <h3 id="medicine-title">AI-Based Medicine Recommendation</h3>
+            <p>Connecting prepared data, candidate models and recommendation generation in a Python application. Dataset cleaning, candidate model training and evaluation are under way.</p>
+            <p class="mono building__meta">Machine learning · no public repository yet</p>
+            <!-- TODO(iqra): add a repository link here when the project is public. -->
+          </article>
+          <div class="labnotes">
+            <h3><span>Lab notes</span><span class="pen">Nov 2026</span></h3>
             <ol>
               <li>
                 <time datetime="2026-11-09">09 Nov 2026</time>
@@ -147,38 +221,19 @@
                 <a href="#screenshot-project">Screenshot Organizer</a>.
               </li>
             </ol>
-          </section>
+      </div>
         </div>
-
-        <dl class="hero__facts">
-          <div>
-            <dt class="label">Education</dt>
-            <dd>NED University<small>B.S. Computer Science (Data Science) · 3.70 CGPA · 2026</small></dd>
-          </div>
-          <div>
-            <dt class="label">Most recently</dt>
-            <dd>Logiciel Services<small>AI / Data Science Intern · Jul–Aug 2026</small></dd>
-          </div>
-          <div>
-            <dt class="label">On GitHub</dt>
-            <dd>12 projects<small>10 public repositories · 2 live demos</small></dd>
-          </div>
-          <div>
-            <dt class="label">Focus</dt>
-            <dd>Checkable AI<small>ML · LLM tooling · data systems</small></dd>
-          </div>
-        </dl>
       </section>
 
       <!-- Selected work -------------------------------------------------- -->
       <section id="projects" class="section" aria-labelledby="projects-title">
         <div class="wrap">
           <header class="grid section-head">
-            <p class="section-head__index"><span class="index">IN·01</span><span class="kicker">Selected work</span></p>
-            <h2 id="projects-title" class="section-head__title">Three projects, shown with their working.</h2>
+            <p class="section-head__index"><span class="index">IN·01</span><span class="kicker">Selected work</span><span class="margin-note">n.b. every number here links to where it came from.</span></p>
+            <h2 id="projects-title" class="section-head__title">Four projects, shown with their working.</h2>
             <p class="section-head__note">
-              The long version — problem, decisions, evidence, and the parts
-              that still don’t work. Each has a full case study.
+              Three long case studies and one field note — problem, decisions,
+              evidence, and the parts that still don’t work.
             </p>
           </header>
 
@@ -193,8 +248,8 @@
             <div class="case__body">
               <h3 id="deeptrace-title" class="case__title">DeepTrace AI</h3>
               <p class="case__dek">A research assistant that has to show you the sentence before it’s allowed to make the claim.</p>
+              <p class="problem-line"><span class="label">The problem</span>AI research tools cite pages that don’t contain the quoted words.</p>
               <ul class="case__points">
-                <li><span class="label">Problem</span><span>AI research tools cite pages that don’t contain the quoted words — and quietly send your questions off your machine.</span></li>
                 <li><span class="label">Decision</span><span>Citations are checked by deterministic code: the passage must exist, must have been allowed for this run, and must contain the quotation.</span></li>
                 <li><span class="label">Built</span><span>A local-first Python/FastAPI and SQLite backend, a React/TypeScript workspace, and a bounded Plan → Report pipeline over Tavily search and Gemini.</span></li>
               </ul>
@@ -204,6 +259,25 @@
                 passage <em>supports</em> a claim was planned for a later
                 milestone and not built.
               </p>
+              <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
+                   limitations and next steps documented in the project repository. -->
+              <div class="differently">
+                <span class="label">What I’d do differently</span>
+                <p>Get CI running on GitHub before building features, and plan for a busy free-tier model from day one — a fallback model, or a “retry the answer only” step that reuses the passages already read.</p>
+              </div>
+              <!-- TODO(iqra): DeepTrace AI — add a short looping screen recording (WebM, ideally < 2 MB)
+                   as assets/work/deeptrace-demo.webm (+ a WebP poster), then replace this slot with:
+                   <figure class="media-slot">
+                     <video class="loop" muted loop playsinline preload="none" width="1280" height="720"
+                            poster="assets/work/deeptrace-demo.webp" aria-label="DESCRIBE WHAT THE CLIP SHOWS">
+                       <source src="assets/work/deeptrace-demo.webm" type="video/webm" />
+                     </video>
+                     <figcaption class="caption"><b>Clip</b> CAPTION</figcaption>
+                   </figure>
+                   and add both files to tools/site-files.mjs. -->
+              <figure class="media-slot" data-todo="DeepTrace AI — looping demo clip" hidden>
+                <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+              </figure>
               <div class="links">
                 <a class="btn btn--pen" href="work/deeptrace-ai.html">Read the case study <span class="arrow" aria-hidden="true">→</span></a>
                 <a class="link" href="https://github.com/Iqranawaz-debug/DeepTrace-AI" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — DeepTrace AI on GitHub (opens in a new tab)</span></a>
@@ -227,7 +301,7 @@
                 </dl>
               </div>
               <figcaption class="caption">
-                <b>Source:</b> the project’s closure report. Tests were run
+                <b>Source:</b> <a href="https://github.com/Iqranawaz-debug/DeepTrace-AI/blob/main/docs/PROJECT_CLOSURE.md" target="_blank" rel="noopener noreferrer">the project’s closure report <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>. Tests were run
                 locally; the CI workflow had not yet run on GitHub at closure.
               </figcaption>
             </figure>
@@ -244,8 +318,8 @@
             <div class="case__body">
               <h3 id="resumeiq-title" class="case__title">ResumeIQ</h3>
               <p class="case__dek">A resume checker that explains its number — and admits what it can’t know.</p>
+              <p class="problem-line"><span class="label">The problem</span>Resume checkers hand back one opaque score, with no way to see what matched or why.</p>
               <ul class="case__points">
-                <li><span class="label">Problem</span><span>Most resume checkers hand back one opaque score, with no way to see what matched or why.</span></li>
                 <li><span class="label">Decision</span><span>Local rules always compute the score. Optional AI is validated and shown <em>beside</em> it — never instead of it.</span></li>
                 <li><span class="label">Built</span><span>FastAPI with PDF/DOCX parsing and rule-based extraction; a React + Vite frontend; a recruiter workspace; optional SQLite; Docker Compose and CI.</span></li>
               </ul>
@@ -255,6 +329,25 @@
                 results, requirement review, grounded rewrites, privacy controls
                 and the recruiter workspace.
               </p>
+              <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
+                   limitations and next steps documented in the project repository. -->
+              <div class="differently">
+                <span class="label">What I’d do differently</span>
+                <p>Build and run the Docker images and CI in the same pass as writing them — the README still lists them as unverified — and ship a hosted demo so people can try it without cloning.</p>
+              </div>
+              <!-- TODO(iqra): ResumeIQ — add a short looping screen recording (WebM, ideally < 2 MB)
+                   as assets/work/resumeiq-demo.webm (+ a WebP poster), then replace this slot with:
+                   <figure class="media-slot">
+                     <video class="loop" muted loop playsinline preload="none" width="1280" height="720"
+                            poster="assets/work/resumeiq-demo.webp" aria-label="DESCRIBE WHAT THE CLIP SHOWS">
+                       <source src="assets/work/resumeiq-demo.webm" type="video/webm" />
+                     </video>
+                     <figcaption class="caption"><b>Clip</b> CAPTION</figcaption>
+                   </figure>
+                   and add both files to tools/site-files.mjs. -->
+              <figure class="media-slot" data-todo="ResumeIQ — looping demo clip" hidden>
+                <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+              </figure>
               <div class="links">
                 <a class="btn btn--pen" href="work/resumeiq.html">Read the case study <span class="arrow" aria-hidden="true">→</span></a>
                 <a class="link" href="https://github.com/Iqranawaz-debug/ResumeIQ" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — ResumeIQ on GitHub (opens in a new tab)</span></a>
@@ -280,7 +373,7 @@
                 <li data-note="3">Gaps are “not evidenced” — not proof the candidate lacks the skill.</li>
                 <li data-note="4">Every requirement gets a status and a quote from the resume.</li>
               </ol>
-              <figcaption class="caption"><b>Screenshot</b> from the repository, using its bundled fictional sample resume.</figcaption>
+              <figcaption class="caption"><b>Screenshot</b> from the repository, using its bundled fictional sample resume. Test results: <a href="https://github.com/Iqranawaz-debug/ResumeIQ/blob/main/docs/phase6-recruiter-workflow.md" target="_blank" rel="noopener noreferrer">phase 6 report <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>.</figcaption>
             </figure>
           </article>
 
@@ -295,21 +388,42 @@
             <div class="case__body">
               <h3 id="bank-title" class="case__title">Bank Marketing Intelligence</h3>
               <p class="case__dek">Who’s worth calling? A model that only uses what the bank knows before the phone rings.</p>
+              <p class="problem-line"><span class="label">The problem</span>Calling every customer is expensive; rank them before the campaign call.</p>
+              <a class="try-live" href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/" target="_blank" rel="noopener noreferrer">
+                <span class="try-live__dot" aria-hidden="true"></span>
+                <span class="try-live__text"><strong>Try it live</strong><span>Score a customer or upload a CSV in the Streamlit app</span></span>
+                <span class="try-live__arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>
+              </a>
               <ul class="case__points">
-                <li><span class="label">Problem</span><span>Calling every customer about a term deposit is expensive. Rank them first — before the campaign call.</span></li>
                 <li><span class="label">Decision</span><span>Call duration is dropped: it’s only known <em>after</em> the call, so using it would leak the answer into the model.</span></li>
                 <li><span class="label">Decision</span><span>XGBoost chosen by 3-fold cross-validated average precision; the 0.375 threshold maximises out-of-fold F1 — exploratory, not cost-optimised.</span></li>
               </ul>
+              <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
+                   limitations and next steps documented in the project repository. -->
+              <div class="differently">
+                <span class="label">What I’d do differently</span>
+                <p>Choose the decision threshold from campaign costs — the price of a call and the value of a subscription — instead of maximising F1, which the app itself labels exploratory.</p>
+              </div>
+              <!-- TODO(iqra): Bank Marketing Intelligence — add a short looping screen recording (WebM, ideally < 2 MB)
+                   as assets/work/bank-demo.webm (+ a WebP poster), then replace this slot with:
+                   <figure class="media-slot">
+                     <video class="loop" muted loop playsinline preload="none" width="1280" height="720"
+                            poster="assets/work/bank-demo.webp" aria-label="DESCRIBE WHAT THE CLIP SHOWS">
+                       <source src="assets/work/bank-demo.webm" type="video/webm" />
+                     </video>
+                     <figcaption class="caption"><b>Clip</b> CAPTION</figcaption>
+                   </figure>
+                   and add both files to tools/site-files.mjs. -->
+              <figure class="media-slot" data-todo="Bank Marketing Intelligence — looping demo clip" hidden>
+                <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+              </figure>
               <div class="links">
-                <a class="btn btn--pen" href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/" target="_blank" rel="noopener noreferrer"
-                  >Live demo <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> — Bank Marketing Intelligence (opens in a new tab)</span></a
-                >
-                <a class="link" href="work/bank-marketing-intelligence.html">Case study <span aria-hidden="true">→</span></a>
+                <a class="btn btn--pen" href="work/bank-marketing-intelligence.html">Read the case study <span class="arrow" aria-hidden="true">→</span></a>
                 <a class="link" href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Bank Marketing Intelligence on GitHub (opens in a new tab)</span></a>
               </div>
             </div>
             <figure class="case__visual">
-              <table class="model-chart">
+              <table class="model-chart reveal">
                 <caption>
                   ROC-AUC on held-out data
                   <small>2,233 held-out records of 11,162 · bars start at 0.40</small>
@@ -339,7 +453,7 @@
                   />
                 </div>
               </div>
-              <figcaption class="caption"><b>Figures</b> from the deployed app’s Model Performance and Explainability pages. Patterns are associations, not causal effects.</figcaption>
+              <figcaption class="caption"><b>Figures</b> from the deployed app’s <a href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence/blob/main/docs/screenshots/02-performance.png" target="_blank" rel="noopener noreferrer">Model Performance page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>; selection and threshold rules in <a href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence/blob/main/src/train.py" target="_blank" rel="noopener noreferrer">train.py <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>. Patterns are associations, not causal effects.</figcaption>
             </figure>
           </article>
 
@@ -348,12 +462,32 @@
             <div class="fieldnote__head">
               <span class="kicker"><span class="index">Field note</span> · Desktop automation · Oct 2026</span>
               <h3 id="screenshot-title">Smart Screenshot Organizer</h3>
+              <p class="problem-line"><span class="label">The problem</span>A screenshots folder full of “Screenshot (42).png”, impossible to search.</p>
               <p>
                 A small tool for a universal mess. It reads each new screenshot
                 with Tesseract OCR, names it from visible evidence, files it by
                 category and keeps a searchable local history. OCR and
                 explainable rules — no LLM, no cloud.
               </p>
+              <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
+                   limitations and next steps documented in the project repository. -->
+              <div class="differently">
+                <span class="label">What I’d do differently</span>
+                <p>Give the command-line watcher the same missed-file reconciliation that background mode already has, instead of relying on create and rename events alone.</p>
+              </div>
+              <!-- TODO(iqra): Screenshot Organizer — add a short looping screen recording (WebM, ideally < 2 MB)
+                   as assets/work/screenshot-organizer-demo.webm (+ a WebP poster), then replace this slot with:
+                   <figure class="media-slot">
+                     <video class="loop" muted loop playsinline preload="none" width="1280" height="720"
+                            poster="assets/work/screenshot-organizer-demo.webp" aria-label="DESCRIBE WHAT THE CLIP SHOWS">
+                       <source src="assets/work/screenshot-organizer-demo.webm" type="video/webm" />
+                     </video>
+                     <figcaption class="caption"><b>Clip</b> CAPTION</figcaption>
+                   </figure>
+                   and add both files to tools/site-files.mjs. -->
+              <figure class="media-slot" data-todo="Screenshot Organizer — looping demo clip" hidden>
+                <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+              </figure>
               <div class="links">
                 <a class="link" href="https://github.com/Iqranawaz-debug/Screenshot_Organizer" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Smart Screenshot Organizer on GitHub (opens in a new tab)</span></a>
                 <span class="stack-list" role="list"><span role="listitem">Python</span>&nbsp;/ <span role="listitem">Tesseract</span>&nbsp;/ <span role="listitem">watchdog</span>&nbsp;/ <span role="listitem">SQLite</span>&nbsp;/ <span role="listitem">Streamlit</span></span>
@@ -371,13 +505,13 @@
 └── Education/
     └── Database_Management_Systems_Assignment_02_2026-10-17.png</pre>
               </div>
-              <figcaption class="caption"><b>Example</b> from the project README. Originals stay untouched; the tool writes copies.</figcaption>
+              <figcaption class="caption"><b>Example</b> from the <a href="https://github.com/Iqranawaz-debug/Screenshot_Organizer/blob/main/README.md" target="_blank" rel="noopener noreferrer">project README <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>. Originals stay untouched; the tool writes copies.</figcaption>
             </figure>
             <ul class="guarantees">
               <li><strong>Dry run by default</strong>Manual commands preview first; nothing changes without <code>--apply</code>.</li>
               <li><strong>Never overwrites</strong>Copies by default; moving requires typing MOVE.</li>
               <li><strong>Duplicates skipped</strong>Content hashing means re-runs never create copies.</li>
-              <li><strong>Tested without Tesseract</strong>19 test files with OCR mocked; first outside PR merged.</li>
+              <li><strong>Tested without Tesseract</strong><a href="https://github.com/Iqranawaz-debug/Screenshot_Organizer/tree/main/tests" target="_blank" rel="noopener noreferrer">19 test files <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a> with OCR mocked; <a href="https://github.com/Iqranawaz-debug/Screenshot_Organizer/pull/5" target="_blank" rel="noopener noreferrer">first outside PR merged <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>.</li>
             </ul>
           </article>
         </div>
@@ -387,18 +521,19 @@
       <section id="archive" class="section section--tint" aria-labelledby="archive-title">
         <div class="wrap">
           <header class="grid section-head">
-            <p class="section-head__index"><span class="index">IN·02</span><span class="kicker">Archive</span></p>
+            <p class="section-head__index"><span class="index">IN·02</span><span class="kicker">Archive</span><span class="margin-note">smallest claims first — on purpose.</span></p>
             <h2 id="archive-title" class="section-head__title">Everything else, smallest claims first.</h2>
-            <p class="section-head__note">Coursework, experiments and side projects. Filter by area; where a preview exists, hover the row.</p>
+            <p class="section-head__note">Eight more: coursework, experiments and side projects. Filter by area; where a preview exists, hover the row.</p>
           </header>
           <div class="archive-tools">
             <div class="filters" role="group" aria-label="Filter projects by area" hidden>
               <button type="button" data-filter="all" aria-pressed="true">All</button>
-              <button type="button" data-filter="ml" aria-pressed="false">ML &amp; AI</button>
-              <button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
-              <button type="button" data-filter="apps" aria-pressed="false">Apps &amp; Tools</button>
+              <button type="button" data-filter="ml" aria-pressed="false">ML</button>
+              <button type="button" data-filter="llm" aria-pressed="false">LLM</button>
+              <button type="button" data-filter="data" aria-pressed="false">Data Eng</button>
+              <button type="button" data-filter="apps" aria-pressed="false">Apps</button>
             </div>
-            <p class="mono filter-status" aria-live="polite">9 projects</p>
+            <p class="mono filter-status" aria-live="polite">8 projects</p>
           </div>
           <ol class="archive">
             <li class="archive__row" id="warehouse-project" data-category="data" data-preview="assets/work/warehouse-model.webp">
@@ -415,13 +550,13 @@
               <span class="mono">A02</span>
               <div>
                 <h3>SentixAI — Review Sentiment</h3>
-                <p>Classifies product reviews as positive, negative or neutral: ~92% accuracy on 1,000+ reviews, served in Streamlit.</p>
+                <p>Classifies product reviews as positive, negative or neutral: 86.4% accuracy and 0.614 macro-F1 on 4,500 held-out reviews (majority baseline 78.4%); neutral is the weak class. <a class="cite" href="https://github.com/Iqranawaz-debug/Sentiment_Analysis_On_Product_Reviews/blob/main/README.md" target="_blank" rel="noopener noreferrer">src<span class="sr-only"> — SentixAI evaluation in its README (opens in a new tab)</span></a></p>
               </div>
               <span class="archive__field">NLP<span class="status">scikit-learn</span></span>
               <span class="mono">2026</span>
               <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/Sentiment_Analysis_On_Product_Reviews" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — SentixAI (opens in a new tab)</span></a></span>
             </li>
-            <li class="archive__row" id="leafguard-project" data-category="ml">
+            <li class="archive__row" id="leafguard-project" data-category="ml llm">
               <span class="mono">A03</span>
               <div>
                 <h3>LeafGuard AI</h3>
@@ -446,6 +581,33 @@
               <div>
                 <h3>Automated Data Pipeline</h3>
                 <p>Final year project: unstructured documents in, structured and reportable data out, end to end.</p>
+                <figure class="mini-diagram">
+                  <svg class="md-horizontal" viewBox="0 0 520 64" role="img" aria-labelledby="fyp-diagram-title">
+                    <title id="fyp-diagram-title">Pipeline: documents are uploaded, processed, structured into data, then turned into automated reports.</title>
+                    <g class="md-node"><rect x="1" y="14" width="104" height="36" /><text x="53" y="37">Documents</text></g>
+                    <path class="md-edge" d="M105 32h34" /><path class="md-head" d="M133 27l6 5-6 5" />
+                    <g class="md-node"><rect x="139" y="14" width="104" height="36" /><text x="191" y="37">Process</text></g>
+                    <path class="md-edge" d="M243 32h34" /><path class="md-head" d="M271 27l6 5-6 5" />
+                    <g class="md-node md-node--pen"><rect x="277" y="14" width="104" height="36" /><text x="329" y="37">Structure</text></g>
+                    <path class="md-edge" d="M381 32h34" /><path class="md-head" d="M409 27l6 5-6 5" />
+                    <g class="md-node"><rect x="415" y="14" width="104" height="36" /><text x="467" y="37">Report</text></g>
+                  </svg>
+                  <svg class="md-vertical" viewBox="0 0 220 208" role="img" aria-labelledby="fyp-diagram-title-v">
+                    <title id="fyp-diagram-title-v">Pipeline: documents are uploaded, processed, structured into data, then turned into automated reports.</title>
+                    <g class="md-node"><rect x="1" y="1" width="218" height="34" /><text x="110" y="23">Documents</text></g>
+                    <path class="md-edge" d="M110 35v22" /><path class="md-head" d="M105 51l5 6 5-6" />
+                    <g class="md-node"><rect x="1" y="57" width="218" height="34" /><text x="110" y="79">Process</text></g>
+                    <path class="md-edge" d="M110 91v22" /><path class="md-head" d="M105 107l5 6 5-6" />
+                    <g class="md-node md-node--pen"><rect x="1" y="113" width="218" height="34" /><text x="110" y="135">Structure</text></g>
+                    <path class="md-edge" d="M110 147v22" /><path class="md-head" d="M105 163l5 6 5-6" />
+                    <g class="md-node"><rect x="1" y="169" width="218" height="34" /><text x="110" y="191">Report</text></g>
+                  </svg>
+                  <!-- TODO(iqra): replace the hidden line below with a one-line result for the FYP
+                       (e.g. what it processed, how much, how it was evaluated), then remove `hidden`. -->
+                  <figcaption class="mini-result" data-todo="FYP one-line result" hidden>
+                    <b>Result:</b> TODO — one-line result for the Automated Data Pipeline.
+                  </figcaption>
+                </figure>
               </div>
               <span class="archive__field">Data processing<span class="status">Final year project</span></span>
               <span class="mono">2026</span>
@@ -471,18 +633,8 @@
               <span class="mono">2026</span>
               <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/nodejs-shopify-product-management" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Shopify Product Management API (opens in a new tab)</span></a></span>
             </li>
-            <li class="archive__row" id="medicine-project" data-category="ml">
-              <span class="mono">A08</span>
-              <div>
-                <h3>AI-Based Medicine Recommendation</h3>
-                <p>Dataset cleaning, candidate model training and evaluation are under way. No public repository yet.</p>
-              </div>
-              <span class="archive__field">Machine learning<span class="status status--open">In development</span></span>
-              <span class="mono">—</span>
-              <span class="links"></span>
-            </li>
             <li class="archive__row" id="portfolio-project" data-category="apps">
-              <span class="mono">A09</span>
+              <span class="mono">A08</span>
               <div>
                 <h3>This portfolio</h3>
                 <p>Hand-built HTML, CSS and a little JavaScript. No framework, no tracking, automated browser tests.</p>
@@ -523,6 +675,10 @@
                 refusing to use a feature you won’t have at prediction time.
               </p>
             </div>
+            <figure class="portrait about__aside">
+              <img src="assets/images/portrait.webp" alt="Portrait of Iqra Nawaz" width="560" height="560" loading="lazy" decoding="async" />
+              <figcaption>Fig. 2 — Iqra Nawaz, Karachi.</figcaption>
+            </figure>
             <ul class="principles" aria-label="Working principles">
               <li>
                 <blockquote>Check the evidence with code, not trust.</blockquote>
@@ -594,6 +750,15 @@
               </ul>
             </li>
           </ol>
+          <!-- TODO(iqra): add a short quote from your Logiciel Services supervisor or a NED
+               colleague (TA role), with their permission. Fill in the quote, name and role,
+               then remove `hidden` and `data-todo` from the figure. -->
+          <figure class="testimonial" data-todo="Testimonial — Logiciel Services or TA role" hidden>
+            <blockquote>
+              <p>TODO — quote.</p>
+            </blockquote>
+            <figcaption><strong>TODO — Name</strong><span>TODO — Role, Logiciel Services</span></figcaption>
+          </figure>
         </div>
       </section>
 
@@ -601,62 +766,107 @@
       <section id="skills" class="section" aria-labelledby="skills-title">
         <div class="wrap">
           <header class="grid section-head">
-            <p class="section-head__index"><span class="index">IN·05</span><span class="kicker">Toolkit</span></p>
+            <p class="section-head__index"><span class="index">IN·05</span><span class="kicker">Toolkit</span><span class="margin-note">no bars. the dots say how, the superscripts say where.</span></p>
             <h2 id="skills-title" class="section-head__title">Tools, with citations.</h2>
-            <p class="section-head__note">No proficiency bars. Each group cites the work where it was used — the superscripts are links.</p>
+            <p class="section-head__note">No proficiency bars. Each skill says how I’ve used it and cites the work — the superscripts are links.</p>
           </header>
+          <!-- TODO(iqra): if the Logiciel Services automation went live, change the LOG-cited skills
+               ("Prompt design & AI automation", "Structured logging & error handling",
+               "End-to-end testing with QA") from tag--proj to tag--prod, and add the
+               production entry to the legend below. -->
+          <p class="tag-legend" aria-hidden="true">
+            <span><span class="tag tag--proj"></span>used in projects</span>
+            <span><span class="tag tag--learn"></span>learning</span>
+            <span class="tag-legend__cite"><b>BMI</b> superscripts link to the project</span>
+          </p>
           <ul class="toolkit">
             <li>
               <span class="index">T1</span>
               <div>
                 <h3>Machine learning</h3>
-                <p>scikit-learn, XGBoost, TensorFlow / Keras, cross-validation, threshold analysis, permutation importance, NLP, CNNs, recommender systems
-                  <a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#sentix-project" aria-label="Used in SentixAI">SX</a><a class="cite" href="#leafguard-project" aria-label="Used in LeafGuard AI">LG</a><a class="cite" href="#cinematch-project" aria-label="Used in CineMatch">CM</a></p>
+                <ul class="skills" aria-label="Machine learning skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>scikit-learn<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#sentix-project" aria-label="Used in SentixAI">SX</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>XGBoost<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>TensorFlow / Keras, CNNs<span class="sr-only"> (used in projects)</span><a class="cite" href="#leafguard-project" aria-label="Used in LeafGuard AI">LG</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Cross-validation & threshold analysis<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Permutation importance<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>NLP classification<span class="sr-only"> (used in projects)</span><a class="cite" href="#sentix-project" aria-label="Used in SentixAI">SX</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Recommender systems<span class="sr-only"> (used in projects)</span><a class="cite" href="#cinematch-project" aria-label="Used in CineMatch">CM</a></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T2</span>
               <div>
-                <h3>LLM &amp; applied AI</h3>
-                <p>Retrieval pipelines, Gemini and OpenAI-compatible APIs, prompt design, citation validation, grounded generation, AI automation
-                  <a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#logiciel-experience" aria-label="Used at Logiciel Services">LOG</a></p>
+                <h3>LLM & applied AI</h3>
+                <ul class="skills" aria-label="LLM & applied AI skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Retrieval pipelines & citation validation<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Gemini & OpenAI-compatible APIs<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#leafguard-project" aria-label="Used in LeafGuard AI">LG</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Grounded generation<span class="sr-only"> (used in projects)</span><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Prompt design & AI automation<span class="sr-only"> (used in projects)</span><a class="cite" href="#logiciel-experience" aria-label="Used in Logiciel Services">LOG</a></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T3</span>
               <div>
                 <h3>Data engineering</h3>
-                <p>SQL Server / T-SQL, ETL, Medallion architecture, star-schema modelling, data-quality checks, SQLite, OCR pipelines
-                  <a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a><a class="cite" href="#pipeline-project" aria-label="Used in Automated Data Pipeline">FYP</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a></p>
+                <ul class="skills" aria-label="Data engineering skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>SQL Server / T-SQL<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>ETL & Medallion architecture<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Star-schema modelling<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Data-quality checks<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>SQLite<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a><a class="cite" href="#shopify-project" aria-label="Used in Shopify Product Management API">API</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>OCR pipelines (Tesseract)<span class="sr-only"> (used in projects)</span><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Document processing pipelines<span class="sr-only"> (used in projects)</span><a class="cite" href="#pipeline-project" aria-label="Used in Automated Data Pipeline">FYP</a></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T4</span>
               <div>
-                <h3>Analysis &amp; BI</h3>
-                <p>Python, Pandas, NumPy, SQL, exploratory analysis, Matplotlib, Power BI, Tableau
-                  <a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></p>
+                <h3>Analysis & BI</h3>
+                <ul class="skills" aria-label="Analysis & BI skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Python, pandas, NumPy<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#sentix-project" aria-label="Used in SentixAI">SX</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>SQL<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Exploratory analysis<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Matplotlib<span class="sr-only"> (used in projects)</span><a class="cite" href="#leafguard-project" aria-label="Used in LeafGuard AI">LG</a></li>
+                  <li><span class="tag tag--learn" title="learning" aria-hidden="true"></span>Power BI<span class="sr-only"> (learning)</span></li>
+                  <li><span class="tag tag--learn" title="learning" aria-hidden="true"></span>Tableau<span class="sr-only"> (learning)</span></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T5</span>
               <div>
-                <h3>Applications &amp; delivery</h3>
-                <p>Streamlit, FastAPI, React, Node.js / Express, REST and GraphQL, Docker, GitHub Actions, Git
-                  <a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#shopify-project" aria-label="Used in Shopify Product Management API">API</a><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a></p>
+                <h3>Applications & delivery</h3>
+                <ul class="skills" aria-label="Applications & delivery skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Streamlit<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#cinematch-project" aria-label="Used in CineMatch">CM</a><a class="cite" href="#routewise-project" aria-label="Used in RouteWise">RW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>FastAPI<span class="sr-only"> (used in projects)</span><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>React<span class="sr-only"> (used in projects)</span><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Node.js / Express, REST & GraphQL<span class="sr-only"> (used in projects)</span><a class="cite" href="#shopify-project" aria-label="Used in Shopify Product Management API">API</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Git & pull-request workflow<span class="sr-only"> (used in projects)</span><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                  <li><span class="tag tag--learn" title="learning" aria-hidden="true"></span>Docker<span class="sr-only"> (learning)</span><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                  <li><span class="tag tag--learn" title="learning" aria-hidden="true"></span>GitHub Actions<span class="sr-only"> (learning)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T6</span>
               <div>
                 <h3>Engineering habits</h3>
-                <p>Automated tests, structured logging, error handling, privacy by design, and documentation that admits its limits
-                  <a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a><a class="cite" href="#logiciel-experience" aria-label="Used at Logiciel Services">LOG</a></p>
+                <ul class="skills" aria-label="Engineering habits skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Automated tests<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Structured logging & error handling<span class="sr-only"> (used in projects)</span><a class="cite" href="#logiciel-experience" aria-label="Used in Logiciel Services">LOG</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>End-to-end testing with QA<span class="sr-only"> (used in projects)</span><a class="cite" href="#logiciel-experience" aria-label="Used in Logiciel Services">LOG</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Privacy by design<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Documentation that admits its limits<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                </ul>
               </div>
             </li>
           </ul>
           <p class="legend" aria-hidden="true">
-            <span><b>DT</b> DeepTrace AI</span><span><b>RIQ</b> ResumeIQ</span><span><b>BMI</b> Bank Marketing</span><span><b>SSO</b> Screenshot Organizer</span><span><b>DW</b> Data Warehouse</span><span><b>SX</b> SentixAI</span><span><b>LG</b> LeafGuard</span><span><b>CM</b> CineMatch</span><span><b>API</b> Shopify API</span><span><b>FYP</b> Final year project</span><span><b>LOG</b> Logiciel Services</span>
+            <span><b>DT</b> DeepTrace AI</span><span><b>RIQ</b> ResumeIQ</span><span><b>BMI</b> Bank Marketing</span><span><b>SSO</b> Screenshot Organizer</span><span><b>DW</b> Data Warehouse</span><span><b>SX</b> SentixAI</span><span><b>LG</b> LeafGuard</span><span><b>CM</b> CineMatch</span><span><b>API</b> Shopify API</span><span><b>FYP</b> Final year project</span><span><b>RW</b> RouteWise</span><span><b>LOG</b> Logiciel Services</span>
           </p>
         </div>
       </section>
@@ -714,12 +924,20 @@
                 doesn’t behave, I’d like to hear about it.
               </p>
               <div class="hero__ctas">
-                <a class="btn btn--pen" href="mailto:iqranawaz9353@gmail.com">Email me <span class="arrow" aria-hidden="true">↗</span></a>
-                <a class="btn" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf">Resume <span class="arrow arrow--down" aria-hidden="true">↓</span><span class="sr-only"> (PDF download)</span></a>
+                <a class="btn btn--pen" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf">Resume <span class="arrow arrow--down" aria-hidden="true">↓</span><span class="sr-only"> (PDF download)</span></a>
               </div>
             </div>
             <div class="contact__list">
-              <div><span class="label">Email</span><a href="mailto:iqranawaz9353@gmail.com">iqranawaz9353@gmail.com <span aria-hidden="true">↗</span></a></div>
+              <div class="email-row">
+                <span class="label">Email</span>
+                <span class="email-line">
+                  <a href="mailto:iqranawaz9353@gmail.com" id="emailAddress">iqranawaz9353@gmail.com</a>
+                  <button type="button" class="copy-btn" data-copy="iqranawaz9353@gmail.com" hidden>
+                    <span class="copy-btn__label">Copy</span><span class="sr-only"> email address</span>
+                  </button>
+                  <span class="copy-status" role="status" aria-live="polite"></span>
+                </span>
+              </div>
               <div><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/iqra-nawaz-b2216a25a/" target="_blank" rel="noopener noreferrer">in/iqra-nawaz <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
               <div><span class="label">GitHub</span><a href="https://github.com/Iqranawaz-debug" target="_blank" rel="noopener noreferrer">Iqranawaz-debug <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
               <div><span class="label">Based in</span><p>Karachi, Pakistan</p></div>
