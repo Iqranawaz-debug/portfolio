@@ -2242,3 +2242,177 @@ html.draft [data-todo]::before {
   .mini-diagram .md-horizontal { display: none; }
   .mini-diagram .md-vertical { display: block; }
 }
+
+/* ==========================================================================
+   v3 — step 2: hero proof stats and the live citation demo
+   ========================================================================== */
+.hero__aside {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: var(--s-3);
+}
+.proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+.proof > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: var(--s-1);
+  padding: var(--s-3) var(--s-3) var(--s-3) 0;
+}
+.proof > div + div {
+  padding-left: var(--s-3);
+  border-left: 1px solid var(--rule);
+}
+.proof dd {
+  font-family: var(--f-display);
+  font-size: clamp(1.9rem, 1.2rem + 1.6vw, 2.6rem);
+  line-height: 1;
+  font-feature-settings: "lnum", "tnum";
+  font-variant-numeric: tabular-nums lining-nums;
+  white-space: nowrap;
+}
+.proof dt {
+  font-size: var(--t-xs);
+  color: var(--graphite);
+  line-height: 1.35;
+}
+.proof__source {
+  margin-top: 0;
+}
+.proof__source a,
+.cite-demo .caption a {
+  color: inherit;
+}
+
+.cite-demo {
+  margin-top: var(--s-3);
+  padding: var(--s-4);
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-figure);
+  display: grid;
+  gap: var(--s-3);
+}
+.cd-row {
+  display: grid;
+  grid-template-columns: 4.2rem minmax(0, 1fr);
+  gap: var(--s-3);
+  align-items: baseline;
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--rule);
+}
+.cd-row p {
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  min-height: 3em;
+}
+.cd-claim {
+  font-family: var(--f-display);
+  font-size: var(--t-md) !important;
+  color: var(--ink);
+}
+.cd-quote {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs) !important;
+  color: var(--ink);
+}
+.cd-source {
+  color: var(--graphite);
+}
+.cd-source mark {
+  background: linear-gradient(var(--pen-wash), var(--pen-wash)) no-repeat;
+  background-size: 100% 100%;
+  color: var(--ink);
+  box-shadow: inset 0 -2px 0 var(--pen);
+  padding: 0 1px;
+}
+.cd-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+.cd-verdict {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-height: 1.5em;
+}
+.cd-verdict.is-pass {
+  color: var(--live);
+}
+.cd-verdict.is-fail {
+  color: var(--pen);
+}
+.cd-verdict.is-checking {
+  color: var(--quiet);
+}
+.cd-toggle {
+  min-height: 32px;
+  padding: 0 var(--s-3);
+  border: 1px solid var(--rule);
+  background: transparent;
+  border-radius: var(--radius);
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  cursor: pointer;
+  color: var(--graphite);
+}
+.cd-toggle:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.cd-toggle[hidden] {
+  display: none;
+}
+.cd-caret::after {
+  content: "▌";
+  color: var(--pen);
+  margin-left: 1px;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.about__aside.portrait {
+  grid-column: 10 / span 3;
+  grid-row: 1;
+  max-width: 240px;
+  justify-self: end;
+}
+@media (max-width: 1180px) {
+  .about__aside.portrait {
+    grid-column: 9 / span 4;
+  }
+}
+@media (max-width: 960px) {
+  .hero__aside {
+    max-width: 560px;
+  }
+  .about__aside.portrait {
+    justify-self: start;
+    max-width: 200px;
+  }
+}
+@media (max-width: 400px) {
+  .proof dd {
+    font-size: 1.6rem;
+  }
+  .cd-row {
+    grid-template-columns: 1fr;
+    gap: var(--s-1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cd-caret::after {
+    animation: none;
+  }
+}

@@ -125,9 +125,37 @@
         </div>
 
         <div class="hero__aside">
-          <figure class="portrait">
-            <img src="assets/images/portrait.webp" alt="Portrait of Iqra Nawaz" width="560" height="560" fetchpriority="high" />
-            <figcaption>Fig. 1 — Iqra Nawaz, Karachi.</figcaption>
+          <dl class="proof" aria-label="DeepTrace AI, verified at closure">
+            <div><dt>quotes verified</dt><dd><span class="count" data-count="9">9</span>/9</dd></div>
+            <div><dt>tests passing</dt><dd><span class="count" data-count="326">326</span></dd></div>
+            <div><dt>line &amp; branch coverage</dt><dd><span class="count" data-count="92">92</span>%</dd></div>
+          </dl>
+          <p class="caption proof__source">
+            <b>Source:</b> <a href="https://github.com/Iqranawaz-debug/DeepTrace-AI/blob/main/docs/PROJECT_CLOSURE.md" target="_blank" rel="noopener noreferrer">DeepTrace AI closure report <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          </p>
+
+          <figure class="cite-demo" aria-labelledby="cite-demo-caption" data-cite-demo>
+            <div class="cd-row">
+              <span class="label">Claim</span>
+              <p class="cd-claim">DeepTrace never lets the model pick which pages to read.</p>
+            </div>
+            <div class="cd-row">
+              <span class="label">Quote</span>
+              <p class="cd-quote">“never chooses a URL”</p>
+            </div>
+            <div class="cd-row">
+              <span class="label">Source</span>
+              <p class="cd-source">The model has no tools and <mark>never chooses a URL</mark>.</p>
+            </div>
+            <div class="cd-foot">
+              <p class="cd-verdict is-pass" role="status" aria-live="off"><span aria-hidden="true">✓</span> Quotation matched</p>
+              <button type="button" class="cd-toggle" hidden aria-pressed="false">Pause</button>
+            </div>
+            <figcaption id="cite-demo-caption" class="caption">
+              <b>Fig. 1</b> — A quotation check, actually running in your browser. Sentences are quoted
+              from the <a href="https://github.com/Iqranawaz-debug/DeepTrace-AI/blob/main/README.md" target="_blank" rel="noopener noreferrer">DeepTrace README <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>;
+              the rule mirrors the project’s check: the quote must appear in the saved source.
+            </figcaption>
           </figure>
         </div>
 
@@ -559,6 +587,10 @@
                 refusing to use a feature you won’t have at prediction time.
               </p>
             </div>
+            <figure class="portrait about__aside">
+              <img src="assets/images/portrait.webp" alt="Portrait of Iqra Nawaz" width="560" height="560" loading="lazy" decoding="async" />
+              <figcaption>Fig. 2 — Iqra Nawaz, Karachi.</figcaption>
+            </figure>
             <ul class="principles" aria-label="Working principles">
               <li>
                 <blockquote>Check the evidence with code, not trust.</blockquote>

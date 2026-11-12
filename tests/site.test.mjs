@@ -124,6 +124,11 @@ test("live demos point to deployed Streamlit apps", () => {
   assert.equal(demos.size, 2);
 });
 
+test("hero proof numbers match the DeepTrace closure report and link to it", () => {
+  for (const [n] of [["9"], ["326"], ["92"]]) assert.match(home, new RegExp(`data-count="${n}">${n}<`));
+  assert.match(home, /DeepTrace-AI\/blob\/main\/docs\/PROJECT_CLOSURE\.md/);
+});
+
 test("legacy anchors from the previous site still resolve", () => {
   const ids = idsOf(home);
   for (const id of [

@@ -228,5 +228,166 @@ for (const button of $$(".copy-btn")) {
   });
 }
 
+/* Count-up for proof numbers when they scroll into view ------------------ */
+const counters = $$(".count[data-count]");
+if (counters.length && "IntersectionObserver" in window && !reduceMotion.matches) {
+  const animate = (el) => {
+    const target = Number(el.dataset.count);
+    const duration = 1100;
+    const start = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      el.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const countObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        countObserver.unobserve(entry.target);
+        animate(entry.target);
+      }
+    },
+    { threshold: 0.6 },
+  );
+  counters.forEach((el) => {
+    el.textContent = "0";
+    countObserver.observe(el);
+  });
+}
+
+/* Citation demo: a real quotation check on sentences from the DeepTrace README */
+const citeDemo = $("[data-cite-demo]");
+if (citeDemo) {
+  const examples = [
+    {
+      claim: "DeepTrace never lets the model pick which pages to read.",
+      quote: "never chooses a URL",
+      source: "The model has no tools and never chooses a URL.",
+    },
+    {
+      claim: "Every claim DeepTrace cites is guaranteed to be true.",
+      quote: "guaranteed to be true",
+      source:
+        "The interface says plainly that a valid citation shows the source says those words, not that the claim is true.",
+    },
+    {
+      claim: "DeepTrace respects what websites allow crawlers to read.",
+      quote: "robots.txt is followed",
+      source: "robots.txt is followed (RFC 9309).",
+    },
+  ];
+  const el = {
+    claim: $(".cd-claim", citeDemo),
+    quote: $(".cd-quote", citeDemo),
+    source: $(".cd-source", citeDemo),
+    verdict: $(".cd-verdict", citeDemo),
+    toggle: $(".cd-toggle", citeDemo),
+  };
+  const normalise = (text) => text.toLowerCase().replace(/\s+/g, " ").trim();
+  const check = (quote, source) => normalise(source).indexOf(normalise(quote));
+  let index = 0;
+  let paused = false;
+  let timer = 0;
+  let running = false;
+
+  function setVerdict(state, text) {
+    el.verdict.className = `cd-verdict is-${state}`;
+    el.verdict.textContent = "";
+    if (state !== "checking") {
+      const icon = document.createElement("span");
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = state === "pass" ? "✓ " : "✗ ";
+      el.verdict.append(icon);
+    }
+    el.verdict.append(text);
+  }
+  function renderSource(example, highlight) {
+    el.source.textContent = "";
+    const at = check(example.quote, example.source);
+    if (!highlight || at < 0) {
+      el.source.textContent = example.source;
+      return;
+    }
+    const mark = document.createElement("mark");
+    mark.textContent = example.source.slice(at, at + example.quote.length);
+    el.source.append(example.source.slice(0, at), mark, example.source.slice(at + example.quote.length));
+  }
+  function showFinal(example) {
+    el.claim.textContent = example.claim;
+    el.quote.textContent = `“${example.quote}”`;
+    renderSource(example, true);
+    const found = check(example.quote, example.source) >= 0;
+    setVerdict(found ? "pass" : "fail", found ? "Quotation matched" : "Not in source — citation suppressed");
+  }
+  const wait = (ms) =>
+    new Promise((resolve) => {
+      timer = setTimeout(resolve, ms);
+    });
+  async function waitWhilePaused() {
+    while (paused) await wait(200);
+  }
+  async function type(target, text) {
+    target.textContent = "";
+    target.classList.add("cd-caret");
+    for (let i = 1; i <= text.length; i += 1) {
+      await waitWhilePaused();
+      target.textContent = text.slice(0, i);
+      await wait(22);
+    }
+    target.classList.remove("cd-caret");
+  }
+  async function loop() {
+    if (running) return;
+    running = true;
+    for (;;) {
+      const example = examples[index];
+      el.source.textContent = example.source;
+      el.quote.textContent = "";
+      setVerdict("checking", "Waiting for a claim…");
+      await type(el.claim, example.claim);
+      await wait(350);
+      await type(el.quote, `“${example.quote}”`);
+      await waitWhilePaused();
+      setVerdict("checking", "Checking the saved source…");
+      await wait(700);
+      await waitWhilePaused();
+      showFinal(example);
+      await wait(3200);
+      await waitWhilePaused();
+      index = (index + 1) % examples.length;
+    }
+  }
+
+  el.toggle.hidden = false;
+  if (reduceMotion.matches) {
+    // No autoplay: show a finished check and let the visitor step through examples.
+    el.toggle.textContent = "Next example";
+    el.toggle.removeAttribute("aria-pressed");
+    el.verdict.setAttribute("aria-live", "polite");
+    showFinal(examples[index]);
+    el.toggle.addEventListener("click", () => {
+      index = (index + 1) % examples.length;
+      showFinal(examples[index]);
+    });
+  } else {
+    el.toggle.addEventListener("click", () => {
+      paused = !paused;
+      el.toggle.textContent = paused ? "Play" : "Pause";
+      el.toggle.setAttribute("aria-pressed", String(paused));
+    });
+    // Start only once the demo is on screen.
+    const demoObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        demoObserver.disconnect();
+        loop();
+      }
+    });
+    demoObserver.observe(citeDemo);
+  }
+}
+
 /* Draft mode: ?draft outlines every TODO slot so missing content is easy to find */
 if (new URLSearchParams(location.search).has("draft")) document.documentElement.classList.add("draft");

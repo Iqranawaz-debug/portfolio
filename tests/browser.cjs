@@ -176,6 +176,23 @@ async function loadAllImages(page) {
   await still.goto(baseURL);
   assert.equal(await still.locator(".reveal").first().evaluate((e) => getComputedStyle(e).opacity), "1");
 
+  // Proof numbers show final values and the citation demo steps manually under reduced motion.
+  assert.deepEqual(await still.locator(".count").allTextContents(), ["9", "326", "92"]);
+  assert.match(await still.locator(".cd-verdict").textContent(), /Quotation matched/);
+  await still.getByRole("button", { name: "Next example" }).click();
+  assert.match(await still.locator(".cd-verdict").textContent(), /Not in source/);
+
+  // With motion: numbers count up to their targets and the demo plays and pauses.
+  const moving = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  watch(moving, errors);
+  await moving.goto(baseURL);
+  await moving.waitForFunction(() => [...document.querySelectorAll(".count")].map((e) => e.textContent).join() === "9,326,92");
+  await moving.waitForFunction(() => document.querySelector(".cd-verdict").classList.contains("is-pass"), null, { timeout: 15000 });
+  await moving.getByRole("button", { name: "Pause" }).click();
+  assert.equal(await moving.getByRole("button", { name: "Play" }).getAttribute("aria-pressed"), "true");
+  await moving.close();
+  results.push({ hero: "count-up, citation demo pass/fail, pause, reduced-motion stepping" });
+
   // 5. Without JavaScript everything is readable and the filter is not offered.
   const noJS = await browser.newPage({ javaScriptEnabled: false, viewport: { width: 320, height: 800 } });
   await noJS.goto(baseURL);
