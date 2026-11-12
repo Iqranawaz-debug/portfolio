@@ -1,197 +1,188 @@
+// Browser regression tests. Start the preview first (`npm run build && npm start`).
+// Set BROWSER_CHANNEL=msedge (or chrome) to use a branded browser; defaults to bundled Chromium.
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+
 const baseURL = process.env.PORTFOLIO_URL || "http://127.0.0.1:4173";
 const outputDir = path.resolve("test-results");
 fs.mkdirSync(outputDir, { recursive: true });
+const pages = [
+  "/",
+  "/work/deeptrace-ai.html",
+  "/work/resumeiq.html",
+  "/work/bank-marketing-intelligence.html",
+];
+const widths = [320, 375, 430, 768, 1024, 1280, 1440, 1920];
+
+function watch(page, errors) {
+  page.on("pageerror", (e) => errors.push(`${page.url()} ${e.message}`));
+  page.on("console", (m) => m.type() === "error" && errors.push(`${page.url()} ${m.text()}`));
+  page.on("response", (r) => {
+    if (r.status() >= 400 && !r.url().includes("/missing")) errors.push(`${r.status()} ${r.url()}`);
+  });
+}
+
+async function noOverflow(page, label) {
+  const overflow = await page.evaluate(() =>
+    [...document.querySelectorAll("body *")]
+      .filter((e) => {
+        const r = e.getBoundingClientRect();
+        return r.width && (r.right > innerWidth + 1 || r.left < -1) && !e.closest(".skip-link, .sr-only, .preview, pre");
+      })
+      .map((e) => `${e.tagName}.${e.className}`),
+  );
+  assert.deepEqual(overflow, [], `Overflow at ${label}: ${overflow}`);
+}
+
+async function loadAllImages(page) {
+  await page.evaluate(async () => {
+    for (const img of document.querySelectorAll("img[loading=lazy]")) img.loading = "eager";
+    await Promise.all([...document.images].filter((i) => i.getAttribute("src")).map((i) => i.decode()));
+  });
+  const broken = await page.evaluate(() =>
+    [...document.images].filter((i) => i.getAttribute("src") && !i.naturalWidth).map((i) => i.src),
+  );
+  assert.deepEqual(broken, [], `Broken images on ${page.url()}`);
+}
+
 (async () => {
-  // Set BROWSER_CHANNEL=msedge (or chrome) to test a branded browser; defaults to bundled Chromium.
   const channel = process.env.BROWSER_CHANNEL;
   const browser = await chromium.launch({ headless: true, ...(channel && { channel }) });
-  const page = await browser.newPage({ reducedMotion: "reduce" });
   const errors = [];
-  page.on("pageerror", (e) => errors.push(e.message));
-  page.on("console", (m) => {
-    if (m.type() === "error") errors.push(m.text());
-  });
   const results = [];
-  for (const width of [320, 375, 430, 768, 1024, 1280, 1440, 1920]) {
-    await page.setViewportSize({ width, height: 900 });
-    await page.goto(baseURL);
-    await page.locator("h1").waitFor();
-    const overflow = await page.evaluate(() =>
-      [...document.querySelectorAll("body *")]
-        .filter((e) => {
-          const r = e.getBoundingClientRect();
-          return (
-            r.width &&
-            (r.right > innerWidth + 1 || r.left < -1) &&
-            !e.classList.contains("skip-link") &&
-            !e.classList.contains("sr-only")
-          );
-        })
-        .map((e) => e.tagName + "." + e.className),
-    );
-    assert.deepEqual(overflow, [], `Overflow at ${width}: ${overflow}`);
-    assert.equal(
-      await page
-        .locator('img:not([loading="lazy"])')
-        .evaluateAll((imgs) =>
-          imgs.every((i) => i.complete && i.naturalWidth > 0),
-        ),
-      true,
-    );
-    if (width <= 900) {
-      await page.getByRole("button", { name: "Menu" }).click();
-      await page
-        .getByRole("navigation")
-        .getByRole("link", { name: "Projects", exact: true })
-        .click();
-      assert.equal(
-        await page.locator("#menuToggle").getAttribute("aria-expanded"),
-        "false",
-      );
-      assert.equal(
-        await page
-          .locator("#projects")
-          .evaluate((e) => document.activeElement === e),
-        true,
-      );
-      const menuBox = await page
-        .getByRole("button", { name: "Menu" })
-        .boundingBox();
-      await page.mouse.click(
-        menuBox.x + menuBox.width / 2,
-        menuBox.y + menuBox.height / 2,
-      );
-      await page.keyboard.press("Escape");
-      assert.equal(
-        await page
-          .locator("#menuToggle")
-          .evaluate((e) => document.activeElement === e),
-        true,
-      );
-      assert.equal(await page.locator("#navMenu").isVisible(), false);
-    } else {
-      assert.equal(await page.locator("#menuToggle").isVisible(), false);
-      assert.equal(await page.locator(".nav-link:visible").count(), 6);
-      await page
-        .getByRole("navigation")
-        .getByRole("link", { name: "Projects", exact: true })
-        .click();
+
+  // 1. Every page, every width: no overflow, images decode, fonts load.
+  for (const url of pages) {
+    for (const width of widths) {
+      const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: "reduce" });
+      watch(page, errors);
+      await page.goto(baseURL + url);
+      await page.locator("h1").waitFor();
+      await page.evaluate(() => document.fonts.ready);
+      await noOverflow(page, `${url} @ ${width}px`);
+      await loadAllImages(page);
+      if (url === "/" && [375, 1440].includes(width))
+        await page.screenshot({ path: path.join(outputDir, `home-${width}.png`), fullPage: true });
+      await page.close();
     }
-    await page.waitForFunction(
-      () =>
-        document
-          .querySelector('.nav-link[href="#projects"]')
-          .getAttribute("aria-current") === "location",
-    );
-    for (const detail of await page.locator("details").all()) {
-      await detail.locator("summary").click();
-      assert.equal(await detail.getAttribute("open"), "");
-      await detail.locator("summary").click();
-    }
-    const filters = page.getByRole("group", { name: "Filter projects by area" });
-    const allCards = await page.locator(".mini-card").count();
-    await filters.getByRole("button", { name: "Data & Analytics" }).click();
-    const shown = await page.locator(".mini-card:visible").count();
-    assert.ok(shown > 0 && shown < allCards, "Filter narrows projects");
-    await filters.getByRole("button", { name: "All" }).click();
-    assert.equal(await page.locator(".mini-card:visible").count(), allCards);
-    for (const picture of await page.locator('img[loading="lazy"]').all()) {
-      await picture.scrollIntoViewIfNeeded();
-      await picture.evaluate((img) => img.decode());
-      assert.equal(await picture.evaluate((img) => img.naturalWidth > 0), true);
-    }
-    await page
-      .getByRole("navigation")
-      .getByRole("link", { name: "Iqra Nawaz, home" })
-      .click();
-    await page.screenshot({
-      path: path.join(outputDir, `portfolio-${width}.png`),
-      fullPage: true,
-    });
-    results.push({ width, overflow: false, menu: "pass", projects: "pass" });
+    results.push({ url, widths: widths.length, overflow: "none", images: "ok" });
   }
-  await page.setViewportSize({ width: 375, height: 800 });
-  await page.goto(baseURL);
-  await page.keyboard.press("Tab");
-  assert.equal(
-    await page
-      .locator(".skip-link")
-      .evaluate((e) => document.activeElement === e),
-    true,
+
+  // 2. Desktop navigation, active section, archive filter, preview, annotations.
+  const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" });
+  watch(desktop, errors);
+  await desktop.goto(baseURL);
+  assert.equal(await desktop.locator("#menuToggle").isVisible(), false);
+  assert.equal(await desktop.locator(".nav__link:visible").count(), 6);
+  await desktop.getByRole("navigation").getByRole("link", { name: /Archive/ }).click();
+  await desktop.waitForFunction(
+    () => document.querySelector('.nav__link[href="#archive"]').getAttribute("aria-current") === "location",
   );
-  await page.keyboard.press("Enter");
-  assert.equal(
-    await page.locator("main").evaluate((e) => document.activeElement === e),
-    true,
+  assert.equal(await desktop.locator("#archive").evaluate((e) => document.activeElement === e), true);
+
+  const filters = desktop.getByRole("group", { name: "Filter projects by area" });
+  const all = await desktop.locator(".archive__row").count();
+  await filters.getByRole("button", { name: "Data & Analytics" }).click();
+  const shown = await desktop.locator(".archive__row:visible").count();
+  assert.ok(shown > 0 && shown < all, "Filter narrows the archive");
+  assert.equal(await desktop.locator(".filter-status").textContent(), `${shown} projects`);
+  // A citation link to a filtered-out row resets the filter and lands on it.
+  await desktop.locator('.cite[href="#sentix-project"]').click();
+  assert.equal(await desktop.locator(".archive__row:visible").count(), all);
+  assert.equal(await desktop.locator("#sentix-project").evaluate((e) => document.activeElement === e), true);
+
+  await desktop.locator("#warehouse-project").hover();
+  await desktop.waitForFunction(() => document.querySelector(".preview").classList.contains("is-visible"));
+  await desktop.locator('.notes li[data-note="2"]').hover();
+  assert.equal(await desktop.locator('.pin[data-note="2"]').evaluate((e) => e.classList.contains("is-active")), true);
+
+  // Theme toggle changes the palette and persists.
+  const bg = () => desktop.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  const before = await bg();
+  await desktop.locator("#themeToggle").click();
+  await desktop.waitForFunction(
+    (initial) => getComputedStyle(document.body).backgroundColor !== initial,
+    before,
   );
+  const after = await bg();
+  assert.notEqual(before, after, "Theme toggle changes the palette");
+  await desktop.goto(baseURL + "/work/resumeiq.html");
+  assert.equal(await bg(), after, "Theme persists across pages");
+  await desktop.evaluate(() => localStorage.removeItem("theme"));
+
+  // Case-study page links back home and to the next study.
+  await desktop.getByRole("link", { name: /Bank Marketing Intelligence/ }).last().click();
+  await desktop.waitForURL(/bank-marketing-intelligence/);
+  await desktop.getByRole("link", { name: /All work/ }).click();
+  await desktop.waitForURL(/index\.html#projects/);
+  results.push({ desktop: "nav, filter, citation reset, preview, annotations, theme, page links" });
+
+  // 3. Mobile menu, keyboard and focus.
+  const mobile = await browser.newPage({ viewport: { width: 375, height: 800 }, reducedMotion: "reduce" });
+  watch(mobile, errors);
+  await mobile.goto(baseURL);
+  assert.equal(await mobile.locator("#navMenu").isVisible(), false);
+  await mobile.getByRole("button", { name: "Menu" }).click();
+  assert.equal(await mobile.locator("#navMenu").isVisible(), true);
+  await mobile.getByRole("navigation").getByRole("link", { name: /Experience/ }).click();
+  assert.equal(await mobile.locator("#menuToggle").getAttribute("aria-expanded"), "false");
+  assert.equal(await mobile.locator("#experience").evaluate((e) => document.activeElement === e), true);
+  await mobile.getByRole("button", { name: "Menu" }).click();
+  await mobile.keyboard.press("Escape");
+  assert.equal(await mobile.locator("#menuToggle").evaluate((e) => document.activeElement === e), true);
+  assert.equal(await mobile.locator("#navMenu").isVisible(), false);
+  // Touch devices get no hover preview.
+  assert.equal(await mobile.locator(".preview").isVisible(), false);
+
+  await mobile.goto(baseURL);
+  await mobile.keyboard.press("Tab");
+  assert.equal(await mobile.locator(".skip-link").evaluate((e) => document.activeElement === e), true);
+  await mobile.keyboard.press("Enter");
+  assert.equal(await mobile.locator("main").evaluate((e) => document.activeElement === e), true);
+
   const [download] = await Promise.all([
-    page.waitForEvent("download"),
-    page.getByRole("link", { name: /Download Resume/ }).click(),
+    mobile.waitForEvent("download"),
+    mobile.getByRole("link", { name: /Download Resume/ }).click(),
   ]);
   assert.equal(download.suggestedFilename(), "Iqra-Nawaz-Resume.pdf");
   assert.equal(await download.failure(), null);
-  assert.equal(
-    await page.evaluate(
-      () => getComputedStyle(document.documentElement).scrollBehavior,
-    ),
-    "auto",
-  );
-  await page.getByRole("button", { name: "Menu" }).click();
-  await page.setViewportSize({ width: 1280, height: 900 });
-  await page.waitForFunction(
-    () => document.querySelector("#menuToggle").hidden,
-  );
-  assert.equal(await page.locator("#navMenu").isVisible(), true);
-  assert.equal(await page.locator("#menuToggle").isVisible(), false);
-  const noJS = await browser.newPage({
-    javaScriptEnabled: false,
-    viewport: { width: 320, height: 800 },
-  });
+  assert.equal(await mobile.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior), "auto");
+
+  // Resize from mobile to desktop restores the inline navigation.
+  await mobile.getByRole("button", { name: "Menu" }).click();
+  await mobile.setViewportSize({ width: 1280, height: 900 });
+  await mobile.waitForFunction(() => document.querySelector("#menuToggle").hidden);
+  assert.equal(await mobile.locator("#navMenu").isVisible(), true);
+  results.push({ mobile: "menu, Escape, focus, skip link, resume download, resize" });
+
+  // 4. Reduced motion: reveals are visible immediately and nothing animates.
+  const still = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion: "reduce" });
+  await still.goto(baseURL);
+  assert.equal(await still.locator(".reveal").first().evaluate((e) => getComputedStyle(e).opacity), "1");
+
+  // 5. Without JavaScript everything is readable and the filter is not offered.
+  const noJS = await browser.newPage({ javaScriptEnabled: false, viewport: { width: 320, height: 800 } });
   await noJS.goto(baseURL);
   assert.equal(await noJS.locator("#navMenu").isVisible(), true);
-  assert.equal(await noJS.locator("#projects").isVisible(), true);
-  assert.equal(await noJS.locator(".project-filters").isVisible(), false);
-  assert.equal(
-    await noJS.locator(".mini-card:visible").count(),
-    await noJS.locator(".mini-card").count(),
-  );
+  assert.equal(await noJS.locator(".filters").isVisible(), false);
+  assert.equal(await noJS.locator(".archive__row:visible").count(), await noJS.locator(".archive__row").count());
+  assert.equal(await noJS.locator("#deeptrace-project").isVisible(), true);
   await noJS.close();
-  const response = await page.request.get(`${baseURL}/missing`);
+
+  // 6. Unknown routes return 404 with the styled not-found page.
+  const lost = await browser.newPage();
+  const response = await lost.goto(`${baseURL}/missing/deeper/page`);
   assert.equal(response.status(), 404);
-  assert.deepEqual(errors, []);
-  fs.writeFileSync(
-    path.join(outputDir, "browser-results.json"),
-    JSON.stringify(
-      {
-        results,
-        errors,
-        cvDownload: "pass",
-        keyboard: "pass",
-        reducedMotion: "pass",
-        noJavaScript: "pass",
-        resize: "pass",
-        notFound: "pass",
-      },
-      null,
-      2,
-    ),
-  );
-  console.log(
-    JSON.stringify(
-      {
-        results,
-        errors,
-        additional:
-          "CV download, keyboard, reduced motion, no-JS, resize and 404 passed",
-      },
-      null,
-      2,
-    ),
-  );
+  assert.match(await lost.locator("h1").textContent(), /isn’t in the/);
+  assert.notEqual(await lost.evaluate(() => getComputedStyle(document.body).fontFamily), "");
+  assert.equal(await lost.evaluate(() => getComputedStyle(document.body).backgroundColor) === "rgba(0, 0, 0, 0)", false);
+  results.push({ extras: "reduced motion, no-JS, styled 404" });
+
+  assert.deepEqual(errors, [], "No console errors, page errors or failed requests");
+  fs.writeFileSync(path.join(outputDir, "browser-results.json"), JSON.stringify({ results, errors }, null, 2));
+  console.log(JSON.stringify({ results, errors }, null, 2));
   await browser.close();
 })().catch((e) => {
   console.error(e);

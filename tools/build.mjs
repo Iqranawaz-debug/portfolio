@@ -1,25 +1,14 @@
 import { mkdir, copyFile, rm } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
+import { siteFiles } from "./site-files.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-// Explicit allowlist keeps unreferenced certificates, source, and secrets out of deployment.
-const files = [
-  "index.html",
-  "style.css",
-  "script.js",
-  "IMG.jpg",
-  "assets/favicon.svg",
-  "assets/images/fyp-teacher.png",
-  "assets/Iqra-Nawaz-Resume.pdf",
-  "sitemap.xml",
-  "robots.txt",
-];
-for (const file of files) {
+// Explicit allowlist keeps certificates, source, tooling and secrets out of deployment.
+await rm(resolve(root, "dist"), { recursive: true, force: true });
+for (const file of siteFiles) {
   const target = resolve(root, "dist", file);
   await mkdir(dirname(target), { recursive: true });
   await copyFile(resolve(root, file), target);
 }
-// Remove only the obsolete generated download; preserve the original in assets/.
-await rm(resolve(root, "dist/assets/Iqra-Nawaz-CV.docx"), { force: true });
-console.log(`Production build complete: ${files.length} files in dist/.`);
+console.log(`Production build complete: ${siteFiles.length} files in dist/.`);

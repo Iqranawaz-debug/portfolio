@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // GitHub Pages serves this page for missing URLs at any depth, so pin asset URLs
+      // to the site root: /portfolio/ on GitHub Pages, / on the local preview.
+      (function () {
+        var root = location.pathname.indexOf("/portfolio/") === 0 ? "/portfolio/" : "/";
+        var base = document.createElement("base");
+        base.href = root;
+        document.head.appendChild(base);
+        // Inject assets after the base exists; a static <link> would be pre-fetched
+        // against the broken URL before this script runs.
+        var css = document.createElement("link");
+        css.rel = "stylesheet";
+        css.href = root + "style.css";
+        document.head.appendChild(css);
+        var icon = document.createElement("link");
+        icon.rel = "icon";
+        icon.type = "image/svg+xml";
+        icon.href = root + "assets/favicon.svg";
+        document.head.appendChild(icon);
+      })();
+    </script>
+    <title>Page not found · Iqra Nawaz</title>
+    <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="light dark" />
+    <noscript><link rel="stylesheet" href="/portfolio/style.css" /></noscript>
+    <script>
+      try {
+        const saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <main id="main" class="wrap lost">
+      <p class="kicker"><span class="index">404</span> · Citation not found</p>
+      <h1>This page isn’t in the <em class="pen">sources.</em></h1>
+      <p class="lede">The link may be old, or mistyped. Either way, I won’t make something up to fill the space.</p>
+      <p class="links">
+        <a class="btn btn--pen" href="./">Back to the portfolio <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="link" href="./#projects">Selected work</a>
+        <a class="link" href="mailto:iqranawaz9353@gmail.com">Email Iqra</a>
+      </p>
+    </main>
+  </body>
+</html>
