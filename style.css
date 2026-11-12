@@ -2905,3 +2905,18 @@ kbd,
   }
 }
 .palette-btn__kbd { white-space: nowrap; }
+
+/* ==========================================================================
+   v3 — step 6: file trees wrap instead of scrolling on small phones
+   ========================================================================== */
+@media (max-width: 480px) {
+  .tree {
+    font-size: 0.7rem;
+  }
+  .tree pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    overflow-x: visible;
+    padding: var(--s-3);
+  }
+}

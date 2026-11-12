@@ -168,6 +168,22 @@ test("command palette button is on every page, hidden until the script enables i
     assert.match(docs[page], /<button class="palette-btn" id="paletteOpen"[^>]*aria-keyshortcuts="Control\+K Meta\+K"[^>]*hidden>/, page);
 });
 
+test("every indexable page has description, canonical, Open Graph and Twitter card tags", () => {
+  for (const page of ["index.html", "work/deeptrace-ai.html", "work/resumeiq.html", "work/bank-marketing-intelligence.html"]) {
+    const html = docs[page];
+    for (const re of [
+      /<meta\s+name="description"\s+content="[^"]{60,}"/,
+      /<link rel="canonical" href="https:\/\/iqranawaz-debug\.github\.io\/portfolio\//,
+      /property="og:title"/, /property="og:description"/, /property="og:url"/,
+      /property="og:image" content="https:\/\/[^"]+og-card\.png"/, /property="og:image:width" content="1200"/,
+      /property="og:image:height" content="630"/, /property="og:image:alt"/,
+      /name="twitter:card" content="summary_large_image"/, /name="twitter:title"/,
+      /name="twitter:description"/, /name="twitter:image"/, /name="twitter:image:alt"/,
+    ])
+      assert.match(html, re, `${page}: ${re}`);
+  }
+});
+
 test("legacy anchors from the previous site still resolve", () => {
   const ids = idsOf(home);
   for (const id of [

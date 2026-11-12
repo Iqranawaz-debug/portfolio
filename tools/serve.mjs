@@ -2,6 +2,7 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { extname, resolve } from "node:path";
+import { gzipSync } from "node:zlib";
 import { siteFiles } from "./site-files.mjs";
 
 const root = fileURLToPath(new URL("../dist/", import.meta.url));
@@ -19,6 +20,18 @@ const types = {
   ".txt": "text/plain; charset=utf-8",
   ".xml": "application/xml; charset=utf-8",
 };
+// Text assets are gzipped, as GitHub Pages does, so local Lighthouse runs reflect production.
+const compressible = new Set([".html", ".css", ".js", ".svg", ".txt", ".xml"]);
+function send(request, response, status, ext, data) {
+  const type = types[ext] || "application/octet-stream";
+  const headers = { "Content-Type": type, "X-Content-Type-Options": "nosniff", Vary: "Accept-Encoding" };
+  if (compressible.has(ext) && /\bgzip\b/.test(request.headers["accept-encoding"] || "")) {
+    headers["Content-Encoding"] = "gzip";
+    data = gzipSync(data);
+  }
+  response.writeHead(status, headers);
+  response.end(data);
+}
 const port = Number(process.env.PORT || 4173);
 createServer(async (request, response) => {
   try {
@@ -29,16 +42,11 @@ createServer(async (request, response) => {
     if (!allowed.has(file)) {
       // Mirror GitHub Pages: unknown routes get the custom 404 page with a 404 status.
       const notFound = await readFile(resolve(root, "404.html"));
-      response.writeHead(404, { "Content-Type": types[".html"] });
-      response.end(notFound);
+      send(request, response, 404, ".html", notFound);
       return;
     }
     const data = await readFile(resolve(root, `.${file}`));
-    response.writeHead(200, {
-      "Content-Type": types[extname(file)] || "application/octet-stream",
-      "X-Content-Type-Options": "nosniff",
-    });
-    response.end(data);
+    send(request, response, 200, extname(file), data);
   } catch {
     response.writeHead(500, { "Content-Type": "text/plain" });
     response.end("Unable to load resource. Run npm run build first.");

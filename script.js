@@ -612,13 +612,19 @@ if ("IntersectionObserver" in window && !reduceMotion.matches) {
     },
     { rootMargin: "0px 0px -6% 0px" },
   );
-  extra.forEach((el, i) => {
-    // Only animate what starts below the fold, so nothing visible on load jumps.
-    if (el.getBoundingClientRect().top < window.innerHeight) return;
-    el.classList.add("reveal");
-    el.style.setProperty("--reveal-delay", `${(i % 3) * 70}ms`);
-    io.observe(el);
-  });
+  const setup = () => {
+    // Read every position first, then write: interleaving forces a layout per element.
+    const fold = window.innerHeight;
+    const below = extra.filter((el) => el.getBoundingClientRect().top >= fold);
+    below.forEach((el, i) => {
+      // Only animate what starts below the fold, so nothing visible on load jumps.
+      el.classList.add("reveal");
+      el.style.setProperty("--reveal-delay", `${(i % 3) * 70}ms`);
+      io.observe(el);
+    });
+  };
+  if ("requestIdleCallback" in window) requestIdleCallback(setup, { timeout: 800 });
+  else setTimeout(setup, 200);
 }
 
 /* Draft mode: ?draft outlines every TODO slot so missing content is easy to find */
