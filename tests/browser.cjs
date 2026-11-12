@@ -189,6 +189,11 @@ async function loadAllImages(page) {
   await moving.waitForFunction(() => [...document.querySelectorAll(".count")].map((e) => e.textContent).join() === "9,326,92");
   await moving.waitForFunction(() => document.querySelector(".cd-verdict").classList.contains("is-pass"), null, { timeout: 15000 });
   await moving.getByRole("button", { name: "Pause" }).click();
+  // AUC bars start collapsed and grow to full width once the chart is on screen.
+  const barScale = () => moving.locator(".model-chart .is-selected .bar").evaluate((e) => getComputedStyle(e).transform);
+  assert.match(await barScale(), /^matrix\(0,/);
+  await moving.locator(".model-chart").scrollIntoViewIfNeeded();
+  await moving.waitForFunction(() => getComputedStyle(document.querySelector(".model-chart .is-selected .bar")).transform.startsWith("matrix(1,"));
   assert.equal(await moving.getByRole("button", { name: "Play" }).getAttribute("aria-pressed"), "true");
   await moving.close();
   results.push({ hero: "count-up, citation demo pass/fail, pause, reduced-motion stepping" });

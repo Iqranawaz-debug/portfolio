@@ -5,7 +5,11 @@ import { pages, siteFiles } from "../tools/site-files.mjs";
 
 const root = new URL("../", import.meta.url);
 const read = (file) => readFile(new URL(file, root), "utf8");
-const docs = Object.fromEntries(await Promise.all(pages.map(async (p) => [p, await read(p)])));
+// HTML comments hold TODO templates for content not supplied yet; they are not rendered, so skip them.
+const stripComments = (html) => html.replace(/<!--[\s\S]*?-->/g, "");
+const docs = Object.fromEntries(
+  await Promise.all(pages.map(async (p) => [p, stripComments(await read(p))])),
+);
 const home = docs["index.html"];
 const text = (html) => html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
 const idsOf = (html) => [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
@@ -86,7 +90,7 @@ test("verified facts stay on the homepage", () => {
     "0.795",
     "77.0%",
     "Arisha Salman",
-    "~92% accuracy on 1,000+ reviews",
+    "86.4% accuracy and 0.614 macro-F1 on 4,500 held-out reviews",
     "In development",
     "Currently building",
     "Logiciel Services",
@@ -127,6 +131,25 @@ test("live demos point to deployed Streamlit apps", () => {
 test("hero proof numbers match the DeepTrace closure report and link to it", () => {
   for (const [n] of [["9"], ["326"], ["92"]]) assert.match(home, new RegExp(`data-count="${n}">${n}<`));
   assert.match(home, /DeepTrace-AI\/blob\/main\/docs\/PROJECT_CLOSURE\.md/);
+});
+
+test("each featured project has a problem line, a 'do differently' note and a clip slot", () => {
+  for (const id of ["deeptrace-project", "resumeiq-project", "bank-project", "screenshot-project"]) {
+    const start = home.indexOf(`id="${id}"`);
+    const block = home.slice(start, home.indexOf("</article>", start));
+    assert.match(block, /class="problem-line"/, `${id}: problem line`);
+    assert.match(block, /What I’d do differently/, `${id}: differently note`);
+    assert.match(block, /class="media-slot"[^>]*hidden/, `${id}: hidden clip slot`);
+  }
+  for (const page of ["work/deeptrace-ai.html", "work/resumeiq.html", "work/bank-marketing-intelligence.html"]) {
+    assert.match(docs[page], /What I’d do differently/, `${page}: differently chapter`);
+    assert.match(docs[page], /Where every number comes from/, `${page}: sources`);
+  }
+});
+
+test("Bank Marketing has a prominent Try it live link to the Streamlit app", () => {
+  for (const html of [home, docs["work/bank-marketing-intelligence.html"]])
+    assert.match(html, /class="try-live[^"]*" href="https:\/\/bank-marketing-intelligence-[\w-]+\.streamlit\.app\/"/);
 });
 
 test("legacy anchors from the previous site still resolve", () => {

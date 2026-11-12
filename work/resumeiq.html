@@ -131,6 +131,20 @@
                 <tr><th scope="row">Docker and CI</th><td>Configuration written; per the README, not yet built or run in the verification environment</td></tr>
               </tbody>
             </table>
+            <div class="sources">
+              <span class="label">Where every number comes from</span>
+              <ul>
+              <li><a href="https://github.com/Iqranawaz-debug/ResumeIQ/blob/main/docs/phase6-recruiter-workflow.md" target="_blank" rel="noopener noreferrer">Phase 6 report — 299 backend and 72 frontend tests <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://github.com/Iqranawaz-debug/ResumeIQ/blob/main/README.md" target="_blank" rel="noopener noreferrer">README — known limitations and future work <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://github.com/Iqranawaz-debug/ResumeIQ/commits/main" target="_blank" rel="noopener noreferrer">Commit history — who built what <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              </ul>
+            </div>
+            <!-- TODO(iqra): add a short looping clip for ResumeIQ (assets/work/resumeiq-demo.webm + poster),
+                 then replace this slot with a <video class="loop" muted loop playsinline preload="none"> element
+                 (see the template in index.html) and add the files to tools/site-files.mjs. -->
+            <figure class="media-slot" data-todo="ResumeIQ — looping demo clip" hidden>
+              <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+            </figure>
           </div>
         </section>
 
@@ -152,6 +166,18 @@
           <div class="chapter__label"><span class="index">07</span><h2 id="c7">Outcome</h2></div>
           <div class="chapter__body">
             <p>A full-stack application that gives candidates and recruiters useful, honest feedback with its evidence attached — without letting an external AI service quietly decide the result.</p>
+          </div>
+        </section>
+
+        <!-- TODO(iqra): confirm or rewrite in your own words; drawn from the documented limitations and next steps. -->
+        <section class="grid chapter" aria-labelledby="c8">
+          <div class="chapter__label"><span class="index">08</span><h2 id="c8">What I’d do differently</h2></div>
+          <div class="chapter__body">
+            <ul>
+              <li>Build and run the Docker images and CI in the same pass as writing them; the README still lists them as not yet run.</li>
+              <li>Ship a hosted demo with the bundled fictional resume, so reviewers can try it without cloning.</li>
+              <li>Move sessions out of process memory early, so a restart doesn’t sign everyone out.</li>
+            </ul>
           </div>
         </section>
       </div>

@@ -50,6 +50,11 @@
         <p class="crumbs"><a href="../index.html#projects">Selected work</a> / Case study 03</p>
         <h1>Bank Marketing Intelligence</h1>
         <p class="lede">Who’s worth calling? A term-deposit model that only uses what the bank knows before the phone rings — and an app that says what its numbers do and don’t mean.</p>
+        <a class="try-live study-hero__live" href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/" target="_blank" rel="noopener noreferrer">
+          <span class="try-live__dot" aria-hidden="true"></span>
+          <span class="try-live__text"><strong>Try it live</strong><span>Score a customer or upload a CSV in the Streamlit app</span></span>
+          <span class="try-live__arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>
+        </a>
         <dl class="study-meta">
           <div><dt class="label">Role</dt><dd>Sole developer — analysis, modelling, app, tests</dd></div>
           <div><dt class="label">Period</dt><dd>2026</dd></div>
@@ -99,7 +104,7 @@
           <div class="chapter__label"><span class="index">05</span><h2 id="c5">Evidence</h2></div>
           <div class="chapter__body">
             <p>Held-out evaluation on 2,233 of 11,162 records, as shown in the deployed app.</p>
-            <table class="model-chart">
+            <table class="model-chart reveal">
               <caption>ROC-AUC by model<small>Held-out data · bars start at 0.40 so the differences are visible</small></caption>
               <thead><tr><th scope="col">Model</th><th scope="col"><span class="sr-only">Bar</span></th><th scope="col" class="val">AUC</th></tr></thead>
               <tbody>
@@ -140,6 +145,21 @@
               </tbody>
             </table>
             <p class="caption">16 tests across the pipeline and the Streamlit app, in the repository’s <code>tests/</code> folder.</p>
+            <div class="sources">
+              <span class="label">Where every number comes from</span>
+              <ul>
+              <li><a href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence/blob/main/docs/screenshots/02-performance.png" target="_blank" rel="noopener noreferrer">Model Performance page — held-out metrics and comparison table <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence/blob/main/src/train.py" target="_blank" rel="noopener noreferrer">train.py — CV selection, threshold rule, permutation importance <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence/tree/main/tests" target="_blank" rel="noopener noreferrer">tests/ — the 16 automated tests <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/" target="_blank" rel="noopener noreferrer">The live app’s Model Performance and Explainability pages <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+              </ul>
+            </div>
+            <!-- TODO(iqra): add a short looping clip for Bank Marketing Intelligence (assets/work/bank-demo.webm + poster),
+                 then replace this slot with a <video class="loop" muted loop playsinline preload="none"> element
+                 (see the template in index.html) and add the files to tools/site-files.mjs. -->
+            <figure class="media-slot" data-todo="Bank Marketing Intelligence — looping demo clip" hidden>
+              <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+            </figure>
           </div>
         </section>
 
@@ -161,6 +181,18 @@
             <p>A deployed decision-support app — dashboard, EDA, business insights, single and batch scoring, model analysis — built on a model that could actually be used before the call.</p>
             <p><a class="btn btn--pen" href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/" target="_blank" rel="noopener noreferrer">Open the live app <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></p>
             <p class="caption">Hosted on Streamlit Community Cloud, which may take a moment to wake up.</p>
+          </div>
+        </section>
+
+        <!-- TODO(iqra): confirm or rewrite in your own words; drawn from the documented limitations and next steps. -->
+        <section class="grid chapter" aria-labelledby="c8">
+          <div class="chapter__label"><span class="index">08</span><h2 id="c8">What I’d do differently</h2></div>
+          <div class="chapter__body">
+            <ul>
+              <li>Pick the threshold from campaign economics — the cost of a call and the value of a subscription — rather than maximising F1.</li>
+              <li>Report results on a sample with a realistic subscription rate as well; this one is 47.4% positive, far more balanced than a real campaign.</li>
+              <li>Confirm the dataset’s redistribution terms before publishing it alongside the code.</li>
+            </ul>
           </div>
         </section>
       </div>

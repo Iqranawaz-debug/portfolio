@@ -239,8 +239,8 @@
             <div class="case__body">
               <h3 id="deeptrace-title" class="case__title">DeepTrace AI</h3>
               <p class="case__dek">A research assistant that has to show you the sentence before it’s allowed to make the claim.</p>
+              <p class="problem-line"><span class="label">The problem</span>AI research tools cite pages that don’t contain the quoted words.</p>
               <ul class="case__points">
-                <li><span class="label">Problem</span><span>AI research tools cite pages that don’t contain the quoted words — and quietly send your questions off your machine.</span></li>
                 <li><span class="label">Decision</span><span>Citations are checked by deterministic code: the passage must exist, must have been allowed for this run, and must contain the quotation.</span></li>
                 <li><span class="label">Built</span><span>A local-first Python/FastAPI and SQLite backend, a React/TypeScript workspace, and a bounded Plan → Report pipeline over Tavily search and Gemini.</span></li>
               </ul>
@@ -250,6 +250,25 @@
                 passage <em>supports</em> a claim was planned for a later
                 milestone and not built.
               </p>
+              <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
+                   limitations and next steps documented in the project repository. -->
+              <aside class="differently" aria-label="What I’d do differently">
+                <span class="label">What I’d do differently</span>
+                <p>Get CI running on GitHub before building features, and plan for a busy free-tier model from day one — a fallback model, or a “retry the answer only” step that reuses the passages already read.</p>
+              </aside>
+              <!-- TODO(iqra): DeepTrace AI — add a short looping screen recording (WebM, ideally < 2 MB)
+                   as assets/work/deeptrace-demo.webm (+ a WebP poster), then replace this slot with:
+                   <figure class="media-slot">
+                     <video class="loop" muted loop playsinline preload="none" width="1280" height="720"
+                            poster="assets/work/deeptrace-demo.webp" aria-label="DESCRIBE WHAT THE CLIP SHOWS">
+                       <source src="assets/work/deeptrace-demo.webm" type="video/webm" />
+                     </video>
+                     <figcaption class="caption"><b>Clip</b> CAPTION</figcaption>
+                   </figure>
+                   and add both files to tools/site-files.mjs. -->
+              <figure class="media-slot" data-todo="DeepTrace AI — looping demo clip" hidden>
+                <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+              </figure>
               <div class="links">
                 <a class="btn btn--pen" href="work/deeptrace-ai.html">Read the case study <span class="arrow" aria-hidden="true">→</span></a>
                 <a class="link" href="https://github.com/Iqranawaz-debug/DeepTrace-AI" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — DeepTrace AI on GitHub (opens in a new tab)</span></a>
@@ -273,7 +292,7 @@
                 </dl>
               </div>
               <figcaption class="caption">
-                <b>Source:</b> the project’s closure report. Tests were run
+                <b>Source:</b> <a href="https://github.com/Iqranawaz-debug/DeepTrace-AI/blob/main/docs/PROJECT_CLOSURE.md" target="_blank" rel="noopener noreferrer">the project’s closure report <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>. Tests were run
                 locally; the CI workflow had not yet run on GitHub at closure.
               </figcaption>
             </figure>
@@ -290,8 +309,8 @@
             <div class="case__body">
               <h3 id="resumeiq-title" class="case__title">ResumeIQ</h3>
               <p class="case__dek">A resume checker that explains its number — and admits what it can’t know.</p>
+              <p class="problem-line"><span class="label">The problem</span>Resume checkers hand back one opaque score, with no way to see what matched or why.</p>
               <ul class="case__points">
-                <li><span class="label">Problem</span><span>Most resume checkers hand back one opaque score, with no way to see what matched or why.</span></li>
                 <li><span class="label">Decision</span><span>Local rules always compute the score. Optional AI is validated and shown <em>beside</em> it — never instead of it.</span></li>
                 <li><span class="label">Built</span><span>FastAPI with PDF/DOCX parsing and rule-based extraction; a React + Vite frontend; a recruiter workspace; optional SQLite; Docker Compose and CI.</span></li>
               </ul>
@@ -301,6 +320,25 @@
                 results, requirement review, grounded rewrites, privacy controls
                 and the recruiter workspace.
               </p>
+              <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
+                   limitations and next steps documented in the project repository. -->
+              <aside class="differently" aria-label="What I’d do differently">
+                <span class="label">What I’d do differently</span>
+                <p>Build and run the Docker images and CI in the same pass as writing them — the README still lists them as unverified — and ship a hosted demo so people can try it without cloning.</p>
+              </aside>
+              <!-- TODO(iqra): ResumeIQ — add a short looping screen recording (WebM, ideally < 2 MB)
+                   as assets/work/resumeiq-demo.webm (+ a WebP poster), then replace this slot with:
+                   <figure class="media-slot">
+                     <video class="loop" muted loop playsinline preload="none" width="1280" height="720"
+                            poster="assets/work/resumeiq-demo.webp" aria-label="DESCRIBE WHAT THE CLIP SHOWS">
+                       <source src="assets/work/resumeiq-demo.webm" type="video/webm" />
+                     </video>
+                     <figcaption class="caption"><b>Clip</b> CAPTION</figcaption>
+                   </figure>
+                   and add both files to tools/site-files.mjs. -->
+              <figure class="media-slot" data-todo="ResumeIQ — looping demo clip" hidden>
+                <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+              </figure>
               <div class="links">
                 <a class="btn btn--pen" href="work/resumeiq.html">Read the case study <span class="arrow" aria-hidden="true">→</span></a>
                 <a class="link" href="https://github.com/Iqranawaz-debug/ResumeIQ" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — ResumeIQ on GitHub (opens in a new tab)</span></a>
@@ -326,7 +364,7 @@
                 <li data-note="3">Gaps are “not evidenced” — not proof the candidate lacks the skill.</li>
                 <li data-note="4">Every requirement gets a status and a quote from the resume.</li>
               </ol>
-              <figcaption class="caption"><b>Screenshot</b> from the repository, using its bundled fictional sample resume.</figcaption>
+              <figcaption class="caption"><b>Screenshot</b> from the repository, using its bundled fictional sample resume. Test results: <a href="https://github.com/Iqranawaz-debug/ResumeIQ/blob/main/docs/phase6-recruiter-workflow.md" target="_blank" rel="noopener noreferrer">phase 6 report <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>.</figcaption>
             </figure>
           </article>
 
@@ -341,21 +379,42 @@
             <div class="case__body">
               <h3 id="bank-title" class="case__title">Bank Marketing Intelligence</h3>
               <p class="case__dek">Who’s worth calling? A model that only uses what the bank knows before the phone rings.</p>
+              <p class="problem-line"><span class="label">The problem</span>Calling every customer is expensive; rank them before the campaign call.</p>
+              <a class="try-live" href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/" target="_blank" rel="noopener noreferrer">
+                <span class="try-live__dot" aria-hidden="true"></span>
+                <span class="try-live__text"><strong>Try it live</strong><span>Score a customer or upload a CSV in the Streamlit app</span></span>
+                <span class="try-live__arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>
+              </a>
               <ul class="case__points">
-                <li><span class="label">Problem</span><span>Calling every customer about a term deposit is expensive. Rank them first — before the campaign call.</span></li>
                 <li><span class="label">Decision</span><span>Call duration is dropped: it’s only known <em>after</em> the call, so using it would leak the answer into the model.</span></li>
                 <li><span class="label">Decision</span><span>XGBoost chosen by 3-fold cross-validated average precision; the 0.375 threshold maximises out-of-fold F1 — exploratory, not cost-optimised.</span></li>
               </ul>
+              <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
+                   limitations and next steps documented in the project repository. -->
+              <aside class="differently" aria-label="What I’d do differently">
+                <span class="label">What I’d do differently</span>
+                <p>Choose the decision threshold from campaign costs — the price of a call and the value of a subscription — instead of maximising F1, which the app itself labels exploratory.</p>
+              </aside>
+              <!-- TODO(iqra): Bank Marketing Intelligence — add a short looping screen recording (WebM, ideally < 2 MB)
+                   as assets/work/bank-demo.webm (+ a WebP poster), then replace this slot with:
+                   <figure class="media-slot">
+                     <video class="loop" muted loop playsinline preload="none" width="1280" height="720"
+                            poster="assets/work/bank-demo.webp" aria-label="DESCRIBE WHAT THE CLIP SHOWS">
+                       <source src="assets/work/bank-demo.webm" type="video/webm" />
+                     </video>
+                     <figcaption class="caption"><b>Clip</b> CAPTION</figcaption>
+                   </figure>
+                   and add both files to tools/site-files.mjs. -->
+              <figure class="media-slot" data-todo="Bank Marketing Intelligence — looping demo clip" hidden>
+                <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+              </figure>
               <div class="links">
-                <a class="btn btn--pen" href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/" target="_blank" rel="noopener noreferrer"
-                  >Live demo <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> — Bank Marketing Intelligence (opens in a new tab)</span></a
-                >
-                <a class="link" href="work/bank-marketing-intelligence.html">Case study <span aria-hidden="true">→</span></a>
+                <a class="btn btn--pen" href="work/bank-marketing-intelligence.html">Read the case study <span class="arrow" aria-hidden="true">→</span></a>
                 <a class="link" href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Bank Marketing Intelligence on GitHub (opens in a new tab)</span></a>
               </div>
             </div>
             <figure class="case__visual">
-              <table class="model-chart">
+              <table class="model-chart reveal">
                 <caption>
                   ROC-AUC on held-out data
                   <small>2,233 held-out records of 11,162 · bars start at 0.40</small>
@@ -385,7 +444,7 @@
                   />
                 </div>
               </div>
-              <figcaption class="caption"><b>Figures</b> from the deployed app’s Model Performance and Explainability pages. Patterns are associations, not causal effects.</figcaption>
+              <figcaption class="caption"><b>Figures</b> from the deployed app’s <a href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence/blob/main/docs/screenshots/02-performance.png" target="_blank" rel="noopener noreferrer">Model Performance page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>; selection and threshold rules in <a href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence/blob/main/src/train.py" target="_blank" rel="noopener noreferrer">train.py <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>. Patterns are associations, not causal effects.</figcaption>
             </figure>
           </article>
 
@@ -394,12 +453,32 @@
             <div class="fieldnote__head">
               <span class="kicker"><span class="index">Field note</span> · Desktop automation · Oct 2026</span>
               <h3 id="screenshot-title">Smart Screenshot Organizer</h3>
+              <p class="problem-line"><span class="label">The problem</span>A screenshots folder full of “Screenshot (42).png”, impossible to search.</p>
               <p>
                 A small tool for a universal mess. It reads each new screenshot
                 with Tesseract OCR, names it from visible evidence, files it by
                 category and keeps a searchable local history. OCR and
                 explainable rules — no LLM, no cloud.
               </p>
+              <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
+                   limitations and next steps documented in the project repository. -->
+              <aside class="differently" aria-label="What I’d do differently">
+                <span class="label">What I’d do differently</span>
+                <p>Give the command-line watcher the same missed-file reconciliation that background mode already has, instead of relying on create and rename events alone.</p>
+              </aside>
+              <!-- TODO(iqra): Screenshot Organizer — add a short looping screen recording (WebM, ideally < 2 MB)
+                   as assets/work/screenshot-organizer-demo.webm (+ a WebP poster), then replace this slot with:
+                   <figure class="media-slot">
+                     <video class="loop" muted loop playsinline preload="none" width="1280" height="720"
+                            poster="assets/work/screenshot-organizer-demo.webp" aria-label="DESCRIBE WHAT THE CLIP SHOWS">
+                       <source src="assets/work/screenshot-organizer-demo.webm" type="video/webm" />
+                     </video>
+                     <figcaption class="caption"><b>Clip</b> CAPTION</figcaption>
+                   </figure>
+                   and add both files to tools/site-files.mjs. -->
+              <figure class="media-slot" data-todo="Screenshot Organizer — looping demo clip" hidden>
+                <div class="media-slot__frame"><span class="mono">Clip coming soon</span></div>
+              </figure>
               <div class="links">
                 <a class="link" href="https://github.com/Iqranawaz-debug/Screenshot_Organizer" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Smart Screenshot Organizer on GitHub (opens in a new tab)</span></a>
                 <span class="stack-list" role="list"><span role="listitem">Python</span>&nbsp;/ <span role="listitem">Tesseract</span>&nbsp;/ <span role="listitem">watchdog</span>&nbsp;/ <span role="listitem">SQLite</span>&nbsp;/ <span role="listitem">Streamlit</span></span>
@@ -417,13 +496,13 @@
 └── Education/
     └── Database_Management_Systems_Assignment_02_2026-10-17.png</pre>
               </div>
-              <figcaption class="caption"><b>Example</b> from the project README. Originals stay untouched; the tool writes copies.</figcaption>
+              <figcaption class="caption"><b>Example</b> from the <a href="https://github.com/Iqranawaz-debug/Screenshot_Organizer/blob/main/README.md" target="_blank" rel="noopener noreferrer">project README <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>. Originals stay untouched; the tool writes copies.</figcaption>
             </figure>
             <ul class="guarantees">
               <li><strong>Dry run by default</strong>Manual commands preview first; nothing changes without <code>--apply</code>.</li>
               <li><strong>Never overwrites</strong>Copies by default; moving requires typing MOVE.</li>
               <li><strong>Duplicates skipped</strong>Content hashing means re-runs never create copies.</li>
-              <li><strong>Tested without Tesseract</strong>19 test files with OCR mocked; first outside PR merged.</li>
+              <li><strong>Tested without Tesseract</strong><a href="https://github.com/Iqranawaz-debug/Screenshot_Organizer/tree/main/tests" target="_blank" rel="noopener noreferrer">19 test files <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a> with OCR mocked; <a href="https://github.com/Iqranawaz-debug/Screenshot_Organizer/pull/5" target="_blank" rel="noopener noreferrer">first outside PR merged <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>.</li>
             </ul>
           </article>
         </div>
@@ -462,7 +541,7 @@
               <span class="mono">A02</span>
               <div>
                 <h3>SentixAI — Review Sentiment</h3>
-                <p>Classifies product reviews as positive, negative or neutral: ~92% accuracy on 1,000+ reviews, served in Streamlit.</p>
+                <p>Classifies product reviews as positive, negative or neutral: 86.4% accuracy and 0.614 macro-F1 on 4,500 held-out reviews (majority baseline 78.4%); neutral is the weak class. <a class="cite" href="https://github.com/Iqranawaz-debug/Sentiment_Analysis_On_Product_Reviews/blob/main/README.md" target="_blank" rel="noopener noreferrer">src<span class="sr-only"> — SentixAI evaluation in its README (opens in a new tab)</span></a></p>
               </div>
               <span class="archive__field">NLP<span class="status">scikit-learn</span></span>
               <span class="mono">2026</span>

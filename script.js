@@ -389,5 +389,26 @@ if (citeDemo) {
   }
 }
 
+/* Looping demo clips: load lazily, play only while visible, respect reduced motion */
+const clips = $$("video.loop");
+if (clips.length) {
+  if (reduceMotion.matches || !("IntersectionObserver" in window)) {
+    clips.forEach((video) => {
+      video.controls = true;
+    });
+  } else {
+    const clipObserver = new IntersectionObserver(
+      (entries) => {
+        for (const { target, isIntersecting } of entries) {
+          if (isIntersecting) target.play().catch(() => (target.controls = true));
+          else target.pause();
+        }
+      },
+      { threshold: 0.35 },
+    );
+    clips.forEach((video) => clipObserver.observe(video));
+  }
+}
+
 /* Draft mode: ?draft outlines every TODO slot so missing content is easy to find */
 if (new URLSearchParams(location.search).has("draft")) document.documentElement.classList.add("draft");
