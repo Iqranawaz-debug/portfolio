@@ -741,6 +741,15 @@
               </ul>
             </li>
           </ol>
+          <!-- TODO(iqra): add a short quote from your Logiciel Services supervisor or a NED
+               colleague (TA role), with their permission. Fill in the quote, name and role,
+               then remove `hidden` and `data-todo` from the figure. -->
+          <figure class="testimonial" data-todo="Testimonial — Logiciel Services or TA role" hidden>
+            <blockquote>
+              <p>TODO — quote.</p>
+            </blockquote>
+            <figcaption><strong>TODO — Name</strong><span>TODO — Role, Logiciel Services</span></figcaption>
+          </figure>
         </div>
       </section>
 
@@ -750,60 +759,105 @@
           <header class="grid section-head">
             <p class="section-head__index"><span class="index">IN·05</span><span class="kicker">Toolkit</span></p>
             <h2 id="skills-title" class="section-head__title">Tools, with citations.</h2>
-            <p class="section-head__note">No proficiency bars. Each group cites the work where it was used — the superscripts are links.</p>
+            <p class="section-head__note">No proficiency bars. Each skill says how I’ve used it and cites the work — the superscripts are links.</p>
           </header>
+          <!-- TODO(iqra): if the Logiciel Services automation went live, change the LOG-cited skills
+               ("Prompt design & AI automation", "Structured logging & error handling",
+               "End-to-end testing with QA") from tag--proj to tag--prod, and add the
+               production entry to the legend below. -->
+          <p class="tag-legend" aria-hidden="true">
+            <span><span class="tag tag--proj"></span>used in projects</span>
+            <span><span class="tag tag--learn"></span>learning</span>
+            <span class="tag-legend__cite"><b>BMI</b> superscripts link to the project</span>
+          </p>
           <ul class="toolkit">
             <li>
               <span class="index">T1</span>
               <div>
                 <h3>Machine learning</h3>
-                <p>scikit-learn, XGBoost, TensorFlow / Keras, cross-validation, threshold analysis, permutation importance, NLP, CNNs, recommender systems
-                  <a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#sentix-project" aria-label="Used in SentixAI">SX</a><a class="cite" href="#leafguard-project" aria-label="Used in LeafGuard AI">LG</a><a class="cite" href="#cinematch-project" aria-label="Used in CineMatch">CM</a></p>
+                <ul class="skills" aria-label="Machine learning skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>scikit-learn<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#sentix-project" aria-label="Used in SentixAI">SX</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>XGBoost<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>TensorFlow / Keras, CNNs<span class="sr-only"> (used in projects)</span><a class="cite" href="#leafguard-project" aria-label="Used in LeafGuard AI">LG</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Cross-validation & threshold analysis<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Permutation importance<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>NLP classification<span class="sr-only"> (used in projects)</span><a class="cite" href="#sentix-project" aria-label="Used in SentixAI">SX</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Recommender systems<span class="sr-only"> (used in projects)</span><a class="cite" href="#cinematch-project" aria-label="Used in CineMatch">CM</a></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T2</span>
               <div>
-                <h3>LLM &amp; applied AI</h3>
-                <p>Retrieval pipelines, Gemini and OpenAI-compatible APIs, prompt design, citation validation, grounded generation, AI automation
-                  <a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#logiciel-experience" aria-label="Used at Logiciel Services">LOG</a></p>
+                <h3>LLM & applied AI</h3>
+                <ul class="skills" aria-label="LLM & applied AI skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Retrieval pipelines & citation validation<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Gemini & OpenAI-compatible APIs<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#leafguard-project" aria-label="Used in LeafGuard AI">LG</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Grounded generation<span class="sr-only"> (used in projects)</span><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Prompt design & AI automation<span class="sr-only"> (used in projects)</span><a class="cite" href="#logiciel-experience" aria-label="Used in Logiciel Services">LOG</a></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T3</span>
               <div>
                 <h3>Data engineering</h3>
-                <p>SQL Server / T-SQL, ETL, Medallion architecture, star-schema modelling, data-quality checks, SQLite, OCR pipelines
-                  <a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a><a class="cite" href="#pipeline-project" aria-label="Used in Automated Data Pipeline">FYP</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a></p>
+                <ul class="skills" aria-label="Data engineering skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>SQL Server / T-SQL<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>ETL & Medallion architecture<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Star-schema modelling<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Data-quality checks<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>SQLite<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a><a class="cite" href="#shopify-project" aria-label="Used in Shopify Product Management API">API</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>OCR pipelines (Tesseract)<span class="sr-only"> (used in projects)</span><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Document processing pipelines<span class="sr-only"> (used in projects)</span><a class="cite" href="#pipeline-project" aria-label="Used in Automated Data Pipeline">FYP</a></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T4</span>
               <div>
-                <h3>Analysis &amp; BI</h3>
-                <p>Python, Pandas, NumPy, SQL, exploratory analysis, Matplotlib, Power BI, Tableau
-                  <a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></p>
+                <h3>Analysis & BI</h3>
+                <ul class="skills" aria-label="Analysis & BI skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Python, pandas, NumPy<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#sentix-project" aria-label="Used in SentixAI">SX</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>SQL<span class="sr-only"> (used in projects)</span><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Exploratory analysis<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Matplotlib<span class="sr-only"> (used in projects)</span><a class="cite" href="#leafguard-project" aria-label="Used in LeafGuard AI">LG</a></li>
+                  <li><span class="tag tag--learn" title="learning" aria-hidden="true"></span>Power BI<span class="sr-only"> (learning)</span></li>
+                  <li><span class="tag tag--learn" title="learning" aria-hidden="true"></span>Tableau<span class="sr-only"> (learning)</span></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T5</span>
               <div>
-                <h3>Applications &amp; delivery</h3>
-                <p>Streamlit, FastAPI, React, Node.js / Express, REST and GraphQL, Docker, GitHub Actions, Git
-                  <a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#shopify-project" aria-label="Used in Shopify Product Management API">API</a><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a></p>
+                <h3>Applications & delivery</h3>
+                <ul class="skills" aria-label="Applications & delivery skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Streamlit<span class="sr-only"> (used in projects)</span><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#cinematch-project" aria-label="Used in CineMatch">CM</a><a class="cite" href="#routewise-project" aria-label="Used in RouteWise">RW</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>FastAPI<span class="sr-only"> (used in projects)</span><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>React<span class="sr-only"> (used in projects)</span><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Node.js / Express, REST & GraphQL<span class="sr-only"> (used in projects)</span><a class="cite" href="#shopify-project" aria-label="Used in Shopify Product Management API">API</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Git & pull-request workflow<span class="sr-only"> (used in projects)</span><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                  <li><span class="tag tag--learn" title="learning" aria-hidden="true"></span>Docker<span class="sr-only"> (learning)</span><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                  <li><span class="tag tag--learn" title="learning" aria-hidden="true"></span>GitHub Actions<span class="sr-only"> (learning)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                </ul>
               </div>
             </li>
             <li>
               <span class="index">T6</span>
               <div>
                 <h3>Engineering habits</h3>
-                <p>Automated tests, structured logging, error handling, privacy by design, and documentation that admits its limits
-                  <a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a><a class="cite" href="#logiciel-experience" aria-label="Used at Logiciel Services">LOG</a></p>
+                <ul class="skills" aria-label="Engineering habits skills">
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Automated tests<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Structured logging & error handling<span class="sr-only"> (used in projects)</span><a class="cite" href="#logiciel-experience" aria-label="Used in Logiciel Services">LOG</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>End-to-end testing with QA<span class="sr-only"> (used in projects)</span><a class="cite" href="#logiciel-experience" aria-label="Used in Logiciel Services">LOG</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Privacy by design<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                  <li><span class="tag tag--proj" title="used in projects" aria-hidden="true"></span>Documentation that admits its limits<span class="sr-only"> (used in projects)</span><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a></li>
+                </ul>
               </div>
             </li>
           </ul>
           <p class="legend" aria-hidden="true">
-            <span><b>DT</b> DeepTrace AI</span><span><b>RIQ</b> ResumeIQ</span><span><b>BMI</b> Bank Marketing</span><span><b>SSO</b> Screenshot Organizer</span><span><b>DW</b> Data Warehouse</span><span><b>SX</b> SentixAI</span><span><b>LG</b> LeafGuard</span><span><b>CM</b> CineMatch</span><span><b>API</b> Shopify API</span><span><b>FYP</b> Final year project</span><span><b>LOG</b> Logiciel Services</span>
+            <span><b>DT</b> DeepTrace AI</span><span><b>RIQ</b> ResumeIQ</span><span><b>BMI</b> Bank Marketing</span><span><b>SSO</b> Screenshot Organizer</span><span><b>DW</b> Data Warehouse</span><span><b>SX</b> SentixAI</span><span><b>LG</b> LeafGuard</span><span><b>CM</b> CineMatch</span><span><b>API</b> Shopify API</span><span><b>FYP</b> Final year project</span><span><b>RW</b> RouteWise</span><span><b>LOG</b> Logiciel Services</span>
           </p>
         </div>
       </section>

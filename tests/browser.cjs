@@ -89,7 +89,7 @@ async function loadAllImages(page) {
   assert.ok(shown > 0 && shown < all, "Filter narrows the archive");
   assert.equal(await desktop.locator(".filter-status").textContent(), `${shown} projects`);
   // A citation link to a filtered-out row resets the filter and lands on it.
-  await desktop.locator('.cite[href="#sentix-project"]').click();
+  await desktop.locator('.cite[href="#sentix-project"]').first().click();
   assert.equal(await desktop.locator(".archive__row:visible").count(), all);
   assert.equal(await desktop.locator("#sentix-project").evaluate((e) => document.activeElement === e), true);
 

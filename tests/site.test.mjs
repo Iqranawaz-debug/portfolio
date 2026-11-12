@@ -152,6 +152,17 @@ test("Bank Marketing has a prominent Try it live link to the Streamlit app", () 
     assert.match(html, /class="try-live[^"]*" href="https:\/\/bank-marketing-intelligence-[\w-]+\.streamlit\.app\/"/);
 });
 
+test("every toolkit skill is tagged with how it was used, with no proficiency bars", () => {
+  const skills = [...home.matchAll(/<ul class="skills"[\s\S]*?<\/ul>/g)].flatMap((m) => [...m[0].matchAll(/<li>[\s\S]*?<\/li>/g)].map((x) => x[0]));
+  assert.ok(skills.length >= 30, `found ${skills.length} skills`);
+  for (const li of skills) assert.match(li, /class="tag tag--(prod|proj|learn)"[\s\S]*\((used in production|used in projects|learning)\)/, li);
+  assert.ok(!/progress|proficiency-bar|role="meter"/.test(home));
+});
+
+test("testimonial slot exists but stays hidden until filled", () => {
+  assert.match(home, /<figure class="testimonial"[^>]*hidden/);
+});
+
 test("legacy anchors from the previous site still resolve", () => {
   const ids = idsOf(home);
   for (const id of [

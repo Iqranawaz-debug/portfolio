@@ -24,3 +24,13 @@ attribute and its `data-todo` attribute.
 - [ ] **SentixAI accuracy.** The old site said "~92% accuracy on 1,000+ reviews". The repository's
       current README reports 86.36% accuracy and 0.614 macro-F1 on 4,500 held-out reviews
       (majority baseline 78.4%). The site now uses the repository numbers.
+
+## Toolkit and experience
+
+- [ ] **"Used in production" tags.** No skill is tagged production yet, because nothing on the site
+      documents a production deployment. If the Logiciel Services automation went live, switch its
+      skills to `tag--prod` (see the TODO comment above the toolkit) and add the legend entry.
+- [ ] **Power BI** is tagged "learning". It was listed because the SQL warehouse repo description
+      mentions it; change the tag if you used it in that project.
+- [ ] **Testimonial** (`.testimonial` after the experience timeline): a short quote from your
+      Logiciel Services supervisor or a NED colleague, with their permission.
