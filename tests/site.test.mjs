@@ -1,79 +1,134 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
+import { pages, siteFiles } from "../tools/site-files.mjs";
 
 const root = new URL("../", import.meta.url);
-const html = await readFile(new URL("index.html", root), "utf8");
-const visibleText = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
-const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
+const read = (file) => readFile(new URL(file, root), "utf8");
+const docs = Object.fromEntries(await Promise.all(pages.map(async (p) => [p, await read(p)])));
+const home = docs["index.html"];
+const text = (html) => html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+const idsOf = (html) => [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
 
-test("every local navigation link and asset resolves", async () => {
-  assert.equal(ids.length, new Set(ids).size, "IDs must be unique");
-  for (const [, value] of html.matchAll(/(?:href|src)="([^"]*)"/g)) {
-    assert.ok(value && value !== "#", "No empty or placeholder links");
-    if (value.startsWith("#"))
-      assert.ok(ids.includes(value.slice(1)), `Missing anchor: ${value}`);
-    else if (!/^(https:|mailto:)/.test(value))
-      await access(new URL(value, root));
+test("every file in the deploy manifest exists", async () => {
+  for (const file of siteFiles) await access(new URL(file, root));
+});
+
+test("every local link and asset resolves, and ships in the manifest", async () => {
+  for (const [page, html] of Object.entries(docs)) {
+    if (page === "404.html") continue; // uses a runtime base URL; checked separately
+    const ids = idsOf(html);
+    assert.equal(ids.length, new Set(ids).size, `${page}: IDs must be unique`);
+    const base = new URL(page, root);
+    for (const [, value] of html.matchAll(/(?:href|src|data-preview)="([^"]*)"/g)) {
+      assert.ok(value && value !== "#", `${page}: empty or placeholder link`);
+      if (/^(https:|mailto:)/.test(value)) continue;
+      const [path, hash] = value.split("#");
+      if (!path) {
+        assert.ok(ids.includes(hash), `${page}: missing anchor #${hash}`);
+        continue;
+      }
+      const target = new URL(path, base);
+      await access(target);
+      const rel = target.pathname.slice(new URL(root).pathname.length);
+      assert.ok(siteFiles.includes(rel), `${page}: ${rel} is not in tools/site-files.mjs`);
+      if (hash) assert.ok(idsOf(docs[rel] || "").includes(hash), `${page}: missing ${value}`);
+    }
   }
 });
-test("external links are safe and contact addresses stay consistent", () => {
-  for (const [tag] of html.matchAll(/<a\b[^>]*>/g)) {
-    if (tag.includes('target="_blank"'))
-      assert.match(tag, /rel="noopener noreferrer"/);
-  }
-  const emails = [...html.matchAll(/href="mailto:([^"]+)"/g)].map(
-    (match) => match[1],
-  );
-  assert.deepEqual([...new Set(emails)], ["iqranawaz9353@gmail.com"]);
+
+test("the 404 page loads its assets from the site root", () => {
+  const html = docs["404.html"];
+  assert.match(html, /"\/portfolio\/"/);
+  assert.match(html, /root \+ "style\.css"/);
+  assert.ok(!/<link rel="stylesheet" href="style\.css"/.test(html), "no relative stylesheet");
 });
-test("core content is available without JavaScript and factual status is retained", () => {
-  assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
-  assert.match(html, /<main\b/);
-  assert.match(html, /class="skip-link"/);
-  for (const text of [
-    "In development",
+
+test("external links are safe and the contact address is consistent", () => {
+  for (const [page, html] of Object.entries(docs)) {
+    for (const [tag] of html.matchAll(/<a\b[^>]*>/g)) {
+      if (tag.includes('target="_blank"'))
+        assert.match(tag, /rel="noopener noreferrer"/, `${page}: ${tag}`);
+    }
+    const emails = [...html.matchAll(/href="mailto:([^"]+)"/g)].map((m) => m[1]);
+    for (const email of emails) assert.equal(email, "iqranawaz9353@gmail.com");
+  }
+});
+
+test("pages are accessible by structure", () => {
+  for (const [page, html] of Object.entries(docs)) {
+    assert.equal([...html.matchAll(/<h1\b/g)].length, 1, `${page}: exactly one h1`);
+    assert.match(html, /<main\b/, `${page}: has main`);
+    assert.match(html, /<html lang="en">/, `${page}: has lang`);
+    assert.ok(!html.includes("<form"), `${page}: no unconnected form`);
+    for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
+      if (tag.includes('alt=""')) continue; // decorative preview image
+      assert.match(tag, /alt="[^"]{8,}"/, `${page}: ${tag}`);
+      assert.match(tag, /width="\d+"/, `${page}: ${tag}`);
+      assert.match(tag, /height="\d+"/, `${page}: ${tag}`);
+    }
+  }
+});
+
+test("verified facts stay on the homepage", () => {
+  const visible = text(home);
+  for (const fact of [
     "DeepTrace AI",
-    "Bank Marketing Intelligence",
     "ResumeIQ",
-    "SQL Data Warehouse",
-    "LeafGuard AI",
-    "SentixAI",
-    "CineMatch",
+    "Bank Marketing Intelligence",
     "Smart Screenshot Organizer",
-    "RouteWise",
-    "Shopify Product Management API",
-    "1,000+",
-    "~92%",
-    "Automated Data Pipeline",
+    "SQL Data Warehouse",
+    "9 / 9",
+    "326",
+    "92%",
+    "0.795",
+    "77.0%",
+    "Arisha Salman",
+    "~92% accuracy on 1,000+ reviews",
+    "In development",
+    "Logiciel Services",
     "Arch Technologies",
     "60+",
     "3.70",
     "2022–2026",
   ])
-    assert.ok(visibleText.includes(text), `Missing: ${text}`);
-  assert.ok(!html.includes("```"));
-  assert.ok(!html.includes("<form"), "No unconnected contact form");
-  for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
-    assert.match(tag, /alt="[^"]+"/);
-    assert.match(tag, /width="\d+"/);
-    assert.match(tag, /height="\d+"/);
+    assert.ok(visible.includes(fact), `Missing: ${fact}`);
+});
+
+test("honest limitations are stated next to the claims they qualify", () => {
+  assert.match(text(home), /not that the claim is true/);
+  assert.match(text(docs["work/deeptrace-ai.html"]), /does not prove the passage supports the claim/);
+  assert.match(text(docs["work/resumeiq.html"]), /not official ATS scores/);
+  assert.match(text(docs["work/bank-marketing-intelligence.html"]), /Associations, not causes/);
+});
+
+test("archive filter degrades gracefully and every row is categorised", () => {
+  assert.match(home, /class="filters"[^>]*\bhidden\b/, "Filters stay hidden until JS runs");
+  const filters = [...home.matchAll(/data-filter="([^"]+)"/g)].map((m) => m[1]);
+  const rows = [...home.matchAll(/<li class="archive__row"[^>]*>/g)].map((m) => m[0]);
+  assert.ok(rows.length >= 8);
+  for (const row of rows) {
+    const category = row.match(/data-category="([^"]+)"/);
+    assert.ok(category, `Uncategorised row: ${row}`);
+    for (const c of category[1].split(" ")) assert.ok(filters.includes(c), `Unknown ${c}`);
   }
 });
-test("project filters degrade gracefully and every project card is categorised", () => {
-  assert.match(html, /class="project-filters"[^>]*\bhidden\b/, "Filters hidden until JS runs");
-  const cards = [...html.matchAll(/<li class="mini-card"[^>]*>/g)].map((m) => m[0]);
-  assert.ok(cards.length >= 6);
-  const filters = [...html.matchAll(/data-filter="([^"]+)"/g)].map((m) => m[1]);
-  for (const card of cards) {
-    const category = card.match(/data-category="([^"]+)"/);
-    assert.ok(category, `Uncategorised card: ${card}`);
-    for (const c of category[1].split(" "))
-      assert.ok(filters.includes(c), `Unknown category ${c}`);
-  }
-});
+
 test("live demos point to deployed Streamlit apps", () => {
-  const demos = [...html.matchAll(/class="project-demo"\s+href="([^"]+)"/g)].map((m) => m[1]);
-  assert.equal(demos.length, 2);
-  for (const url of demos) assert.match(url, /^https:\/\/[\w-]+\.streamlit\.app\/$/);
+  const demos = new Set(
+    [...home.matchAll(/href="(https:\/\/[\w-]+\.streamlit\.app\/)"/g)].map((m) => m[1]),
+  );
+  assert.equal(demos.size, 2);
+});
+
+test("legacy anchors from the previous site still resolve", () => {
+  const ids = idsOf(home);
+  for (const id of [
+    "home", "about", "projects", "experience", "skills", "education", "contact", "now",
+    "deeptrace-project", "bank-project", "resumeiq-project", "warehouse-project",
+    "sentix-project", "leafguard-project", "cinematch-project", "pipeline-project",
+    "screenshot-project", "routewise-project", "shopify-project", "medicine-project",
+    "logiciel-experience",
+  ])
+    assert.ok(ids.includes(id), `Missing legacy anchor #${id}`);
 });

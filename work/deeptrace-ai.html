@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DeepTrace AI — case study · Iqra Nawaz</title>
+    <meta
+      name="description"
+      content="DeepTrace AI: a local-first research workspace where every finding cites a saved passage, and citations are checked by deterministic code. Problem, decisions, evidence and honest limits."
+    />
+    <meta name="theme-color" content="#f3eee4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151412" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href="https://iqranawaz-debug.github.io/portfolio/work/deeptrace-ai.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="DeepTrace AI — a case study by Iqra Nawaz" />
+    <meta property="og:description" content="A research assistant that has to show you the sentence before it’s allowed to make the claim." />
+    <meta property="og:url" content="https://iqranawaz-debug.github.io/portfolio/work/deeptrace-ai.html" />
+    <meta property="og:image" content="https://iqranawaz-debug.github.io/portfolio/assets/og-card.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="../assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../style.css" />
+    <script>
+      document.documentElement.classList.add("js");
+      try {
+        const saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+      } catch {}
+    </script>
+    <script src="../script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead">
+      <div class="wrap masthead__bar">
+        <a class="wordmark" href="../index.html" aria-label="Iqra Nawaz, home"><span class="monogram" aria-hidden="true">in</span><span class="wordmark__name">Iqra Nawaz</span></a>
+        <div class="masthead__actions">
+          <a class="btn" href="../index.html#projects">All work <span class="arrow" aria-hidden="true">←</span></a>
+          <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch colour theme" hidden>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" /></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <header class="wrap grid study-hero">
+        <p class="crumbs"><a href="../index.html#projects">Selected work</a> / Case study 01</p>
+        <h1>DeepTrace AI</h1>
+        <p class="lede">A local-first research workspace that has to show you the sentence before it’s allowed to make the claim — and a code check that throws out citations that don’t hold up.</p>
+        <dl class="study-meta">
+          <div><dt class="label">Role</dt><dd>Sole developer — product spec, architecture, backend, frontend, tests</dd></div>
+          <div><dt class="label">Period</dt><dd>23 Oct – 9 Nov 2026</dd></div>
+          <div><dt class="label">Stack</dt><dd>Python, FastAPI, SQLite, React, TypeScript, Vite, Tavily, Gemini</dd></div>
+          <div><dt class="label">Status</dt><dd><span class="status">Closed after Milestone 1</span></dd></div>
+          <div><dt class="label">Links</dt><dd><a class="link" href="https://github.com/Iqranawaz-debug/DeepTrace-AI" target="_blank" rel="noopener noreferrer">Source on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></dd></div>
+        </dl>
+      </header>
+
+      <div class="wrap">
+        <section class="grid chapter" aria-labelledby="c1">
+          <div class="chapter__label"><span class="index">01</span><h2 id="c1">The problem</h2></div>
+          <div class="chapter__body">
+            <p>AI research assistants are fast, but hard to trust.</p>
+            <ul>
+              <li>They cite sources that don’t contain the quoted words.</li>
+              <li>They mix opinion with evidence, and rarely say what they couldn’t find.</li>
+              <li>They usually send your questions and documents off your machine.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="grid chapter" aria-labelledby="c2">
+          <div class="chapter__label"><span class="index">02</span><h2 id="c2">Why it matters</h2></div>
+          <div class="chapter__body">
+            <p>A wrong answer with a confident citation is worse than no answer: it borrows the credibility of a source that never said it.</p>
+            <p>If the citation is the thing people check, the citation is the thing the system has to get right — every time, provably, without asking a second model to vouch for the first.</p>
+          </div>
+        </section>
+
+        <section class="grid chapter" aria-labelledby="c3">
+          <div class="chapter__label"><span class="index">03</span><h2 id="c3">My contribution</h2></div>
+          <div class="chapter__body">
+            <p>Everything, solo, in phases: I wrote the product requirements and UI design, recorded the architecture decisions, then built and tested the foundation, the investigation workspace, evidence collection, the Milestone 1 research pipeline and the final workspace redesign.</p>
+            <p>I closed the project deliberately on 9 November 2026 with a handoff that lists what works, what was verified, what is broken and how to pick it up again.</p>
+          </div>
+        </section>
+
+        <section class="grid chapter" aria-labelledby="c4">
+          <div class="chapter__label"><span class="index">04</span><h2 id="c4">Architecture &amp; decisions</h2></div>
+          <div class="chapter__body">
+            <p>One local FastAPI process, one SQLite database and a React workspace. A run moves through five bounded stages; hitting any limit stops the run as “Budget reached” and keeps what it found.</p>
+            <div class="ledger">
+              <ol class="flow" aria-label="DeepTrace research pipeline">
+                <li><strong>Plan</strong>Hard limits on searches, pages, steps, tokens and minutes</li>
+                <li><strong>Discover</strong>Tavily search, within the search limit</li>
+                <li><strong>Read</strong>Policy-checked fetches; robots.txt; ≤4 passages per source</li>
+                <li class="is-key"><strong>Check</strong>Gemini drafts from ≤12 passages; code validates each citation</li>
+                <li><strong>Report</strong>Immutable, SHA-256-checked Markdown, partial runs labelled</li>
+              </ol>
+            </div>
+            <ul class="decisions">
+              <li><strong>Citations are checked by code, not by a model.</strong><span>A finding is “Cited” only if its passage exists in this investigation, was among the passages the model was allowed to use, and contains any quotation the model presented. Otherwise it is “Not established”; failing citations are suppressed and counted.</span></li>
+              <li><strong>The model never chooses a URL.</strong><span>It has no tools. Requests to private or internal addresses are refused, connections are pinned to the address that passed the checks, and redirects and proxies are never followed.</span></li>
+              <li><strong>Local and private by default.</strong><span>Mock mode is the default. Live mode needs local configuration, your own keys and consent per provider. Keys live in Windows Credential Manager, never in the database, and a “sensitive” flag keeps an investigation away from hosted models entirely.</span></li>
+              <li><strong>Fail honestly.</strong><span>When a run fails it says why, and partial reports are labelled as partial rather than dressed up as complete.</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="grid chapter" aria-labelledby="c5">
+          <div class="chapter__label"><span class="index">05</span><h2 id="c5">Evidence</h2></div>
+          <div class="chapter__body">
+            <p>Verification recorded in the project’s closure report (9 November 2026).</p>
+            <table class="evidence-table">
+              <thead><tr><th scope="col">Check</th><th scope="col">Result</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">First live run, real Tavily and Gemini free tiers</th><td>7 cited findings · 9 of 9 quotations matched · 2 invalid citations suppressed</td></tr>
+                <tr><th scope="row">Backend tests with coverage</th><td>326 passed · 92% line and branch coverage (floor 85%)</td></tr>
+                <tr><th scope="row">Backend lint, format, types</th><td>Ruff, format and mypy passed</td></tr>
+                <tr><th scope="row">Frontend</th><td>ESLint, TypeScript and build passed · 39 component tests passed</td></tr>
+                <tr><th scope="row">Browser tests (Microsoft Edge, with axe)</th><td>7 passed on the redesign; not rerun after the final two small changes</td></tr>
+                <tr><th scope="row">Secret scan</th><td>Passed, 148 files</td></tr>
+                <tr><th scope="row">Continuous integration</th><td>GitHub Actions workflow written; it had not yet run on GitHub at closure</td></tr>
+              </tbody>
+            </table>
+            <p class="caption">There are no published screenshots of the workspace yet, so this page shows the pipeline as a diagram rather than inventing one.</p>
+          </div>
+        </section>
+
+        <section class="grid chapter" aria-labelledby="c6">
+          <div class="chapter__label"><span class="index">06</span><h2 id="c6">Limitations &amp; next steps</h2></div>
+          <div class="chapter__body">
+            <p class="footnote"><strong>The big one:</strong> citation validation proves the reference exists and the quotation matches. It does not prove the passage <em>supports</em> the claim. The interface says so wherever the checks are shown.</p>
+            <ul>
+              <li>Claim-support assessment (Milestone 3), PDFs and local semantic search (Milestone 2), and packaging (Milestone 4) were planned and not built.</li>
+              <li>The Gemini free tier is often busy and no fallback model is configured; a failed run keeps its sources and explains the failure.</li>
+              <li>Evidence can lean on a few sources: diversity caps help, but nothing judges source credibility.</li>
+              <li>Windows only: credentials, CI and browser tests assume Windows and Microsoft Edge.</li>
+              <li>Not measured: frontend coverage, a manual screen-reader audit, a penetration test or a CVE scan.</li>
+            </ul>
+            <p>Recommended next steps from the handoff: confirm CI on GitHub, add a fallback when the model is busy, then build independent claim-support checks shown separately from the deterministic ones.</p>
+          </div>
+        </section>
+
+        <section class="grid chapter" aria-labelledby="c7">
+          <div class="chapter__label"><span class="index">07</span><h2 id="c7">Outcome</h2></div>
+          <div class="chapter__body">
+            <p>A working, tested Milestone 1: a bounded research pipeline that ran end to end on real services and caught its own bad citations on the first try.</p>
+            <p>The lasting lesson is about scope: deciding what a check can honestly claim — and printing that limit next to the result — mattered as much as the pipeline itself.</p>
+          </div>
+        </section>
+      </div>
+
+      <nav class="wrap study-next" aria-label="Next case study">
+        <a href="resumeiq.html"><span class="label">Next case study · 02</span><span class="title">ResumeIQ →</span></a>
+      </nav>
+    </main>
+
+    <footer class="contact">
+      <div class="wrap">
+        <p class="contact__line">Bring a messy dataset. <em>I’ll bring the receipts.</em></p>
+        <div class="colophon">
+          <span><span class="monogram" aria-hidden="true">in</span> © <span id="currentYear">2026</span> Iqra Nawaz</span>
+          <a href="mailto:iqranawaz9353@gmail.com">iqranawaz9353@gmail.com</a>
+          <a href="../index.html">Back to the portfolio ↑</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

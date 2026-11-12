@@ -3,41 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Iqra Nawaz | Data Science, Analytics &amp; AI</title>
+    <title>Iqra Nawaz — Data Science &amp; Applied AI</title>
     <meta
       name="description"
-      content="Iqra Nawaz’s portfolio: Data Science, Machine Learning, AI, Business Intelligence, Data Analytics, and Data Engineering opportunities. Explore projects and experience."
+      content="Iqra Nawaz builds AI that shows its work: evidence-checked research tools, explainable scoring, honest predictive models and the data pipelines underneath. Data Science graduate, Karachi."
     />
-    <meta name="theme-color" content="#fbf7f1" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1a1512" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3eee4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151412" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href="https://iqranawaz-debug.github.io/portfolio/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Iqra Nawaz" />
+    <meta property="og:title" content="Iqra Nawaz — I build AI that shows its work." />
+    <meta
+      property="og:description"
+      content="Evidence-checked research tools, explainable scoring and honest predictive models. Data science and applied AI portfolio."
+    />
+    <meta property="og:url" content="https://iqranawaz-debug.github.io/portfolio/" />
+    <meta property="og:image" content="https://iqranawaz-debug.github.io/portfolio/assets/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Iqra Nawaz — I build AI that shows its work." />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="style.css" />
     <script>
-      // Apply a saved theme before first paint to avoid a flash.
+      document.documentElement.classList.add("js");
       try {
         const saved = localStorage.getItem("theme");
         if (saved === "light" || saved === "dark")
           document.documentElement.dataset.theme = saved;
       } catch {}
     </script>
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Iqra Nawaz | Data Science, Analytics &amp; AI" />
-    <meta
-      property="og:description"
-      content="From data to insights and usable systems. Explore Iqra’s projects in machine learning, AI applications, data pipelines, and automated reporting."
-    />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="https://iqranawaz-debug.github.io/portfolio/" />
-    <meta property="og:image" content="https://iqranawaz-debug.github.io/portfolio/IMG.jpg" />
-    <meta property="og:image:alt" content="Portrait of Iqra Nawaz" />
-    <link rel="canonical" href="https://iqranawaz-debug.github.io/portfolio/" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Iqra Nawaz | Data Science, Analytics &amp; AI" />
-    <meta
-      name="twitter:description"
-      content="Data Science graduate open to Data Science, ML, AI, BI, Data Analytics, and Data Engineering roles."
-    />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -48,1197 +48,690 @@
         "image": "https://iqranawaz-debug.github.io/portfolio/IMG.jpg",
         "address": { "@type": "PostalAddress", "addressLocality": "Karachi", "addressCountry": "PK" },
         "alumniOf": { "@type": "CollegeOrUniversity", "name": "NED University of Engineering and Technology" },
-        "knowsAbout": ["Data Science", "Machine Learning", "Generative AI", "RAG", "Data Analytics", "Data Engineering", "SQL", "Python"],
+        "knowsAbout": ["Data Science", "Machine Learning", "Applied AI", "Retrieval-augmented generation", "Data Engineering", "SQL", "Python"],
         "sameAs": ["https://github.com/Iqranawaz-debug", "https://www.linkedin.com/in/iqra-nawaz-b2216a25a/"]
       }
     </script>
-    <script src="script.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="navbar">
-      <nav class="nav-container container" aria-label="Main navigation">
-        <a class="nav-logo" href="#home" aria-label="Iqra Nawaz, home"
-          ><span class="monogram" aria-hidden="true">in<span>.</span></span>
-          Iqra Nawaz</a
+
+    <header class="masthead">
+      <div class="wrap masthead__bar">
+        <a class="wordmark" href="#home" aria-label="Iqra Nawaz, home"
+          ><span class="monogram" aria-hidden="true">in</span><span class="wordmark__name">Iqra Nawaz</span></a
         >
-        <button
-          class="menu-toggle"
-          id="menuToggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="navMenu"
-          hidden
-        >
-          Menu <span aria-hidden="true">☰</span>
+        <div class="masthead__actions">
+          <a class="btn" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf"
+            >Resume <span class="arrow arrow--down" aria-hidden="true">↓</span
+            ><span class="sr-only"> (PDF download)</span></a
+          >
+          <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch colour theme" hidden>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" /></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+          </button>
+        </div>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navMenu" hidden>
+          Menu
         </button>
-        <ul class="nav-menu" id="navMenu">
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#projects">Projects</a></li>
-          <li><a class="nav-link" href="#experience">Experience</a></li>
-          <li><a class="nav-link" href="#skills">Skills</a></li>
-          <li><a class="nav-link" href="#education">Education</a></li>
-          <li>
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
-        <a
-          class="nav-resume"
-          href="assets/Iqra-Nawaz-Resume.pdf"
-          download="Iqra-Nawaz-Resume.pdf"
-          >Resume <span aria-hidden="true">↓</span
-          ><span class="sr-only"> (PDF download)</span></a
-        ><button
-          class="theme-toggle"
-          id="themeToggle"
-          type="button"
-          aria-label="Switch colour theme"
-          hidden
-        >
-          <span class="icon-moon" aria-hidden="true">☾</span
-          ><span class="icon-sun" aria-hidden="true">☀</span>
-        </button>
-      </nav>
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav__list" id="navMenu">
+            <li><a class="nav__link" href="#projects"><span class="num">01</span>Work</a></li>
+            <li><a class="nav__link" href="#archive"><span class="num">02</span>Archive</a></li>
+            <li><a class="nav__link" href="#about"><span class="num">03</span>About</a></li>
+            <li><a class="nav__link" href="#experience"><span class="num">04</span>Experience</a></li>
+            <li><a class="nav__link" href="#skills"><span class="num">05</span>Toolkit</a></li>
+            <li><a class="nav__link" href="#contact"><span class="num">07</span>Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
+
     <main id="main" tabindex="-1">
-      <section id="home" class="hero container" aria-labelledby="hero-title">
-        <div class="hero-content">
-          <p class="eyebrow">
-            <span class="status-dot" aria-hidden="true"></span> Data Science,
-            Analytics &amp; AI · Karachi, Pakistan
-          </p>
-          <p class="hero-greeting">Hi there, I’m Iqra <span role="img" aria-label="waving hand">👋</span></p>
-          <h1 id="hero-title">
-            Data to insights.<br />Ideas to <span>systems.</span>
-          </h1>
-          <p class="hero-description">
-            A Data Science graduate who turns data into decisions with
-            Python, SQL, and machine learning — from explainable models and
-            data warehouses to RAG-powered AI applications you can actually
-            use.
-          </p>
-          <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary"
-              >Explore my projects <span aria-hidden="true">↗</span></a
-            ><a
-              href="assets/Iqra-Nawaz-Resume.pdf"
-              class="btn btn-secondary"
-              download="Iqra-Nawaz-Resume.pdf"
-              >Download Resume<span class="sr-only"> (PDF)</span>
-              <span aria-hidden="true">↓</span></a
-            >
-          </div>
-          <div class="hero-links">
-            <a
-              href="https://github.com/Iqranawaz-debug"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub <span aria-hidden="true">↗</span
-              ><span class="sr-only"> (opens in a new tab)</span></a
-            ><a
-              href="https://www.linkedin.com/in/iqra-nawaz-b2216a25a/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn <span aria-hidden="true">↗</span
-              ><span class="sr-only"> (opens in a new tab)</span></a
-            >
-          </div>
-          <p class="availability">
-            <span class="status-dot" aria-hidden="true"></span><span>Open to
-            Data Science, ML, AI, BI, Data Analytics &amp; Data Engineering roles</span>
-          </p>
-        </div>
-        <div class="hero-visual">
-          <div class="portrait-frame">
-            <img
-              src="IMG.jpg"
-              alt="Iqra Nawaz"
-              width="400"
-              height="460"
-              fetchpriority="high"
-            />
-          </div>
-          <div class="workflow-note">
-            <p class="diagram-heading">From an idea to a working system</p>
-            <ol class="system-flow" aria-label="Engineering workflow">
-              <li>
-                <span class="flow-node">01</span><strong>Data</strong
-                ><span>Prepare</span>
-              </li>
-              <li>
-                <span class="flow-node">02</span><strong>Model</strong
-                ><span>Train</span>
-              </li>
-              <li>
-                <span class="flow-node">03</span><strong>Validate</strong
-                ><span>Evaluate</span>
-              </li>
-              <li>
-                <span class="flow-node">04</span><strong>Deploy</strong
-                ><span>Integrate</span>
-              </li>
-            </ol>
-          </div>
-        </div>
-        <div class="hero-facts">
-          <div>
-            <span class="fact-label">Education</span
-            ><strong>NED University</strong
-            ><span>B.S. CS (Data Science) · 3.70 CGPA</span>
-          </div>
-          <div>
-            <span class="fact-label">Portfolio</span
-            ><strong>12 projects <small>· 2 live apps</small></strong
-            ><span>ML · GenAI · Analytics · Data Eng.</span>
-          </div>
-          <div>
-            <span class="fact-label">Recent experience</span
-            ><strong>AI / Data Science Intern</strong
-            ><span>Logiciel Services · Jul–Aug 2026</span>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="about"
-        class="section container"
-        aria-labelledby="about-title"
-      >
-        <div class="about-layout">
-          <div class="about-intro">
-            <p class="eyebrow">01 / About</p>
-            <h2 id="about-title">
-              Good models are only<br />part of the solution.
-            </h2>
-            <p class="lead">
-              I enjoy the work between a messy dataset and a useful application.
-            </p>
-          </div>
-          <div class="about-method">
-            <p>
-              My work connects data preparation, machine learning, and
-              application development. I care about results people can trust:
-              leakage-aware evaluation, explainable scores, and citations that
-              are checked by code. At Logiciel Services, I put that process into
-              practice with AI-powered automation, testing, and feedback from QA
-              and engineering teams.
-            </p>
-            <ol class="workflow" aria-label="My development process">
-              <li>
-                <span>01</span>
-                <div>
-                  <strong>Prepare</strong>
-                  <p>Clean, structure, and validate the data.</p>
-                </div>
-              </li>
-              <li>
-                <span>02</span>
-                <div>
-                  <strong>Model</strong>
-                  <p>Develop models around the problem.</p>
-                </div>
-              </li>
-              <li>
-                <span>03</span>
-                <div>
-                  <strong>Validate</strong>
-                  <p>Evaluate results and test behavior.</p>
-                </div>
-              </li>
-              <li>
-                <span>04</span>
-                <div>
-                  <strong>Ship</strong>
-                  <p>Integrate, deploy, and iterate.</p>
-                </div>
-              </li>
-            </ol>
-          </div>
-        </div>
-        <div class="principles">
-          <p class="eyebrow">What I believe about data work</p>
-          <ul class="principles-grid">
-            <li>
-              <blockquote>“Check the evidence with code, not trust.”</blockquote>
-              <p>
-                In <a href="#deeptrace-project">DeepTrace AI</a>, a finding only
-                counts as cited when deterministic checks find its quote in a
-                saved source.
-              </p>
-            </li>
-            <li>
-              <blockquote>“A pattern is an association, not proof.”</blockquote>
-              <p>
-                In <a href="#bank-project">Bank Marketing Intelligence</a>,
-                insights guide what to test next — they never promise causal
-                uplift.
-              </p>
-            </li>
-            <li>
-              <blockquote>“Show the work behind every score.”</blockquote>
-              <p>
-                In <a href="#resumeiq-project">ResumeIQ</a>, every requirement
-                is backed by a quote and the exact scoring formula is visible.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="now" class="section container" aria-labelledby="now-title">
-        <div class="now-layout">
-          <div>
-            <p class="eyebrow">What I’m doing now</p>
-            <h2 id="now-title">Currently.</h2>
-            <p class="now-updated">Updated November 2026</p>
-          </div>
-          <ul class="now-list">
-            <li>
-              <span class="now-icon" aria-hidden="true">🔍</span>
-              <div>
-                <strong>Looking for my first full-time role</strong>
-                <p>
-                  Freshly graduated from NED University and open to Data
-                  Science, ML, AI, BI, Analytics and Data Engineering roles.
-                  <a href="#contact">Let’s talk.</a>
-                </p>
-              </div>
-            </li>
-            <li>
-              <span class="now-icon" aria-hidden="true">🌱</span>
-              <div>
-                <strong>Welcoming open-source contributors</strong>
-                <p>
-                  <a href="#screenshot-project">Smart Screenshot Organizer</a>
-                  has beginner-friendly issues for anyone making their first
-                  GitHub contribution.
-                </p>
-              </div>
-            </li>
-            <li>
-              <span class="now-icon" aria-hidden="true">✅</span>
-              <div>
-                <strong>Wrapped up DeepTrace AI</strong>
-                <p>
-                  Closed the project after completing Milestone 1 and a real
-                  end-to-end run, with a written handoff for anyone who picks it
-                  up.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section
-        id="projects"
-        class="section section-tinted"
-        aria-labelledby="projects-title"
-      >
-        <div class="container">
-          <div class="section-heading heading-row">
-            <div>
-              <p class="eyebrow">02 / Selected work</p>
-              <h2 id="projects-title">Ideas, built into systems.</h2>
-            </div>
-            <p>
-              Machine learning, analytics, data engineering, and the
-              applications that put them to work.
-            </p>
-          </div>
-          <dl class="project-stats" aria-label="Project overview">
-            <div><dt>Projects</dt><dd>12</dd></div>
-            <div><dt>Live demos</dt><dd>2</dd></div>
-            <div><dt>Public repos</dt><dd>10</dd></div>
-            <div><dt>Focus</dt><dd>ML · Analytics · Data Eng.</dd></div>
-          </dl>
-          <h3 class="subsection-title">Featured case studies</h3>
-          <div class="projects-grid">
-            <article id="deeptrace-project" class="project-card project-featured">
-              <div class="project-top">
-                <span class="project-number">01 / GENERATIVE AI · RAG</span
-                ><span class="status">Milestone 1 complete</span>
-              </div>
-              <div class="project-visual flow-visual" aria-hidden="true">
-                <span>PLAN</span><i></i><span>DISCOVER</span><i></i
-                ><span>READ</span><i></i><span class="flow-accent">CHECK</span
-                ><i></i><span>REPORT</span>
-              </div>
-              <div class="project-content">
-                <h3>DeepTrace AI</h3>
-                <p>
-                  A local-first agentic research workspace: it plans bounded
-                  research, saves each source, and writes reports where every
-                  finding cites a saved passage — verified by code, not a model.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Python</li>
-                  <li>RAG</li>
-                  <li>LLM Agents</li>
-                  <li>Gemini</li>
-                  <li>Tavily</li>
-                  <li>SQLite</li>
-                </ul>
-                <div class="project-result result-metrics">
-                  <div><strong>9 / 9</strong><span>Quotations matched in first live run</span></div>
-                  <div><strong>2</strong><span>Invalid citations caught &amp; suppressed</span></div>
-                </div>
-                <details class="project-details">
-                  <summary>
-                    <span
-                      ><span class="summary-title">Read the case study</span
-                      ><span class="summary-caption"
-                        >Problem, implementation &amp; outcome</span
-                      ><span class="sr-only"> — DeepTrace AI</span></span
-                    ><span class="detail-toggle" aria-hidden="true">+</span>
-                  </summary>
-                  <div class="case-study">
-                    <div class="case-study-heading">
-                      <span>Engineering notes</span><span>01</span>
-                    </div>
-                    <div class="case-step">
-                      <h4>Problem</h4>
-                      <p>
-                        AI research assistants are fast but hard to trust: they
-                        cite sources that don't contain the quoted words, mix
-                        opinion with evidence, and send data off your machine.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Approach</h4>
-                      <p>
-                        A bounded Plan → Discover → Read → Check → Report
-                        pipeline with hard limits on searches, pages, tokens and
-                        time. A finding is “Cited” only if deterministic checks
-                        confirm its passage and quotation.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Technical implementation</h4>
-                      <p>
-                        Python backend with SQLite storage, an evidence
-                        inspector UI, robots.txt-aware fetching, SSRF
-                        protection, mock mode by default, and versioned
-                        SHA-256-checked Markdown reports.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Result</h4>
-                      <p>
-                        Run end to end against real Tavily and Gemini free
-                        tiers: 7 cited findings, 9 of 9 quotations matched, 2
-                        invalid citations caught. Backend test coverage last
-                        measured at 92%.
-                      </p>
-                    </div>
-                  </div>
-                </details>
-                <div class="project-links">
-                  <a
-                    class="project-source"
-                    href="https://github.com/Iqranawaz-debug/DeepTrace-AI"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >View source on GitHub <span aria-hidden="true">↗</span
-                    ><span class="sr-only"> — DeepTrace AI (opens in a new tab)</span></a
-                  >
-                </div>
-              </div>
-            </article>
-
-            <article id="bank-project" class="project-card project-featured">
-              <div class="project-top">
-                <span class="project-number">02 / MACHINE LEARNING · ANALYTICS</span
-                ><span class="status live"
-                  ><span class="status-dot" aria-hidden="true"></span> Live
-                  app</span
-                >
-              </div>
-              <div class="project-visual bars-visual" aria-hidden="true">
-                <div class="bars">
-                  <span style="--h: 38%"></span><span style="--h: 62%"></span
-                  ><span style="--h: 46%"></span><span style="--h: 84%"></span
-                  ><span style="--h: 55%"></span><span style="--h: 72%"></span>
-                </div>
-                <span class="visual-label">CAMPAIGN DATA → SCORE → STRATEGY</span>
-              </div>
-              <div class="project-content">
-                <h3>Bank Marketing Intelligence</h3>
-                <p>
-                  Turns historical bank campaign data into decisions: interactive
-                  analytics, explainable ML, customer scoring and decision-threshold
-                  analysis for term-deposit outreach.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Python</li>
-                  <li>scikit-learn</li>
-                  <li>Explainable ML</li>
-                  <li>EDA</li>
-                  <li>Streamlit</li>
-                </ul>
-                <div class="project-result">
-                  <span>Delivered</span>
-                  <p>
-                    A deployed app with an executive dashboard, EDA, business
-                    insights, single-customer and CSV batch scoring, and model
-                    analysis — no retraining at inference time.
-                  </p>
-                </div>
-                <details class="project-details">
-                  <summary>
-                    <span
-                      ><span class="summary-title">Read the case study</span
-                      ><span class="summary-caption"
-                        >Problem, implementation &amp; outcome</span
-                      ><span class="sr-only"> — Bank Marketing Intelligence</span></span
-                    ><span class="detail-toggle" aria-hidden="true">+</span>
-                  </summary>
-                  <div class="case-study">
-                    <div class="case-study-heading">
-                      <span>Engineering notes</span><span>02</span>
-                    </div>
-                    <div class="case-step">
-                      <h4>Problem</h4>
-                      <p>
-                        Contacting every customer is expensive. Which customers
-                        are more likely to subscribe to a term deposit
-                        <em>before</em> a planned marketing call?
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Approach</h4>
-                      <p>
-                        Leakage-aware feature selection, a preprocessing
-                        pipeline, cross-validated model comparison, ROC-AUC,
-                        threshold trade-off analysis and held-out evaluation.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Technical implementation</h4>
-                      <p>
-                        Saved preprocessing and model artifacts served through
-                        a multi-page Streamlit app with validated CSV upload and
-                        downloadable scored output.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Business framing</h4>
-                      <p>
-                        Findings are presented as associations, not causal
-                        effects — guiding which segments to test next rather
-                        than promising campaign uplift.
-                      </p>
-                    </div>
-                  </div>
-                </details>
-                <div class="project-links">
-                  <a
-                    class="project-demo"
-                    href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Live demo <span aria-hidden="true">↗</span
-                    ><span class="sr-only"> — Bank Marketing Intelligence (opens in a new tab)</span></a
-                  ><a
-                    class="project-source"
-                    href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Source <span aria-hidden="true">↗</span
-                    ><span class="sr-only"> — Bank Marketing Intelligence (opens in a new tab)</span></a
-                  >
-                </div>
-              </div>
-            </article>
-
-            <article id="resumeiq-project" class="project-card">
-              <div class="project-top">
-                <span class="project-number">03 / NLP · FULL-STACK AI</span
-                ><span class="status">React + FastAPI</span>
-              </div>
-              <div class="project-visual match-visual" aria-hidden="true">
-                <div class="match-rows">
-                  <span><b class="ok"></b>Python</span>
-                  <span><b class="ok"></b>SQL</span>
-                  <span><b class="part"></b>Docker</span>
-                  <span><b></b>Kubernetes</span>
-                </div>
-                <span class="visual-label">RESUME ↔ JOB · EXPLAINED SCORE</span>
-              </div>
-              <div class="project-content">
-                <h3>ResumeIQ</h3>
-                <p>
-                  Explainable resume evaluation: requirement-by-requirement
-                  matching with quoted evidence, a transparent score formula,
-                  and opt-in AI rewrites checked by a grounding validator.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Python</li>
-                  <li>FastAPI</li>
-                  <li>React</li>
-                  <li>LLM APIs</li>
-                  <li>Docker</li>
-                </ul>
-                <div class="project-result">
-                  <span>Delivered</span>
-                  <p>
-                    Rule-based matching by default, a recruiter workspace with
-                    side-by-side comparison, privacy controls, CI, and a
-                    Docker Compose deployment.
-                  </p>
-                </div>
-                <details class="project-details">
-                  <summary>
-                    <span
-                      ><span class="summary-title">Read the case study</span
-                      ><span class="summary-caption"
-                        >Problem, implementation &amp; outcome</span
-                      ><span class="sr-only"> — ResumeIQ</span></span
-                    ><span class="detail-toggle" aria-hidden="true">+</span>
-                  </summary>
-                  <div class="case-study">
-                    <div class="case-study-heading">
-                      <span>Engineering notes</span><span>03</span>
-                    </div>
-                    <div class="case-step">
-                      <h4>Problem</h4>
-                      <p>
-                        Most resume checkers return a single opaque number with
-                        no explanation of what matched or what to improve.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Approach</h4>
-                      <p>
-                        Mark each job requirement as Matched, Partial, Not
-                        evidenced or Can't assess, with a quote from the resume,
-                        and show the exact scoring formula and weights.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Technical implementation</h4>
-                      <p>
-                        FastAPI backend with PDF/DOCX parsing and rule-based
-                        extraction; React + Vite frontend; optional
-                        OpenAI-compatible AI validated and shown beside the
-                        local result.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Result</h4>
-                      <p>
-                        A full-stack app with “what would change this score”
-                        simulations, resume versioning, readability checks and
-                        a safe CSV/PDF comparison export.
-                      </p>
-                    </div>
-                  </div>
-                </details>
-                <div class="project-links">
-                  <a
-                    class="project-source"
-                    href="https://github.com/Iqranawaz-debug/ResumeIQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >View source on GitHub <span aria-hidden="true">↗</span
-                    ><span class="sr-only"> — ResumeIQ (opens in a new tab)</span></a
-                  >
-                </div>
-              </div>
-            </article>
-
-            <article id="warehouse-project" class="project-card">
-              <div class="project-top">
-                <span class="project-number">04 / DATA ENGINEERING · BI</span
-                ><span class="status">SQL Server</span>
-              </div>
-              <div class="project-visual medallion-visual" aria-hidden="true">
-                <span class="layer-src">ERP · CRM</span><i></i
-                ><span class="layer-bronze">BRONZE</span><i></i
-                ><span class="layer-silver">SILVER</span><i></i
-                ><span class="layer-gold">GOLD</span>
-              </div>
-              <div class="project-content">
-                <h3>SQL Data Warehouse &amp; Analytics</h3>
-                <p>
-                  An end-to-end SQL Server warehouse that integrates ERP and CRM
-                  sales data through a Medallion architecture into an
-                  analytics-ready star schema.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>SQL Server</li>
-                  <li>T-SQL</li>
-                  <li>ETL</li>
-                  <li>Data Modeling</li>
-                  <li>Power BI</li>
-                </ul>
-                <div class="project-result">
-                  <span>Delivered</span>
-                  <p>
-                    Layered ETL scripts, data quality checks, a data catalog,
-                    and SQL analysis of customers, products and sales trends.
-                  </p>
-                </div>
-                <details class="project-details">
-                  <summary>
-                    <span
-                      ><span class="summary-title">Read the case study</span
-                      ><span class="summary-caption"
-                        >Problem, implementation &amp; outcome</span
-                      ><span class="sr-only"> — SQL Data Warehouse</span></span
-                    ><span class="detail-toggle" aria-hidden="true">+</span>
-                  </summary>
-                  <div class="case-study">
-                    <div class="case-study-heading">
-                      <span>Engineering notes</span><span>04</span>
-                    </div>
-                    <div class="case-step">
-                      <h4>Problem</h4>
-                      <p>
-                        Sales data spread across ERP and CRM systems makes even
-                        basic business questions hard to answer consistently.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Approach</h4>
-                      <p>
-                        Bronze for raw ingestion, Silver for cleaning and
-                        standardisation, Gold for analytics-oriented models.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Technical implementation</h4>
-                      <p>
-                        T-SQL ETL scripts per layer, star-schema data models,
-                        Draw.io architecture and data-flow diagrams, naming
-                        conventions and SQL data-quality tests.
-                      </p>
-                    </div>
-                    <div class="case-step">
-                      <h4>Result</h4>
-                      <p>
-                        A documented, query-friendly warehouse supporting
-                        customer-behaviour, product-performance and sales-trend
-                        analysis.
-                      </p>
-                    </div>
-                  </div>
-                </details>
-                <div class="project-links">
-                  <a
-                    class="project-source"
-                    href="https://github.com/Iqranawaz-debug/SQL_DATAWAREHOUSE_PROJECT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >View source on GitHub <span aria-hidden="true">↗</span
-                    ><span class="sr-only"> — SQL Data Warehouse (opens in a new tab)</span></a
-                  >
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="more-projects">
-            <div class="more-heading">
-              <h3 class="subsection-title">More projects</h3>
-              <div
-                class="project-filters"
-                role="group"
-                aria-label="Filter projects by area"
-                hidden
-              >
-                <button type="button" data-filter="all" aria-pressed="true">All</button
-                ><button type="button" data-filter="ml" aria-pressed="false">ML &amp; AI</button
-                ><button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button
-                ><button type="button" data-filter="apps" aria-pressed="false">Apps &amp; Tools</button>
-              </div>
-            </div>
-            <p class="filter-status sr-only" aria-live="polite"></p>
-            <ul class="mini-grid">
-              <li class="mini-card" id="sentix-project" data-category="ml">
-                <div class="mini-top">
-                  <span class="project-number">NLP</span><span class="status">Streamlit app</span>
-                </div>
-                <h4>SentixAI — Product Review Sentiment</h4>
-                <p>
-                  Classifies customer reviews as positive, negative or neutral
-                  with an evaluated NLP model and a Streamlit interface.
-                </p>
-                <p class="mini-metric"><strong>~92%</strong> accuracy on <strong>1,000+</strong> product reviews</p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Python</li><li>NLP</li><li>scikit-learn</li><li>Streamlit</li>
-                </ul>
-                <div class="project-links">
-                  <a class="project-source" href="https://github.com/Iqranawaz-debug/Sentiment_Analysis_On_Product_Reviews" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — SentixAI (opens in a new tab)</span></a>
-                </div>
-              </li>
-              <li class="mini-card" id="leafguard-project" data-category="ml">
-                <div class="mini-top">
-                  <span class="project-number">COMPUTER VISION</span><span class="status">CNN + GenAI</span>
-                </div>
-                <h4>LeafGuard AI — Plant Disease Detection</h4>
-                <p>
-                  A CNN classifies leaf diseases from images; an OpenAI
-                  integration adds treatment and prevention guidance for the
-                  predicted class.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>TensorFlow / Keras</li><li>OpenCV</li><li>Transfer Learning</li><li>OpenAI API</li>
-                </ul>
-                <div class="project-links">
-                  <a class="project-source" href="https://github.com/Iqranawaz-debug/LeafGuard-AI" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — LeafGuard AI (opens in a new tab)</span></a>
-                </div>
-              </li>
-              <li class="mini-card" id="cinematch-project" data-category="ml apps">
-                <div class="mini-top">
-                  <span class="project-number">RECOMMENDER SYSTEM</span><span class="status live"><span class="status-dot" aria-hidden="true"></span> Live app</span>
-                </div>
-                <h4>CineMatch — Movie Recommender</h4>
-                <p>
-                  Content-based recommendations from a precomputed cosine
-                  similarity matrix, with TMDB posters, ratings and a
-                  “Surprise me” mode.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Python</li><li>Pandas</li><li>Cosine Similarity</li><li>TMDB API</li><li>Streamlit</li>
-                </ul>
-                <div class="project-links">
-                  <a class="project-demo" href="https://iqra-movie-recommender.streamlit.app/" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span><span class="sr-only"> — CineMatch (opens in a new tab)</span></a><a class="project-source" href="https://github.com/Iqranawaz-debug/Movie-Recommender-Sys-app" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — CineMatch (opens in a new tab)</span></a>
-                </div>
-              </li>
-              <li class="mini-card" id="pipeline-project" data-category="data">
-                <div class="mini-top">
-                  <span class="project-number">DATA ENGINEERING</span><span class="status">Final year project</span>
-                </div>
-                <h4>Automated Data Pipeline</h4>
-                <p>
-                  Converts unstructured documents into structured, analyzable
-                  data with an end-to-end pipeline from document processing to
-                  automated reporting.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Python</li><li>Automation</li><li>Data Processing</li><li>Reporting</li>
-                </ul>
-                <div class="project-links">
-                  <a class="project-source" href="assets/images/fyp-teacher.png" target="_blank" rel="noopener noreferrer">View interface screenshot <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
-                </div>
-              </li>
-              <li class="mini-card" id="screenshot-project" data-category="data apps">
-                <div class="mini-top">
-                  <span class="project-number">OCR · AUTOMATION</span><span class="status">Open source</span>
-                </div>
-                <h4>Smart Screenshot Organizer</h4>
-                <p>
-                  Watches a folder, extracts text with Tesseract OCR, then
-                  renames, categorises and de-duplicates screenshots into a
-                  searchable SQLite history — fully local.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Python</li><li>Tesseract OCR</li><li>Pillow</li><li>SQLite</li>
-                </ul>
-                <div class="project-links">
-                  <a class="project-source" href="https://github.com/Iqranawaz-debug/Screenshot_Organizer" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Smart Screenshot Organizer (opens in a new tab)</span></a>
-                </div>
-              </li>
-              <li class="mini-card" id="routewise-project" data-category="ml apps">
-                <div class="mini-top">
-                  <span class="project-number">AI SEARCH ALGORITHMS</span><span class="status">Streamlit app</span>
-                </div>
-                <h4>RouteWise — NED Route Finder</h4>
-                <p>
-                  Compares Dijkstra and A* search on a weighted graph of Karachi
-                  landmarks, with route distance and travel-time estimates.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Python</li><li>Graph Algorithms</li><li>A* Search</li><li>Streamlit</li>
-                </ul>
-                <div class="project-links">
-                  <a class="project-source" href="https://github.com/Iqranawaz-debug/NED-Route-Finder" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — RouteWise (opens in a new tab)</span></a>
-                </div>
-              </li>
-              <li class="mini-card" id="shopify-project" data-category="apps">
-                <div class="mini-top">
-                  <span class="project-number">BACKEND API</span><span class="status">Node.js</span>
-                </div>
-                <h4>Shopify Product Management API</h4>
-                <p>
-                  An Express backend with local product CRUD in SQLite and
-                  Shopify GraphQL Admin API integration, secured with JWT auth,
-                  validation and rate limits.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Node.js</li><li>Express</li><li>GraphQL</li><li>JWT</li><li>SQLite</li>
-                </ul>
-                <div class="project-links">
-                  <a class="project-source" href="https://github.com/Iqranawaz-debug/nodejs-shopify-product-management" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Shopify Product Management API (opens in a new tab)</span></a>
-                </div>
-              </li>
-              <li class="mini-card" id="medicine-project" data-category="ml">
-                <div class="mini-top">
-                  <span class="project-number">MACHINE LEARNING</span><span class="status ongoing"><span class="status-dot" aria-hidden="true"></span> In development</span>
-                </div>
-                <h4>AI-Based Medicine Recommendation System</h4>
-                <p>
-                  A machine-learning application connecting prepared data,
-                  candidate models and recommendation generation. Currently in
-                  dataset cleaning, training and evaluation.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>Python</li><li>Machine Learning</li><li>Data Preparation</li>
-                </ul>
-              </li>
-            </ul>
-            <p class="more-cta">
-              <a
-                class="btn btn-secondary"
-                href="https://github.com/Iqranawaz-debug?tab=repositories"
-                target="_blank"
-                rel="noopener noreferrer"
-                >See all repositories on GitHub <span aria-hidden="true">↗</span
-                ><span class="sr-only"> (opens in a new tab)</span></a
-              >
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="experience"
-        class="section container"
-        aria-labelledby="experience-title"
-      >
-        <div class="section-heading">
-          <p class="eyebrow">03 / Experience</p>
-          <h2 id="experience-title">Learning through delivery.</h2>
-        </div>
-        <div class="experience-timeline">
-          <article
-            id="logiciel-experience"
-            class="experience-item experience-featured"
+      <!-- Hero ---------------------------------------------------------- -->
+      <section id="home" class="wrap grid hero" aria-labelledby="hero-title">
+        <p class="hero__kicker kicker">
+          <span>Iqra Nawaz — data science &amp; applied AI</span><span>Karachi, Pakistan</span>
+        </p>
+        <h1 id="hero-title" class="hero__title">
+          I build AI that
+          <span class="scribble"
+            ><em>shows its work.</em
+            ><svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"
+              ><path d="M3 14 C 60 4, 120 18, 180 9 S 270 6, 297 12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" pathLength="1" /></svg></span
           >
-            <div class="experience-date">
-              <span class="experience-label">Applied AI experience</span>Jul
-              2026 – Aug 2026<span>Karachi, Pakistan</span>
-            </div>
-            <div class="experience-content">
-              <p class="company">Logiciel Services (Pvt.) Ltd.</p>
-              <h3>AI / Data Science Intern</h3>
-              <ul>
-                <li>
-                  Built an AI-powered automation solution for a fintech web
-                  platform using Python and AI/LLM-assisted workflows.
-                </li>
-                <li>
-                  Structured and validated operational data; designed agent
-                  prompts, task flows, and validation logic.
-                </li>
-                <li>
-                  Implemented error handling, structured logging, and status
-                  reporting to support reliable execution.
-                </li>
-                <li>
-                  Wrote test cases and tested the solution end-to-end with QA
-                  and engineering teams, improving behavior through stakeholder
-                  feedback.
-                </li>
-              </ul>
-              <ul class="tags" aria-label="Areas of work">
-                <li>Python</li>
-                <li>AI Automation</li>
-                <li>Prompt Engineering</li>
-                <li>Validation &amp; Testing</li>
-                <li>Structured Logging</li>
-                <li>Error Handling</li>
-              </ul>
-            </div>
-          </article>
-          <article class="experience-item">
-            <div class="experience-date">
-              Nov 2025 – Dec 2025<span>8-week program</span>
-            </div>
-            <div class="experience-content">
-              <p class="company">Arch Technologies</p>
-              <h3>Data Science Intern</h3>
-              <ul>
-                <li>
-                  Completed an 8-week Data Science Internship and Training
-                  Program covering hands-on data science work in Python.
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article class="experience-item">
-            <div class="experience-date">
-              Fall 2025<span>Karachi, Pakistan</span>
-            </div>
-            <div class="experience-content">
-              <p class="company">NED University</p>
-              <h3>Teaching Assistant — IT Fundamentals</h3>
-              <ul>
-                <li>Coordinated lab sessions and grading for 60+ students.</li>
-                <li>
-                  Explained technical concepts clearly to support students’
-                  understanding.
-                </li>
-              </ul>
-            </div>
-          </article>
-          <article class="experience-item">
-            <div class="experience-date">
-              Jun 2025 – Aug 2025<span>Karachi, Pakistan</span>
-            </div>
-            <div class="experience-content">
-              <p class="company">Karachi Development Authority (KDA)</p>
-              <h3>IT Intern</h3>
-              <ul>
-                <li>
-                  Supported enterprise IT operations, system troubleshooting,
-                  and data management.
-                </li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
+        </h1>
 
-      <section
-        id="skills"
-        class="section section-tinted"
-        aria-labelledby="skills-title"
-      >
-        <div class="container">
-          <div class="section-heading heading-row">
-            <div>
-              <p class="eyebrow">04 / Technical toolkit</p>
-              <h2 id="skills-title">Tools with a purpose.</h2>
-            </div>
-            <p>Across the model, the data,<br />and the application.</p>
-          </div>
-          <div class="skills-grid">
-            <article class="skill-category">
-              <span class="skill-index">01</span>
-              <h3>Machine Learning &amp; Deep Learning</h3>
-              <p>
-                scikit-learn · TensorFlow / Keras · Feature Engineering ·
-                Cross-Validation · ROC-AUC &amp; Threshold Analysis ·
-                Explainability · NLP · CNN · Recommender Systems
-              </p>
-              <div class="skill-proof">
-                <span>Applied in</span
-                ><a href="#bank-project">Explainable ML → Bank Marketing Intelligence</a
-                ><a href="#sentix-project">NLP → SentixAI</a
-                ><a href="#leafguard-project">CNN → LeafGuard AI</a
-                ><a href="#cinematch-project">Similarity search → CineMatch</a>
-              </div>
-            </article>
-            <article class="skill-category">
-              <span class="skill-index">02</span>
-              <h3>Generative AI &amp; LLM Apps</h3>
-              <p>
-                RAG · LLM Agents · Prompt Engineering · Gemini · OpenAI API ·
-                Citation Validation · Grounded Generation · AI Automation
-              </p>
-              <div class="skill-proof">
-                <span>Applied in</span
-                ><a href="#deeptrace-project">RAG &amp; verified citations → DeepTrace AI</a
-                ><a href="#resumeiq-project">Grounded AI rewrites → ResumeIQ</a
-                ><a href="#logiciel-experience">AI automation → Logiciel Services</a>
-              </div>
-            </article>
-            <article class="skill-category">
-              <span class="skill-index">03</span>
-              <h3>Data Analytics &amp; BI</h3>
-              <p>
-                Python · SQL · Pandas · NumPy · Matplotlib · EDA · Power BI ·
-                Tableau · Business Insight Communication
-              </p>
-              <div class="skill-proof">
-                <span>Applied in</span
-                ><a href="#bank-project">EDA &amp; dashboards → Bank Marketing Intelligence</a
-                ><a href="#warehouse-project">SQL analytics → Data Warehouse</a>
-              </div>
-            </article>
-            <article class="skill-category">
-              <span class="skill-index">04</span>
-              <h3>Data Engineering</h3>
-              <p>
-                SQL Server · T-SQL · ETL Pipelines · Medallion Architecture ·
-                Star Schema Modeling · Data Quality Checks · SQLite · MySQL ·
-                OCR Pipelines
-              </p>
-              <div class="skill-proof">
-                <span>Applied in</span
-                ><a href="#warehouse-project">Bronze → Silver → Gold → Data Warehouse</a
-                ><a href="#pipeline-project">Document processing → Automated Data Pipeline</a
-                ><a href="#screenshot-project">OCR → Screenshot Organizer</a>
-              </div>
-            </article>
-            <article class="skill-category">
-              <span class="skill-index">05</span>
-              <h3>Apps, APIs &amp; Deployment</h3>
-              <p>
-                Streamlit · FastAPI · React · Node.js / Express · REST &amp;
-                GraphQL · Docker · GitHub Actions · Git
-              </p>
-              <div class="skill-proof">
-                <span>Applied in</span
-                ><a href="#resumeiq-project">FastAPI + React + Docker → ResumeIQ</a
-                ><a href="#shopify-project">Express &amp; GraphQL → Shopify API</a>
-              </div>
-            </article>
-            <article class="skill-category">
-              <span class="skill-index">06</span>
-              <h3>Ways of working</h3>
-              <p>
-                Testing &amp; Validation · Structured Logging · Error Handling ·
-                Privacy by Design · Documentation · Jupyter · Google Colab ·
-                VS Code
-              </p>
-              <div class="skill-proof">
-                <span>Applied in</span
-                ><a href="#logiciel-experience">End-to-end testing with QA → Logiciel Services</a
-                ><a href="#deeptrace-project">92% backend test coverage → DeepTrace AI</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="education"
-        class="section container"
-        aria-labelledby="education-title"
-      >
-        <div class="section-heading">
-          <p class="eyebrow">05 / Education &amp; certifications</p>
-          <h2 id="education-title">A foundation to build on.</h2>
-        </div>
-        <div class="education-grid">
-          <div class="education-card">
-            <p class="education-label">University degree</p>
-            <h3>B.S. Computer Science<br /><span>(Data Science)</span></h3>
-            <p class="university">NED University, Karachi</p>
-            <div class="education-meta">
-              <span>2022–2026</span
-              ><span class="cgpa">CGPA <strong>3.70 / 4.00</strong></span>
-            </div>
-            <p class="fact-label">Relevant coursework</p>
-            <p>
-              Machine Learning · Artificial Intelligence · Data Mining ·
-              Probability &amp; Statistics
-            </p>
-            <div class="previous-education">
-              <h4>Intermediate — Pre-Engineering</h4>
-              <p>Bahria College Karsaz · 2020–2022<br />Grade A-1 · 90.09%</p>
-            </div>
-          </div>
-          <div class="certifications">
-            <h3>Professional certifications</h3>
-            <ul>
-              <li>
-                <span class="cert-number">01</span>
-                <div>
-                  <h4>Google Data Analytics Professional Certificate</h4>
-                  <p>Coursera · Jan 2026</p>
-                </div>
-              </li>
-              <li>
-                <span class="cert-number">02</span>
-                <div>
-                  <h4>Deloitte Data Analytics Job Simulation</h4>
-                  <p>Forage · Jul 2025</p>
-                </div>
-              </li>
-              <li>
-                <span class="cert-number">03</span>
-                <div>
-                  <h4>Huawei Certified ICT Associate (HCIA) – Datacom</h4>
-                  <p>Earned 100% sponsorship as a top performer</p>
-                </div>
-              </li>
-              <li>
-                <span class="cert-number">04</span>
-                <div>
-                  <h4>Google Project Management Professional Certificate</h4>
-                  <p>Coursera · Jan 2026</p>
-                </div>
-              </li>
-            </ul>
-            <h3 class="courses-title">Additional courses</h3>
-            <ul class="course-list">
-              <li>Introduction to Data Analytics <span>IBM · Coursera · 2025</span></li>
-              <li>AI For Everyone <span>DeepLearning.AI · Coursera · 2025</span></li>
-              <li>Python for Data Analysis: Pandas &amp; NumPy <span>Coursera Project Network · 2025</span></li>
-              <li>Understanding Data Science <span>DataCamp · 2025</span></li>
-              <li>Understanding Machine Learning <span>DataCamp · 2025</span></li>
-              <li>Introduction to Tableau <span>DataCamp · 2025</span></li>
-              <li>Understanding Prompt Engineering <span>DataCamp · 2025</span></li>
-              <li>Introduction to ChatGPT <span>DataCamp · 2025</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="contact"
-        class="section contact container"
-        aria-labelledby="contact-title"
-      >
-        <div>
-          <p class="eyebrow">06 / Let’s connect</p>
-          <h2 id="contact-title">
-            Let’s build something<br />useful with data.
-          </h2>
+        <div class="hero__intro">
           <p>
-            I’m open to roles in Data Science, Machine Learning, Artificial
-            Intelligence, Business Intelligence (BI), Data Analytics, and Data
-            Engineering. Have a role or project in mind? I’d love to hear about it.
+            Most AI demos ask you to trust them. Mine come with receipts:
+            citations checked by code, scores with the formula on screen, and
+            predictions with their caveats attached.
           </p>
-          <a class="btn btn-primary" href="mailto:iqranawaz9353@gmail.com"
-            >Email me <span aria-hidden="true">↗</span></a
-          >
+          <p>
+            I’m a <strong>Data Science graduate from NED University</strong>
+            who builds models, data pipelines and LLM tools — plus the careful,
+            unglamorous plumbing that makes them believable.
+          </p>
+          <div class="hero__ctas">
+            <a class="btn btn--pen" href="#projects">Selected work <span class="arrow arrow--down" aria-hidden="true">↓</span></a>
+            <a class="btn" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf"
+              >Download Resume <span class="arrow arrow--down" aria-hidden="true">↓</span><span class="sr-only"> (PDF)</span></a
+            >
+            <a class="btn" href="mailto:iqranawaz9353@gmail.com">Email me <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+          <p class="status status--open">Open to full-time roles in data science, ML and AI engineering</p>
         </div>
-        <div class="contact-details">
+
+        <div class="hero__aside">
+          <figure class="portrait">
+            <img src="assets/images/portrait.webp" alt="Portrait of Iqra Nawaz" width="560" height="560" fetchpriority="high" />
+            <figcaption>Fig. 1 — Iqra Nawaz, Karachi.</figcaption>
+          </figure>
+          <section class="labnotes" id="now" aria-labelledby="now-title">
+            <h2 id="now-title"><span>Lab notes</span><span class="pen">Nov 2026</span></h2>
+            <ol>
+              <li>
+                <time datetime="2026-11-09">09 Nov 2026</time>
+                Closed <a href="#deeptrace-project">DeepTrace AI</a> after a real
+                end-to-end run — and wrote down what’s still broken.
+              </li>
+              <li>
+                <time datetime="2026-10-28">28 Oct 2026</time>
+                Shipped the <a href="#resumeiq-project">ResumeIQ</a> recruiter
+                workspace: notes, tags, a pipeline board, safe exports.
+              </li>
+              <li>
+                <time datetime="2026-10-25">25 Oct 2026</time>
+                Merged the first outside contribution to
+                <a href="#screenshot-project">Screenshot Organizer</a>.
+              </li>
+            </ol>
+          </section>
+        </div>
+
+        <dl class="hero__facts">
           <div>
-            <span class="fact-label">Email</span
-            ><a href="mailto:iqranawaz9353@gmail.com"
-              >iqranawaz9353@gmail.com <span aria-hidden="true">↗</span></a
-            >
+            <dt class="label">Education</dt>
+            <dd>NED University<small>B.S. Computer Science (Data Science) · 3.70 CGPA · 2026</small></dd>
           </div>
           <div>
-            <span class="fact-label">Elsewhere</span
-            ><a
-              href="https://www.linkedin.com/in/iqra-nawaz-b2216a25a/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Connect on LinkedIn <span aria-hidden="true">↗</span
-              ><span class="sr-only"> (opens in a new tab)</span></a
-            >
+            <dt class="label">Most recently</dt>
+            <dd>Logiciel Services<small>AI / Data Science Intern · Jul–Aug 2026</small></dd>
           </div>
           <div>
-            <span class="fact-label">Code</span
-            ><a
-              href="https://github.com/Iqranawaz-debug"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Explore my GitHub <span aria-hidden="true">↗</span
-              ><span class="sr-only"> (opens in a new tab)</span></a
-            >
+            <dt class="label">On GitHub</dt>
+            <dd>12 projects<small>10 public repositories · 2 live demos</small></dd>
           </div>
           <div>
-            <span class="fact-label">Based in</span>
-            <p>Karachi, Pakistan</p>
+            <dt class="label">Focus</dt>
+            <dd>Checkable AI<small>ML · LLM tooling · data systems</small></dd>
           </div>
+        </dl>
+      </section>
+
+      <!-- Selected work -------------------------------------------------- -->
+      <section id="projects" class="section" aria-labelledby="projects-title">
+        <div class="wrap">
+          <header class="grid section-head">
+            <p class="section-head__index"><span class="index">IN·01</span><span class="kicker">Selected work</span></p>
+            <h2 id="projects-title" class="section-head__title">Three projects, shown with their working.</h2>
+            <p class="section-head__note">
+              The long version — problem, decisions, evidence, and the parts
+              that still don’t work. Each has a full case study.
+            </p>
+          </header>
+
+          <!-- 01 DeepTrace AI -->
+          <article id="deeptrace-project" class="grid case reveal" aria-labelledby="deeptrace-title">
+            <div class="case__meta">
+              <span class="case__num" aria-hidden="true">01</span>
+              <span class="kicker">Applied AI · RAG</span>
+              <span class="status">Closed · Milestone 1 complete</span>
+              <span class="mono">Oct–Nov 2026</span>
+            </div>
+            <div class="case__body">
+              <h3 id="deeptrace-title" class="case__title">DeepTrace AI</h3>
+              <p class="case__dek">A research assistant that has to show you the sentence before it’s allowed to make the claim.</p>
+              <ul class="case__points">
+                <li><span class="label">Problem</span><span>AI research tools cite pages that don’t contain the quoted words — and quietly send your questions off your machine.</span></li>
+                <li><span class="label">Decision</span><span>Citations are checked by deterministic code: the passage must exist, must have been allowed for this run, and must contain the quotation.</span></li>
+                <li><span class="label">Built</span><span>A local-first Python/FastAPI and SQLite backend, a React/TypeScript workspace, and a bounded Plan → Report pipeline over Tavily search and Gemini.</span></li>
+              </ul>
+              <p class="footnote">
+                <strong>Honest limit:</strong> a valid citation proves the source
+                says those words — not that the claim is true. Checking whether a
+                passage <em>supports</em> a claim was planned for a later
+                milestone and not built.
+              </p>
+              <div class="links">
+                <a class="btn btn--pen" href="work/deeptrace-ai.html">Read the case study <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="link" href="https://github.com/Iqranawaz-debug/DeepTrace-AI" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — DeepTrace AI on GitHub (opens in a new tab)</span></a>
+              </div>
+            </div>
+            <figure class="case__visual">
+              <div class="ledger">
+                <span class="label">Evidence ledger · first live run, 9 Nov 2026</span>
+                <ol class="flow" aria-label="DeepTrace research pipeline">
+                  <li><strong>Plan</strong>Bounded searches, pages, tokens, minutes</li>
+                  <li><strong>Discover</strong>Tavily search within limits</li>
+                  <li><strong>Read</strong>robots.txt-aware; ≤4 passages per source</li>
+                  <li class="is-key"><strong>Check</strong>Code validates every citation</li>
+                  <li><strong>Report</strong>Versioned, SHA-256-checked Markdown</li>
+                </ol>
+                <dl class="ledger__rows">
+                  <div><dt>quotations matched to saved text</dt><dd>9 / 9</dd></div>
+                  <div><dt>invalid citations caught and suppressed</dt><dd class="pen">2</dd></div>
+                  <div><dt>backend tests passing</dt><dd>326</dd></div>
+                  <div><dt>line &amp; branch coverage (floor 85%)</dt><dd>92%</dd></div>
+                </dl>
+              </div>
+              <figcaption class="caption">
+                <b>Source:</b> the project’s closure report. Tests were run
+                locally; the CI workflow had not yet run on GitHub at closure.
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- 02 ResumeIQ -->
+          <article id="resumeiq-project" class="grid case reveal" aria-labelledby="resumeiq-title">
+            <div class="case__meta">
+              <span class="case__num" aria-hidden="true">02</span>
+              <span class="kicker">NLP · Full-stack AI</span>
+              <span class="status">Open source · not hosted</span>
+              <span class="mono">Jul–Oct 2026</span>
+            </div>
+            <div class="case__body">
+              <h3 id="resumeiq-title" class="case__title">ResumeIQ</h3>
+              <p class="case__dek">A resume checker that explains its number — and admits what it can’t know.</p>
+              <ul class="case__points">
+                <li><span class="label">Problem</span><span>Most resume checkers hand back one opaque score, with no way to see what matched or why.</span></li>
+                <li><span class="label">Decision</span><span>Local rules always compute the score. Optional AI is validated and shown <em>beside</em> it — never instead of it.</span></li>
+                <li><span class="label">Built</span><span>FastAPI with PDF/DOCX parsing and rule-based extraction; a React + Vite frontend; a recruiter workspace; optional SQLite; Docker Compose and CI.</span></li>
+              </ul>
+              <p class="credit">
+                Co-built with <strong>Arisha Salman</strong>, who started the
+                project in July 2026. I led the October rebuild: explainable
+                results, requirement review, grounded rewrites, privacy controls
+                and the recruiter workspace.
+              </p>
+              <div class="links">
+                <a class="btn btn--pen" href="work/resumeiq.html">Read the case study <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="link" href="https://github.com/Iqranawaz-debug/ResumeIQ" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — ResumeIQ on GitHub (opens in a new tab)</span></a>
+              </div>
+            </div>
+            <figure class="case__visual">
+              <div class="annotated" data-annotated>
+                <div class="shot">
+                  <img
+                    src="assets/work/resumeiq-requirements.webp"
+                    alt="ResumeIQ analysis result: a local rules score of 80 out of 100, strongest matches, most important gaps, and a requirement list marked Matched, Partial or Not evidenced"
+                    width="1400" height="1039" loading="lazy" decoding="async"
+                  />
+                </div>
+                <span class="pin" style="--x: 40%; --y: 21%" data-note="1" aria-hidden="true">1</span>
+                <span class="pin" style="--x: 21%; --y: 33%" data-note="2" aria-hidden="true">2</span>
+                <span class="pin" style="--x: 61%; --y: 41%" data-note="3" aria-hidden="true">3</span>
+                <span class="pin" style="--x: 49%; --y: 74%" data-note="4" aria-hidden="true">4</span>
+              </div>
+              <ol class="notes" aria-label="Annotations on the screenshot">
+                <li data-note="1">The result states whether any AI provider was called.</li>
+                <li data-note="2">The local score is always there; the formula is one tab away.</li>
+                <li data-note="3">Gaps are “not evidenced” — not proof the candidate lacks the skill.</li>
+                <li data-note="4">Every requirement gets a status and a quote from the resume.</li>
+              </ol>
+              <figcaption class="caption"><b>Screenshot</b> from the repository, using its bundled fictional sample resume.</figcaption>
+            </figure>
+          </article>
+
+          <!-- 03 Bank Marketing Intelligence -->
+          <article id="bank-project" class="grid case reveal" aria-labelledby="bank-title">
+            <div class="case__meta">
+              <span class="case__num" aria-hidden="true">03</span>
+              <span class="kicker">Predictive modelling</span>
+              <span class="status status--live">Live demo</span>
+              <span class="mono">2026</span>
+            </div>
+            <div class="case__body">
+              <h3 id="bank-title" class="case__title">Bank Marketing Intelligence</h3>
+              <p class="case__dek">Who’s worth calling? A model that only uses what the bank knows before the phone rings.</p>
+              <ul class="case__points">
+                <li><span class="label">Problem</span><span>Calling every customer about a term deposit is expensive. Rank them first — before the campaign call.</span></li>
+                <li><span class="label">Decision</span><span>Call duration is dropped: it’s only known <em>after</em> the call, so using it would leak the answer into the model.</span></li>
+                <li><span class="label">Decision</span><span>XGBoost chosen by 3-fold cross-validated average precision; the 0.375 threshold maximises out-of-fold F1 — exploratory, not cost-optimised.</span></li>
+              </ul>
+              <div class="links">
+                <a class="btn btn--pen" href="https://bank-marketing-intelligence-carun64aee6xuak9rj2vmj.streamlit.app/" target="_blank" rel="noopener noreferrer"
+                  >Live demo <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> — Bank Marketing Intelligence (opens in a new tab)</span></a
+                >
+                <a class="link" href="work/bank-marketing-intelligence.html">Case study <span aria-hidden="true">→</span></a>
+                <a class="link" href="https://github.com/Iqranawaz-debug/Bank-Marketing-Intelligence" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Bank Marketing Intelligence on GitHub (opens in a new tab)</span></a>
+              </div>
+            </div>
+            <figure class="case__visual">
+              <table class="model-chart">
+                <caption>
+                  ROC-AUC on held-out data
+                  <small>2,233 held-out records of 11,162 · bars start at 0.40</small>
+                </caption>
+                <thead>
+                  <tr><th scope="col">Model</th><th scope="col"><span class="sr-only">Bar</span></th><th scope="col" class="val">AUC</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Dummy baseline</th><td><span class="bar" style="--v: 0.5"></span></td><td class="val">0.500</td></tr>
+                  <tr><th scope="row">Logistic regression</th><td><span class="bar" style="--v: 0.758"></span></td><td class="val">0.758</td></tr>
+                  <tr><th scope="row">Random forest</th><td><span class="bar" style="--v: 0.786"></span></td><td class="val">0.786</td></tr>
+                  <tr class="is-selected"><th scope="row">XGBoost (selected)</th><td><span class="bar" style="--v: 0.795"></span></td><td class="val">0.795</td></tr>
+                </tbody>
+              </table>
+              <dl class="metric-row">
+                <div><dt>Recall at 0.375</dt><dd>77.0%</dd></div>
+                <div><dt>Average precision</dt><dd>0.796</dd></div>
+                <div><dt>F1</dt><dd>0.720</dd></div>
+                <div><dt>Precision</dt><dd>67.6%</dd></div>
+              </dl>
+              <div class="figure-pair">
+                <div class="shot">
+                  <img
+                    src="assets/work/bank-explainability.webp"
+                    alt="Held-out permutation importance chart: contact month, previous outcome and contact method cause the largest drops in average precision"
+                    width="1280" height="720" loading="lazy" decoding="async"
+                  />
+                </div>
+              </div>
+              <figcaption class="caption"><b>Figures</b> from the deployed app’s Model Performance and Explainability pages. Patterns are associations, not causal effects.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Field note: Screenshot Organizer -->
+          <article id="screenshot-project" class="grid fieldnote reveal" aria-labelledby="screenshot-title">
+            <div class="fieldnote__head">
+              <span class="kicker"><span class="index">Field note</span> · Desktop automation · Oct 2026</span>
+              <h3 id="screenshot-title">Smart Screenshot Organizer</h3>
+              <p>
+                A small tool for a universal mess. It reads each new screenshot
+                with Tesseract OCR, names it from visible evidence, files it by
+                category and keeps a searchable local history. OCR and
+                explainable rules — no LLM, no cloud.
+              </p>
+              <div class="links">
+                <a class="link" href="https://github.com/Iqranawaz-debug/Screenshot_Organizer" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Smart Screenshot Organizer on GitHub (opens in a new tab)</span></a>
+                <span class="stack-list" role="list"><span role="listitem">Python</span>&nbsp;/ <span role="listitem">Tesseract</span>&nbsp;/ <span role="listitem">watchdog</span>&nbsp;/ <span role="listitem">SQLite</span>&nbsp;/ <span role="listitem">Streamlit</span></span>
+              </div>
+            </div>
+            <figure class="fieldnote__tree">
+              <div class="tree">
+<pre class="before" aria-label="Before: screenshot folder" tabindex="0">Screenshots/
+├── Screenshot (42).png
+└── Screenshot (43).png</pre>
+                <span class="tree__arrow" aria-hidden="true">→</span>
+<pre class="after" aria-label="After: organised folders" tabindex="0">organized_screenshots/
+├── Programming/
+│   └── Python_Exception_Handling_2026-10-17.png
+└── Education/
+    └── Database_Management_Systems_Assignment_02_2026-10-17.png</pre>
+              </div>
+              <figcaption class="caption"><b>Example</b> from the project README. Originals stay untouched; the tool writes copies.</figcaption>
+            </figure>
+            <ul class="guarantees">
+              <li><strong>Dry run by default</strong>Manual commands preview first; nothing changes without <code>--apply</code>.</li>
+              <li><strong>Never overwrites</strong>Copies by default; moving requires typing MOVE.</li>
+              <li><strong>Duplicates skipped</strong>Content hashing means re-runs never create copies.</li>
+              <li><strong>Tested without Tesseract</strong>19 test files with OCR mocked; first outside PR merged.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Archive ---------------------------------------------------------- -->
+      <section id="archive" class="section section--tint" aria-labelledby="archive-title">
+        <div class="wrap">
+          <header class="grid section-head">
+            <p class="section-head__index"><span class="index">IN·02</span><span class="kicker">Archive</span></p>
+            <h2 id="archive-title" class="section-head__title">Everything else, smallest claims first.</h2>
+            <p class="section-head__note">Coursework, experiments and side projects. Filter by area; where a preview exists, hover the row.</p>
+          </header>
+          <div class="archive-tools">
+            <div class="filters" role="group" aria-label="Filter projects by area" hidden>
+              <button type="button" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" data-filter="ml" aria-pressed="false">ML &amp; AI</button>
+              <button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
+              <button type="button" data-filter="apps" aria-pressed="false">Apps &amp; Tools</button>
+            </div>
+            <p class="mono filter-status" aria-live="polite">9 projects</p>
+          </div>
+          <ol class="archive">
+            <li class="archive__row" id="warehouse-project" data-category="data" data-preview="assets/work/warehouse-model.webp">
+              <span class="mono">A01</span>
+              <div>
+                <h3>SQL Data Warehouse &amp; Analytics</h3>
+                <p>ERP and CRM CSVs into a SQL Server star schema through Bronze → Silver → Gold layers, with data-quality checks and a data catalog.</p>
+              </div>
+              <span class="archive__field">Data engineering · BI<span class="status">T-SQL · ETL</span></span>
+              <span class="mono">2025</span>
+              <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/SQL_DATAWAREHOUSE_PROJECT" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — SQL Data Warehouse (opens in a new tab)</span></a></span>
+            </li>
+            <li class="archive__row" id="sentix-project" data-category="ml">
+              <span class="mono">A02</span>
+              <div>
+                <h3>SentixAI — Review Sentiment</h3>
+                <p>Classifies product reviews as positive, negative or neutral: ~92% accuracy on 1,000+ reviews, served in Streamlit.</p>
+              </div>
+              <span class="archive__field">NLP<span class="status">scikit-learn</span></span>
+              <span class="mono">2026</span>
+              <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/Sentiment_Analysis_On_Product_Reviews" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — SentixAI (opens in a new tab)</span></a></span>
+            </li>
+            <li class="archive__row" id="leafguard-project" data-category="ml">
+              <span class="mono">A03</span>
+              <div>
+                <h3>LeafGuard AI</h3>
+                <p>A CNN classifies plant-leaf diseases from photos; an OpenAI call adds care and prevention guidance for the predicted class.</p>
+              </div>
+              <span class="archive__field">Computer vision<span class="status">TensorFlow / Keras</span></span>
+              <span class="mono">2026</span>
+              <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/LeafGuard-AI" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — LeafGuard AI (opens in a new tab)</span></a></span>
+            </li>
+            <li class="archive__row" id="cinematch-project" data-category="ml apps">
+              <span class="mono">A04</span>
+              <div>
+                <h3>CineMatch — Movie Recommender</h3>
+                <p>Content-based recommendations from a precomputed cosine-similarity matrix, with TMDB posters and a “Surprise me” button.</p>
+              </div>
+              <span class="archive__field">Recommender systems<span class="status status--live">Live</span></span>
+              <span class="mono">2026</span>
+              <span class="links"><a class="link" href="https://iqra-movie-recommender.streamlit.app/" target="_blank" rel="noopener noreferrer">Demo <span aria-hidden="true">↗</span><span class="sr-only"> — CineMatch live demo (opens in a new tab)</span></a><a class="link" href="https://github.com/Iqranawaz-debug/Movie-Recommender-Sys-app" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — CineMatch (opens in a new tab)</span></a></span>
+            </li>
+            <li class="archive__row" id="pipeline-project" data-category="data" data-preview="assets/images/fyp-teacher.png">
+              <span class="mono">A05</span>
+              <div>
+                <h3>Automated Data Pipeline</h3>
+                <p>Final year project: unstructured documents in, structured and reportable data out, end to end.</p>
+              </div>
+              <span class="archive__field">Data processing<span class="status">Final year project</span></span>
+              <span class="mono">2026</span>
+              <span class="links"><a class="link" href="assets/images/fyp-teacher.png" target="_blank" rel="noopener noreferrer">Screenshot <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></span>
+            </li>
+            <li class="archive__row" id="routewise-project" data-category="ml apps">
+              <span class="mono">A06</span>
+              <div>
+                <h3>RouteWise — NED Route Finder</h3>
+                <p>Dijkstra versus A* on a weighted graph of Karachi landmarks, with distance and travel-time estimates.</p>
+              </div>
+              <span class="archive__field">Search algorithms<span class="status">Streamlit</span></span>
+              <span class="mono">2026</span>
+              <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/NED-Route-Finder" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — RouteWise (opens in a new tab)</span></a></span>
+            </li>
+            <li class="archive__row" id="shopify-project" data-category="apps">
+              <span class="mono">A07</span>
+              <div>
+                <h3>Shopify Product Management API</h3>
+                <p>An Express backend: SQLite product CRUD, Shopify GraphQL Admin API integration, JWT auth, validation and rate limits.</p>
+              </div>
+              <span class="archive__field">Backend API<span class="status">Node.js</span></span>
+              <span class="mono">2026</span>
+              <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/nodejs-shopify-product-management" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Shopify Product Management API (opens in a new tab)</span></a></span>
+            </li>
+            <li class="archive__row" id="medicine-project" data-category="ml">
+              <span class="mono">A08</span>
+              <div>
+                <h3>AI-Based Medicine Recommendation</h3>
+                <p>Dataset cleaning, candidate model training and evaluation are under way. No public repository yet.</p>
+              </div>
+              <span class="archive__field">Machine learning<span class="status status--open">In development</span></span>
+              <span class="mono">—</span>
+              <span class="links"></span>
+            </li>
+            <li class="archive__row" id="portfolio-project" data-category="apps">
+              <span class="mono">A09</span>
+              <div>
+                <h3>This portfolio</h3>
+                <p>Hand-built HTML, CSS and a little JavaScript. No framework, no tracking, automated browser tests.</p>
+              </div>
+              <span class="archive__field">Web<span class="status">GitHub Pages</span></span>
+              <span class="mono">2026</span>
+              <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/portfolio" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — this portfolio (opens in a new tab)</span></a></span>
+            </li>
+          </ol>
+          <p class="archive-more">
+            <a class="link" href="https://github.com/Iqranawaz-debug?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          </p>
+        </div>
+        <figure class="preview" aria-hidden="true"><img alt="" width="280" height="200" /></figure>
+      </section>
+
+      <!-- About ------------------------------------------------------------ -->
+      <section id="about" class="section" aria-labelledby="about-title">
+        <div class="wrap">
+          <header class="grid section-head">
+            <p class="section-head__index"><span class="index">IN·03</span><span class="kicker">About</span></p>
+            <h2 id="about-title" class="section-head__title">The short version.</h2>
+          </header>
+          <div class="grid about">
+            <div class="about__text">
+              <p class="lede">I like the unglamorous middle of data work — where a messy dataset turns into something a person can actually use.</p>
+              <p>
+                I studied Computer Science (Data Science) at NED University in
+                Karachi and graduated in 2026. Along the way I ran IT
+                Fundamentals labs for 60+ students, did IT operations at the
+                Karachi Development Authority, and spent summer 2026 building AI
+                automation for a fintech platform at Logiciel Services.
+              </p>
+              <p>
+                My projects keep circling one question: how do you make an AI
+                system’s output checkable? Sometimes the answer is a citation
+                validator. Sometimes it’s a visible formula. Sometimes it’s
+                refusing to use a feature you won’t have at prediction time.
+              </p>
+            </div>
+            <ul class="principles" aria-label="Working principles">
+              <li>
+                <blockquote>Check the evidence with code, not trust.</blockquote>
+                <p>In <a href="#deeptrace-project">DeepTrace AI</a>, a finding only counts as cited when deterministic checks find its quote in a saved source.</p>
+              </li>
+              <li>
+                <blockquote>A pattern is an association, not proof.</blockquote>
+                <p>In <a href="#bank-project">Bank Marketing Intelligence</a>, insights guide what to test next — they never promise uplift.</p>
+              </li>
+              <li>
+                <blockquote>Show the work behind every score.</blockquote>
+                <p>In <a href="#resumeiq-project">ResumeIQ</a>, every requirement comes with a quote, and the scoring formula is on screen.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience ------------------------------------------------------- -->
+      <section id="experience" class="section section--tint" aria-labelledby="experience-title">
+        <div class="wrap">
+          <header class="grid section-head">
+            <p class="section-head__index"><span class="index">IN·04</span><span class="kicker">Experience</span></p>
+            <h2 id="experience-title" class="section-head__title">Learning by shipping.</h2>
+          </header>
+          <ol class="timeline">
+            <li class="grid is-major" id="logiciel-experience">
+              <p class="timeline__when">Jul – Aug 2026<br />Karachi</p>
+              <div class="timeline__what">
+                <h3>AI / Data Science Intern</h3>
+                <p>Logiciel Services (Pvt.) Ltd.</p>
+              </div>
+              <ul class="timeline__detail">
+                <li>Built an AI-powered automation solution for a fintech web platform using Python and LLM-assisted workflows.</li>
+                <li>Structured and validated operational data; designed agent prompts, task flows and validation logic.</li>
+                <li>Added error handling, structured logging and status reporting so runs could be trusted and debugged.</li>
+                <li>Wrote test cases and tested end to end with QA and engineering, then improved behaviour from their feedback.</li>
+              </ul>
+            </li>
+            <li class="grid">
+              <p class="timeline__when">Nov – Dec 2025<br />8-week program</p>
+              <div class="timeline__what">
+                <h3>Data Science Intern</h3>
+                <p>Arch Technologies</p>
+              </div>
+              <ul class="timeline__detail">
+                <li>Completed an 8-week Data Science Internship and Training Program in Python.</li>
+              </ul>
+            </li>
+            <li class="grid">
+              <p class="timeline__when">Fall 2025<br />Karachi</p>
+              <div class="timeline__what">
+                <h3>Teaching Assistant — IT Fundamentals</h3>
+                <p>NED University</p>
+              </div>
+              <ul class="timeline__detail">
+                <li>Coordinated lab sessions and grading for 60+ students.</li>
+                <li>Explained technical concepts in plain language — still the most useful skill on this page.</li>
+              </ul>
+            </li>
+            <li class="grid">
+              <p class="timeline__when">Jun – Aug 2025<br />Karachi</p>
+              <div class="timeline__what">
+                <h3>IT Intern</h3>
+                <p>Karachi Development Authority (KDA)</p>
+              </div>
+              <ul class="timeline__detail">
+                <li>Supported enterprise IT operations, system troubleshooting and data management.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Toolkit ---------------------------------------------------------- -->
+      <section id="skills" class="section" aria-labelledby="skills-title">
+        <div class="wrap">
+          <header class="grid section-head">
+            <p class="section-head__index"><span class="index">IN·05</span><span class="kicker">Toolkit</span></p>
+            <h2 id="skills-title" class="section-head__title">Tools, with citations.</h2>
+            <p class="section-head__note">No proficiency bars. Each group cites the work where it was used — the superscripts are links.</p>
+          </header>
+          <ul class="toolkit">
+            <li>
+              <span class="index">T1</span>
+              <div>
+                <h3>Machine learning</h3>
+                <p>scikit-learn, XGBoost, TensorFlow / Keras, cross-validation, threshold analysis, permutation importance, NLP, CNNs, recommender systems
+                  <a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#sentix-project" aria-label="Used in SentixAI">SX</a><a class="cite" href="#leafguard-project" aria-label="Used in LeafGuard AI">LG</a><a class="cite" href="#cinematch-project" aria-label="Used in CineMatch">CM</a></p>
+              </div>
+            </li>
+            <li>
+              <span class="index">T2</span>
+              <div>
+                <h3>LLM &amp; applied AI</h3>
+                <p>Retrieval pipelines, Gemini and OpenAI-compatible APIs, prompt design, citation validation, grounded generation, AI automation
+                  <a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#logiciel-experience" aria-label="Used at Logiciel Services">LOG</a></p>
+              </div>
+            </li>
+            <li>
+              <span class="index">T3</span>
+              <div>
+                <h3>Data engineering</h3>
+                <p>SQL Server / T-SQL, ETL, Medallion architecture, star-schema modelling, data-quality checks, SQLite, OCR pipelines
+                  <a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a><a class="cite" href="#pipeline-project" aria-label="Used in Automated Data Pipeline">FYP</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a></p>
+              </div>
+            </li>
+            <li>
+              <span class="index">T4</span>
+              <div>
+                <h3>Analysis &amp; BI</h3>
+                <p>Python, Pandas, NumPy, SQL, exploratory analysis, Matplotlib, Power BI, Tableau
+                  <a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#warehouse-project" aria-label="Used in SQL Data Warehouse">DW</a></p>
+              </div>
+            </li>
+            <li>
+              <span class="index">T5</span>
+              <div>
+                <h3>Applications &amp; delivery</h3>
+                <p>Streamlit, FastAPI, React, Node.js / Express, REST and GraphQL, Docker, GitHub Actions, Git
+                  <a class="cite" href="#resumeiq-project" aria-label="Used in ResumeIQ">RIQ</a><a class="cite" href="#bank-project" aria-label="Used in Bank Marketing Intelligence">BMI</a><a class="cite" href="#shopify-project" aria-label="Used in Shopify Product Management API">API</a><a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a></p>
+              </div>
+            </li>
+            <li>
+              <span class="index">T6</span>
+              <div>
+                <h3>Engineering habits</h3>
+                <p>Automated tests, structured logging, error handling, privacy by design, and documentation that admits its limits
+                  <a class="cite" href="#deeptrace-project" aria-label="Used in DeepTrace AI">DT</a><a class="cite" href="#screenshot-project" aria-label="Used in Screenshot Organizer">SSO</a><a class="cite" href="#logiciel-experience" aria-label="Used at Logiciel Services">LOG</a></p>
+              </div>
+            </li>
+          </ul>
+          <p class="legend" aria-hidden="true">
+            <span><b>DT</b> DeepTrace AI</span><span><b>RIQ</b> ResumeIQ</span><span><b>BMI</b> Bank Marketing</span><span><b>SSO</b> Screenshot Organizer</span><span><b>DW</b> Data Warehouse</span><span><b>SX</b> SentixAI</span><span><b>LG</b> LeafGuard</span><span><b>CM</b> CineMatch</span><span><b>API</b> Shopify API</span><span><b>FYP</b> Final year project</span><span><b>LOG</b> Logiciel Services</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- Education -------------------------------------------------------- -->
+      <section id="education" class="section section--tint" aria-labelledby="education-title">
+        <div class="wrap">
+          <header class="grid section-head">
+            <p class="section-head__index"><span class="index">IN·06</span><span class="kicker">Education &amp; certifications</span></p>
+            <h2 id="education-title" class="section-head__title">The paper trail.</h2>
+          </header>
+          <div class="grid education">
+            <div class="education__degree">
+              <span class="label">University degree · 2022–2026</span>
+              <h3>B.S. Computer Science (Data Science)</h3>
+              <p>NED University of Engineering &amp; Technology, Karachi · CGPA <strong>3.70 / 4.00</strong></p>
+              <p>Relevant coursework: Machine Learning, Artificial Intelligence, Data Mining, Probability &amp; Statistics.</p>
+              <div class="prev">
+                <span class="label">Intermediate — Pre-Engineering · 2020–2022</span>
+                <p>Bahria College Karsaz · Grade A-1 · 90.09%</p>
+              </div>
+            </div>
+            <div class="certs">
+              <h3>Professional certificates</h3>
+              <ul>
+                <li>Google Data Analytics Professional Certificate <span>Coursera · Jan 2026</span></li>
+                <li>Google Project Management Professional Certificate <span>Coursera · Jan 2026</span></li>
+                <li>Deloitte Data Analytics Job Simulation <span>Forage · Jul 2025</span></li>
+                <li>Huawei Certified ICT Associate (HCIA) – Datacom <span>100% sponsorship as a top performer</span></li>
+              </ul>
+              <h3>Courses</h3>
+              <ul class="minor">
+                <li>Introduction to Data Analytics <span>IBM · Coursera · 2025</span></li>
+                <li>AI For Everyone <span>DeepLearning.AI · Coursera · 2025</span></li>
+                <li>Python for Data Analysis: Pandas &amp; NumPy <span>Coursera Project Network · 2025</span></li>
+                <li>Understanding Data Science · Understanding Machine Learning <span>DataCamp · 2025</span></li>
+                <li>Introduction to Tableau <span>DataCamp · 2025</span></li>
+                <li>Understanding Prompt Engineering · Introduction to ChatGPT <span>DataCamp · 2025</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact ---------------------------------------------------------- -->
+      <section id="contact" class="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <p class="kicker"><span class="index">IN·07</span> · Contact</p>
+          <h2 id="contact-title" class="contact__line">Bring a messy dataset. <em>I’ll bring the receipts.</em></h2>
+          <div class="grid contact__grid">
+            <div class="contact__cta">
+              <p>
+                I’m looking for full-time roles in data science, machine learning
+                and AI engineering. If you have a hard question and data that
+                doesn’t behave, I’d like to hear about it.
+              </p>
+              <div class="hero__ctas">
+                <a class="btn btn--pen" href="mailto:iqranawaz9353@gmail.com">Email me <span class="arrow" aria-hidden="true">↗</span></a>
+                <a class="btn" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf">Resume <span class="arrow arrow--down" aria-hidden="true">↓</span><span class="sr-only"> (PDF download)</span></a>
+              </div>
+            </div>
+            <div class="contact__list">
+              <div><span class="label">Email</span><a href="mailto:iqranawaz9353@gmail.com">iqranawaz9353@gmail.com <span aria-hidden="true">↗</span></a></div>
+              <div><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/iqra-nawaz-b2216a25a/" target="_blank" rel="noopener noreferrer">in/iqra-nawaz <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
+              <div><span class="label">GitHub</span><a href="https://github.com/Iqranawaz-debug" target="_blank" rel="noopener noreferrer">Iqranawaz-debug <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
+              <div><span class="label">Based in</span><p>Karachi, Pakistan</p></div>
+            </div>
+          </div>
+          <footer class="colophon">
+            <span><span class="monogram" aria-hidden="true">in</span> © <span id="currentYear">2026</span> Iqra Nawaz</span>
+            <span>Built with love and dedication · Set in Fraunces &amp; IBM Plex Mono · No trackers</span>
+            <a href="#home">Back to top ↑</a>
+          </footer>
         </div>
       </section>
     </main>
-    <footer class="footer container">
-      <p>© <span id="currentYear">2026</span> Iqra Nawaz</p>
-      <span
-        >Built with
-        <span role="img" aria-label="love">&#10084;&#65039;</span> and
-        dedication</span
-      ><a href="#home">Back to top <span aria-hidden="true">↑</span></a>
-    </footer>
   </body>
 </html>
