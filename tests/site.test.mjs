@@ -52,6 +52,8 @@ test("external links are safe and the contact address is consistent", () => {
     }
     const emails = [...html.matchAll(/href="mailto:([^"]+)"/g)].map((m) => m[1]);
     for (const email of emails) assert.equal(email, "iqranawaz9353@gmail.com");
+    // The address is shown once on the whole site: in the homepage contact block.
+    assert.equal(emails.length, page === "index.html" ? 1 : 0, `${page}: email shown once`);
   }
 });
 
@@ -86,6 +88,7 @@ test("verified facts stay on the homepage", () => {
     "Arisha Salman",
     "~92% accuracy on 1,000+ reviews",
     "In development",
+    "Currently building",
     "Logiciel Services",
     "Arch Technologies",
     "60+",
@@ -131,4 +134,23 @@ test("legacy anchors from the previous site still resolve", () => {
     "logiciel-experience",
   ])
     assert.ok(ids.includes(id), `Missing legacy anchor #${id}`);
+});
+
+test("archive filter offers All, ML, LLM, Data Eng and Apps", () => {
+  const labels = [...home.matchAll(/data-filter="[^"]+"[^>]*>([^<]+)</g)].map((m) => m[1]);
+  assert.deepEqual(labels, ["All", "ML", "LLM", "Data Eng", "Apps"]);
+  for (const f of ["ml", "llm", "data", "apps"])
+    assert.ok(new RegExp(`data-category="[^"]*\\b${f}\\b`).test(home), `No row for ${f}`);
+});
+
+test("navigation numbers are consecutive and include Education", () => {
+  const nums = [...home.matchAll(/class="nav__link"[^>]*><span class="num">(\d+)<\/span>/g)].map((m) => m[1]);
+  assert.deepEqual(nums, ["01", "02", "03", "04", "05", "06", "07"]);
+  assert.match(home, /href="#education"><span class="num">06<\/span>Education/);
+});
+
+test("TODO slots stay hidden from visitors", () => {
+  for (const [page, html] of Object.entries(docs))
+    for (const [tag] of html.matchAll(/<[a-z]+\b[^>]*data-todo[^>]*>/g))
+      assert.match(tag, /\bhidden\b/, `${page}: visible TODO slot ${tag}`);
 });

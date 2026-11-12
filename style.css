@@ -2083,3 +2083,162 @@ main:focus {
   .wordmark .wordmark__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 }
 .masthead__bar > .masthead__actions:last-child { margin-left: auto; }
+
+/* ==========================================================================
+   v3 additions — step 1: currently-building strip, FYP diagram, email copy,
+   draft mode for TODO slots
+   ========================================================================== */
+.building {
+  border-block: 1px solid var(--rule);
+  background: var(--sheet);
+  padding-block: var(--s-6);
+}
+.building__inner {
+  row-gap: var(--s-5);
+  align-items: start;
+}
+.building__head {
+  grid-column: 1 / span 3;
+  display: grid;
+  gap: var(--s-2);
+}
+.building__head h2 {
+  font-size: var(--t-xl);
+}
+.building__card {
+  grid-column: 4 / span 4;
+  display: grid;
+  gap: var(--s-2);
+  padding-left: var(--s-5);
+  border-left: 2px solid var(--pen);
+  scroll-margin-top: 110px;
+}
+.building__card h3 {
+  font-size: var(--t-lg);
+  line-height: 1.25;
+}
+.building__card p {
+  font-size: var(--t-sm);
+  color: var(--graphite);
+}
+.building__meta {
+  color: var(--quiet) !important;
+}
+.building .labnotes {
+  grid-column: 9 / span 4;
+}
+.building .labnotes h3 {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+.building .labnotes li {
+  font-size: var(--t-xs);
+  padding-block: var(--s-2);
+}
+
+.mini-diagram {
+  margin-top: var(--s-3);
+  max-width: 520px;
+}
+.mini-diagram svg {
+  width: 100%;
+  height: auto;
+}
+.md-node rect {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+.md-node text {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  fill: var(--ink);
+  text-anchor: middle;
+}
+.md-node--pen rect {
+  fill: var(--pen);
+  stroke: var(--pen);
+}
+.md-node--pen text {
+  fill: var(--pen-ink);
+}
+.md-edge,
+.md-head {
+  fill: none;
+  stroke: var(--graphite);
+  stroke-width: 1.2;
+}
+.mini-result {
+  margin-top: var(--s-2);
+  font-size: var(--t-sm);
+  color: var(--graphite);
+}
+
+.email-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+}
+.copy-btn {
+  min-height: 36px;
+  padding: 0 var(--s-3);
+  border: 1px solid var(--slab-rule, var(--rule));
+  background: transparent;
+  color: inherit;
+  border-radius: var(--radius);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.copy-btn:hover {
+  border-color: currentColor;
+}
+.copy-btn[hidden] {
+  display: none;
+}
+.copy-btn.is-copied {
+  border-color: var(--slab-pen, var(--pen));
+  color: var(--slab-pen, var(--pen));
+}
+.copy-status {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  color: var(--slab-pen, var(--pen));
+}
+
+/* TODO slots: hidden for visitors, outlined when the URL contains ?draft */
+html.draft [data-todo] {
+  display: block !important;
+  outline: 2px dashed var(--pen);
+  outline-offset: 4px;
+  position: relative;
+}
+html.draft [data-todo]::before {
+  content: "TODO · " attr(data-todo);
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  color: var(--pen);
+  margin-bottom: var(--s-2);
+}
+
+@media (max-width: 1180px) {
+  .building__head { grid-column: 1 / -1; }
+  .building__card { grid-column: 1 / span 6; }
+  .building .labnotes { grid-column: 7 / span 6; }
+}
+.building__card .building__meta { font-size: var(--t-xs); }
+.mini-diagram .md-vertical { display: none; max-width: 220px; }
+@media (max-width: 600px) {
+  .mini-diagram .md-horizontal { display: none; }
+  .mini-diagram .md-vertical { display: block; }
+}

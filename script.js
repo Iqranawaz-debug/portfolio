@@ -189,3 +189,44 @@ if (reveals.length && "IntersectionObserver" in window && !reduceMotion.matches)
 
 const year = $("#currentYear");
 if (year) year.textContent = new Date().getFullYear();
+
+/* Copy email to clipboard, with visible and announced feedback ------------ */
+for (const button of $$(".copy-btn")) {
+  const label = $(".copy-btn__label", button);
+  const status = button.parentElement.querySelector(".copy-status");
+  let timer = 0;
+  button.hidden = false;
+  button.addEventListener("click", async () => {
+    const value = button.dataset.copy;
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(value);
+      ok = true;
+    } catch {
+      // Fallback for browsers without the async clipboard API.
+      const field = document.createElement("textarea");
+      field.value = value;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.append(field);
+      field.select();
+      try {
+        ok = document.execCommand("copy");
+      } catch {}
+      field.remove();
+    }
+    label.textContent = ok ? "Copied" : "Copy";
+    button.classList.toggle("is-copied", ok);
+    if (status) status.textContent = ok ? "Email address copied" : "Copy failed — select the address instead";
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      label.textContent = "Copy";
+      button.classList.remove("is-copied");
+      if (status) status.textContent = "";
+    }, 2200);
+  });
+}
+
+/* Draft mode: ?draft outlines every TODO slot so missing content is easy to find */
+if (new URLSearchParams(location.search).has("draft")) document.documentElement.classList.add("draft");

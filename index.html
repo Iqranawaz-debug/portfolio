@@ -81,6 +81,7 @@
             <li><a class="nav__link" href="#about"><span class="num">03</span>About</a></li>
             <li><a class="nav__link" href="#experience"><span class="num">04</span>Experience</a></li>
             <li><a class="nav__link" href="#skills"><span class="num">05</span>Toolkit</a></li>
+            <li><a class="nav__link" href="#education"><span class="num">06</span>Education</a></li>
             <li><a class="nav__link" href="#contact"><span class="num">07</span>Contact</a></li>
           </ul>
         </nav>
@@ -118,7 +119,7 @@
             <a class="btn" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf"
               >Download Resume <span class="arrow arrow--down" aria-hidden="true">↓</span><span class="sr-only"> (PDF)</span></a
             >
-            <a class="btn" href="mailto:iqranawaz9353@gmail.com">Email me <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn" href="#contact">Contact <span class="arrow arrow--down" aria-hidden="true">↓</span></a>
           </div>
           <p class="status status--open">Open to full-time roles in data science, ML and AI engineering</p>
         </div>
@@ -128,8 +129,44 @@
             <img src="assets/images/portrait.webp" alt="Portrait of Iqra Nawaz" width="560" height="560" fetchpriority="high" />
             <figcaption>Fig. 1 — Iqra Nawaz, Karachi.</figcaption>
           </figure>
-          <section class="labnotes" id="now" aria-labelledby="now-title">
-            <h2 id="now-title"><span>Lab notes</span><span class="pen">Nov 2026</span></h2>
+        </div>
+
+        <dl class="hero__facts">
+          <div>
+            <dt class="label">Education</dt>
+            <dd>NED University<small>B.S. Computer Science (Data Science) · 3.70 CGPA · 2026</small></dd>
+          </div>
+          <div>
+            <dt class="label">Most recently</dt>
+            <dd>Logiciel Services<small>AI / Data Science Intern · Jul–Aug 2026</small></dd>
+          </div>
+          <div>
+            <dt class="label">On GitHub</dt>
+            <dd>13 projects<small>11 public repositories · 2 live demos</small></dd>
+          </div>
+          <div>
+            <dt class="label">Focus</dt>
+            <dd>Checkable AI<small>ML · LLM tooling · data systems</small></dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Currently building --------------------------------------------- -->
+      <section id="now" class="building" aria-labelledby="now-title">
+        <div class="wrap grid building__inner">
+          <header class="building__head">
+            <p class="kicker"><span class="index">IN·00</span> · In the lab</p>
+            <h2 id="now-title">Currently building</h2>
+          </header>
+          <article class="building__card" id="medicine-project" aria-labelledby="medicine-title">
+            <span class="status status--open">In development</span>
+            <h3 id="medicine-title">AI-Based Medicine Recommendation</h3>
+            <p>Connecting prepared data, candidate models and recommendation generation in a Python application. Dataset cleaning, candidate model training and evaluation are under way.</p>
+            <p class="mono building__meta">Machine learning · no public repository yet</p>
+            <!-- TODO(iqra): add a repository link here when the project is public. -->
+          </article>
+          <div class="labnotes">
+            <h3><span>Lab notes</span><span class="pen">Nov 2026</span></h3>
             <ol>
               <li>
                 <time datetime="2026-11-09">09 Nov 2026</time>
@@ -147,27 +184,8 @@
                 <a href="#screenshot-project">Screenshot Organizer</a>.
               </li>
             </ol>
-          </section>
+      </div>
         </div>
-
-        <dl class="hero__facts">
-          <div>
-            <dt class="label">Education</dt>
-            <dd>NED University<small>B.S. Computer Science (Data Science) · 3.70 CGPA · 2026</small></dd>
-          </div>
-          <div>
-            <dt class="label">Most recently</dt>
-            <dd>Logiciel Services<small>AI / Data Science Intern · Jul–Aug 2026</small></dd>
-          </div>
-          <div>
-            <dt class="label">On GitHub</dt>
-            <dd>12 projects<small>10 public repositories · 2 live demos</small></dd>
-          </div>
-          <div>
-            <dt class="label">Focus</dt>
-            <dd>Checkable AI<small>ML · LLM tooling · data systems</small></dd>
-          </div>
-        </dl>
       </section>
 
       <!-- Selected work -------------------------------------------------- -->
@@ -175,10 +193,10 @@
         <div class="wrap">
           <header class="grid section-head">
             <p class="section-head__index"><span class="index">IN·01</span><span class="kicker">Selected work</span></p>
-            <h2 id="projects-title" class="section-head__title">Three projects, shown with their working.</h2>
+            <h2 id="projects-title" class="section-head__title">Four projects, shown with their working.</h2>
             <p class="section-head__note">
-              The long version — problem, decisions, evidence, and the parts
-              that still don’t work. Each has a full case study.
+              Three long case studies and one field note — problem, decisions,
+              evidence, and the parts that still don’t work.
             </p>
           </header>
 
@@ -389,16 +407,17 @@
           <header class="grid section-head">
             <p class="section-head__index"><span class="index">IN·02</span><span class="kicker">Archive</span></p>
             <h2 id="archive-title" class="section-head__title">Everything else, smallest claims first.</h2>
-            <p class="section-head__note">Coursework, experiments and side projects. Filter by area; where a preview exists, hover the row.</p>
+            <p class="section-head__note">Eight more: coursework, experiments and side projects. Filter by area; where a preview exists, hover the row.</p>
           </header>
           <div class="archive-tools">
             <div class="filters" role="group" aria-label="Filter projects by area" hidden>
               <button type="button" data-filter="all" aria-pressed="true">All</button>
-              <button type="button" data-filter="ml" aria-pressed="false">ML &amp; AI</button>
-              <button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
-              <button type="button" data-filter="apps" aria-pressed="false">Apps &amp; Tools</button>
+              <button type="button" data-filter="ml" aria-pressed="false">ML</button>
+              <button type="button" data-filter="llm" aria-pressed="false">LLM</button>
+              <button type="button" data-filter="data" aria-pressed="false">Data Eng</button>
+              <button type="button" data-filter="apps" aria-pressed="false">Apps</button>
             </div>
-            <p class="mono filter-status" aria-live="polite">9 projects</p>
+            <p class="mono filter-status" aria-live="polite">8 projects</p>
           </div>
           <ol class="archive">
             <li class="archive__row" id="warehouse-project" data-category="data" data-preview="assets/work/warehouse-model.webp">
@@ -421,7 +440,7 @@
               <span class="mono">2026</span>
               <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/Sentiment_Analysis_On_Product_Reviews" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — SentixAI (opens in a new tab)</span></a></span>
             </li>
-            <li class="archive__row" id="leafguard-project" data-category="ml">
+            <li class="archive__row" id="leafguard-project" data-category="ml llm">
               <span class="mono">A03</span>
               <div>
                 <h3>LeafGuard AI</h3>
@@ -446,6 +465,33 @@
               <div>
                 <h3>Automated Data Pipeline</h3>
                 <p>Final year project: unstructured documents in, structured and reportable data out, end to end.</p>
+                <figure class="mini-diagram">
+                  <svg class="md-horizontal" viewBox="0 0 520 64" role="img" aria-labelledby="fyp-diagram-title">
+                    <title id="fyp-diagram-title">Pipeline: documents are uploaded, processed, structured into data, then turned into automated reports.</title>
+                    <g class="md-node"><rect x="1" y="14" width="104" height="36" /><text x="53" y="37">Documents</text></g>
+                    <path class="md-edge" d="M105 32h34" /><path class="md-head" d="M133 27l6 5-6 5" />
+                    <g class="md-node"><rect x="139" y="14" width="104" height="36" /><text x="191" y="37">Process</text></g>
+                    <path class="md-edge" d="M243 32h34" /><path class="md-head" d="M271 27l6 5-6 5" />
+                    <g class="md-node md-node--pen"><rect x="277" y="14" width="104" height="36" /><text x="329" y="37">Structure</text></g>
+                    <path class="md-edge" d="M381 32h34" /><path class="md-head" d="M409 27l6 5-6 5" />
+                    <g class="md-node"><rect x="415" y="14" width="104" height="36" /><text x="467" y="37">Report</text></g>
+                  </svg>
+                  <svg class="md-vertical" viewBox="0 0 220 208" role="img" aria-labelledby="fyp-diagram-title-v">
+                    <title id="fyp-diagram-title-v">Pipeline: documents are uploaded, processed, structured into data, then turned into automated reports.</title>
+                    <g class="md-node"><rect x="1" y="1" width="218" height="34" /><text x="110" y="23">Documents</text></g>
+                    <path class="md-edge" d="M110 35v22" /><path class="md-head" d="M105 51l5 6 5-6" />
+                    <g class="md-node"><rect x="1" y="57" width="218" height="34" /><text x="110" y="79">Process</text></g>
+                    <path class="md-edge" d="M110 91v22" /><path class="md-head" d="M105 107l5 6 5-6" />
+                    <g class="md-node md-node--pen"><rect x="1" y="113" width="218" height="34" /><text x="110" y="135">Structure</text></g>
+                    <path class="md-edge" d="M110 147v22" /><path class="md-head" d="M105 163l5 6 5-6" />
+                    <g class="md-node"><rect x="1" y="169" width="218" height="34" /><text x="110" y="191">Report</text></g>
+                  </svg>
+                  <!-- TODO(iqra): replace the hidden line below with a one-line result for the FYP
+                       (e.g. what it processed, how much, how it was evaluated), then remove `hidden`. -->
+                  <figcaption class="mini-result" data-todo="FYP one-line result" hidden>
+                    <b>Result:</b> TODO — one-line result for the Automated Data Pipeline.
+                  </figcaption>
+                </figure>
               </div>
               <span class="archive__field">Data processing<span class="status">Final year project</span></span>
               <span class="mono">2026</span>
@@ -471,18 +517,8 @@
               <span class="mono">2026</span>
               <span class="links"><a class="link" href="https://github.com/Iqranawaz-debug/nodejs-shopify-product-management" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> — Shopify Product Management API (opens in a new tab)</span></a></span>
             </li>
-            <li class="archive__row" id="medicine-project" data-category="ml">
-              <span class="mono">A08</span>
-              <div>
-                <h3>AI-Based Medicine Recommendation</h3>
-                <p>Dataset cleaning, candidate model training and evaluation are under way. No public repository yet.</p>
-              </div>
-              <span class="archive__field">Machine learning<span class="status status--open">In development</span></span>
-              <span class="mono">—</span>
-              <span class="links"></span>
-            </li>
             <li class="archive__row" id="portfolio-project" data-category="apps">
-              <span class="mono">A09</span>
+              <span class="mono">A08</span>
               <div>
                 <h3>This portfolio</h3>
                 <p>Hand-built HTML, CSS and a little JavaScript. No framework, no tracking, automated browser tests.</p>
@@ -714,12 +750,20 @@
                 doesn’t behave, I’d like to hear about it.
               </p>
               <div class="hero__ctas">
-                <a class="btn btn--pen" href="mailto:iqranawaz9353@gmail.com">Email me <span class="arrow" aria-hidden="true">↗</span></a>
-                <a class="btn" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf">Resume <span class="arrow arrow--down" aria-hidden="true">↓</span><span class="sr-only"> (PDF download)</span></a>
+                <a class="btn btn--pen" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf">Resume <span class="arrow arrow--down" aria-hidden="true">↓</span><span class="sr-only"> (PDF download)</span></a>
               </div>
             </div>
             <div class="contact__list">
-              <div><span class="label">Email</span><a href="mailto:iqranawaz9353@gmail.com">iqranawaz9353@gmail.com <span aria-hidden="true">↗</span></a></div>
+              <div class="email-row">
+                <span class="label">Email</span>
+                <span class="email-line">
+                  <a href="mailto:iqranawaz9353@gmail.com" id="emailAddress">iqranawaz9353@gmail.com</a>
+                  <button type="button" class="copy-btn" data-copy="iqranawaz9353@gmail.com" hidden>
+                    <span class="copy-btn__label">Copy</span><span class="sr-only"> email address</span>
+                  </button>
+                  <span class="copy-status" role="status" aria-live="polite"></span>
+                </span>
+              </div>
               <div><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/iqra-nawaz-b2216a25a/" target="_blank" rel="noopener noreferrer">in/iqra-nawaz <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
               <div><span class="label">GitHub</span><a href="https://github.com/Iqranawaz-debug" target="_blank" rel="noopener noreferrer">Iqranawaz-debug <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
               <div><span class="label">Based in</span><p>Karachi, Pakistan</p></div>

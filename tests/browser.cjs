@@ -75,7 +75,7 @@ async function loadAllImages(page) {
   watch(desktop, errors);
   await desktop.goto(baseURL);
   assert.equal(await desktop.locator("#menuToggle").isVisible(), false);
-  assert.equal(await desktop.locator(".nav__link:visible").count(), 6);
+  assert.equal(await desktop.locator(".nav__link:visible").count(), 7);
   await desktop.getByRole("navigation").getByRole("link", { name: /Archive/ }).click();
   await desktop.waitForFunction(
     () => document.querySelector('.nav__link[href="#archive"]').getAttribute("aria-current") === "location",
@@ -84,7 +84,7 @@ async function loadAllImages(page) {
 
   const filters = desktop.getByRole("group", { name: "Filter projects by area" });
   const all = await desktop.locator(".archive__row").count();
-  await filters.getByRole("button", { name: "Data & Analytics" }).click();
+  await filters.getByRole("button", { name: "Data Eng" }).click();
   const shown = await desktop.locator(".archive__row:visible").count();
   assert.ok(shown > 0 && shown < all, "Filter narrows the archive");
   assert.equal(await desktop.locator(".filter-status").textContent(), `${shown} projects`);
@@ -92,6 +92,20 @@ async function loadAllImages(page) {
   await desktop.locator('.cite[href="#sentix-project"]').click();
   assert.equal(await desktop.locator(".archive__row:visible").count(), all);
   assert.equal(await desktop.locator("#sentix-project").evaluate((e) => document.activeElement === e), true);
+
+  await filters.getByRole("button", { name: "LLM" }).click();
+  assert.equal(await desktop.locator(".archive__row:visible").count(), 1);
+  assert.equal(await desktop.locator(".filter-status").textContent(), "1 project");
+  await filters.getByRole("button", { name: "All" }).click();
+  assert.equal(await desktop.locator(".archive__row:visible").count(), all);
+
+  // Email is shown once, with a copy button that confirms.
+  assert.equal(await desktop.locator('a[href^="mailto:"]').count(), 1);
+  await desktop.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+  await desktop.getByRole("button", { name: /Copy email address/ }).click();
+  await desktop.waitForFunction(() => document.querySelector(".copy-btn__label").textContent === "Copied");
+  assert.equal(await desktop.evaluate(() => navigator.clipboard.readText()), "iqranawaz9353@gmail.com");
+  assert.equal(await desktop.locator(".copy-status").textContent(), "Email address copied");
 
   await desktop.locator("#warehouse-project").hover();
   await desktop.waitForFunction(() => document.querySelector(".preview").classList.contains("is-visible"));
