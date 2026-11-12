@@ -410,5 +410,216 @@ if (clips.length) {
   }
 }
 
+/* Command palette: Ctrl/Cmd+K jumps to any section, project or action ----- */
+const paletteOpen = $("#paletteOpen");
+if (paletteOpen && typeof HTMLDialogElement === "function") {
+  const inWork = /\/work\//.test(location.pathname);
+  const home = inWork ? "../index.html" : "";
+  const page = (file) => (inWork ? file : `work/${file}`);
+  const items = [
+    { group: "Sections", label: "Selected work", hint: "IN·01", href: `${home}#projects` },
+    { group: "Sections", label: "Currently building", hint: "In the lab", href: `${home}#now` },
+    { group: "Sections", label: "Archive", hint: "IN·02", href: `${home}#archive` },
+    { group: "Sections", label: "About", hint: "IN·03", href: `${home}#about` },
+    { group: "Sections", label: "Experience", hint: "IN·04", href: `${home}#experience` },
+    { group: "Sections", label: "Toolkit", hint: "IN·05", href: `${home}#skills` },
+    { group: "Sections", label: "Education & certifications", hint: "IN·06", href: `${home}#education` },
+    { group: "Sections", label: "Contact", hint: "IN·07", href: `${home}#contact` },
+    { group: "Case studies", label: "DeepTrace AI — case study", hint: "01", href: page("deeptrace-ai.html"), keys: "rag citations llm" },
+    { group: "Case studies", label: "ResumeIQ — case study", hint: "02", href: page("resumeiq.html"), keys: "nlp fastapi react" },
+    { group: "Case studies", label: "Bank Marketing Intelligence — case study", hint: "03", href: page("bank-marketing-intelligence.html"), keys: "xgboost ml" },
+    { group: "Projects", label: "DeepTrace AI", hint: "Featured", href: `${home}#deeptrace-project` },
+    { group: "Projects", label: "ResumeIQ", hint: "Featured", href: `${home}#resumeiq-project` },
+    { group: "Projects", label: "Bank Marketing Intelligence", hint: "Featured · live", href: `${home}#bank-project` },
+    { group: "Projects", label: "Smart Screenshot Organizer", hint: "Field note", href: `${home}#screenshot-project`, keys: "ocr" },
+    { group: "Projects", label: "SQL Data Warehouse & Analytics", hint: "A01", href: `${home}#warehouse-project`, keys: "etl" },
+    { group: "Projects", label: "SentixAI — Review Sentiment", hint: "A02", href: `${home}#sentix-project`, keys: "nlp" },
+    { group: "Projects", label: "LeafGuard AI", hint: "A03", href: `${home}#leafguard-project`, keys: "cnn vision" },
+    { group: "Projects", label: "CineMatch — Movie Recommender", hint: "A04 · live", href: `${home}#cinematch-project` },
+    { group: "Projects", label: "Automated Data Pipeline", hint: "A05 · FYP", href: `${home}#pipeline-project` },
+    { group: "Projects", label: "RouteWise — NED Route Finder", hint: "A06", href: `${home}#routewise-project` },
+    { group: "Projects", label: "Shopify Product Management API", hint: "A07", href: `${home}#shopify-project` },
+    { group: "Projects", label: "AI-Based Medicine Recommendation", hint: "In development", href: `${home}#medicine-project` },
+    { group: "Actions", label: "Download resume (PDF)", hint: "PDF", href: `${inWork ? "../" : ""}assets/Iqra-Nawaz-Resume.pdf`, download: "Iqra-Nawaz-Resume.pdf" },
+    { group: "Actions", label: "Switch colour theme", hint: "Light / dark", action: () => themeToggle?.click() },
+    { group: "Actions", label: "Open GitHub profile", hint: "New tab", href: "https://github.com/Iqranawaz-debug", external: true },
+  ].filter((item) => !item.action || themeToggle);
+
+  const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  $(".palette-btn__kbd", paletteOpen).textContent = isMac ? "⌘K" : "Ctrl K";
+  paletteOpen.hidden = false;
+
+  const dialog = document.createElement("dialog");
+  dialog.className = "palette";
+  dialog.setAttribute("aria-label", "Jump to a section, project or action");
+  dialog.innerHTML = `
+    <div class="palette__box">
+      <label class="sr-only" for="paletteInput">Search sections, projects and actions</label>
+      <input id="paletteInput" class="palette__input" type="text" autocomplete="off" spellcheck="false"
+        placeholder="Jump to…" role="combobox" aria-expanded="true" aria-controls="paletteList" aria-autocomplete="list" />
+      <ul id="paletteList" class="palette__list" role="listbox" aria-label="Results"></ul>
+      <p class="palette__empty" hidden>No matches. Try “case study”, “live” or a project name.</p>
+      <p class="palette__help" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd> move · <kbd>Enter</kbd> go · <kbd>Esc</kbd> close</p>
+    </div>`;
+  document.body.append(dialog);
+  const input = $(".palette__input", dialog);
+  const list = $(".palette__list", dialog);
+  const empty = $(".palette__empty", dialog);
+  let results = items;
+  let active = 0;
+  let opener = null;
+
+  function render() {
+    const q = input.value.trim().toLowerCase();
+    results = items.filter((item) =>
+      q.split(/\s+/).every((word) => `${item.label} ${item.hint} ${item.group} ${item.keys || ""}`.toLowerCase().includes(word)),
+    );
+    active = Math.min(active, Math.max(0, results.length - 1));
+    list.textContent = "";
+    let lastGroup = "";
+    results.forEach((item, i) => {
+      if (item.group !== lastGroup) {
+        const heading = document.createElement("li");
+        heading.className = "palette__group";
+        heading.setAttribute("role", "presentation");
+        heading.textContent = item.group;
+        list.append(heading);
+        lastGroup = item.group;
+      }
+      const option = document.createElement("li");
+      option.id = `palette-opt-${i}`;
+      option.className = "palette__option";
+      option.setAttribute("role", "option");
+      option.setAttribute("aria-selected", String(i === active));
+      const label = document.createElement("span");
+      label.textContent = item.label;
+      const hint = document.createElement("span");
+      hint.className = "palette__hint";
+      hint.textContent = item.hint;
+      option.append(label, hint);
+      option.addEventListener("click", () => choose(i));
+      option.addEventListener("pointermove", () => {
+        if (active !== i) {
+          active = i;
+          highlight();
+        }
+      });
+      list.append(option);
+    });
+    empty.hidden = results.length > 0;
+    highlight();
+  }
+  function highlight() {
+    $$(".palette__option", list).forEach((el, i) => el.setAttribute("aria-selected", String(i === active)));
+    const current = $(`#palette-opt-${active}`, list);
+    if (current) {
+      input.setAttribute("aria-activedescendant", current.id);
+      current.scrollIntoView({ block: "nearest" });
+    } else input.removeAttribute("aria-activedescendant");
+  }
+  function open() {
+    if (dialog.open) return;
+    opener = document.activeElement;
+    input.value = "";
+    active = 0;
+    render();
+    dialog.showModal();
+    input.focus();
+  }
+  function close() {
+    if (dialog.open) dialog.close();
+  }
+  function choose(i) {
+    const item = results[i];
+    if (!item) return;
+    opener = null; // focus moves to the destination instead
+    close();
+    if (item.action) return item.action();
+    if (item.download || item.external) {
+      const a = document.createElement("a");
+      a.href = item.href;
+      if (item.download) a.download = item.download;
+      if (item.external) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      }
+      a.click();
+      return;
+    }
+    const [path, hash] = item.href.split("#");
+    if (!path && hash) {
+      const target = document.getElementById(hash);
+      if (target) {
+        if (filters && target.matches(".archive__row[hidden]")) applyFilter("all");
+        history.pushState(null, "", `#${hash}`);
+        if (!target.hasAttribute("tabindex")) target.tabIndex = -1;
+        target.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+        target.focus({ preventScroll: true });
+        return;
+      }
+    }
+    location.href = item.href;
+  }
+
+  input.addEventListener("input", () => {
+    active = 0;
+    render();
+  });
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      if (!results.length) return;
+      active = (active + (event.key === "ArrowDown" ? 1 : -1) + results.length) % results.length;
+      highlight();
+    } else if (event.key === "Home" || event.key === "End") {
+      if (!results.length) return;
+      event.preventDefault();
+      active = event.key === "Home" ? 0 : results.length - 1;
+      highlight();
+    } else if (event.key === "Enter") {
+      event.preventDefault();
+      choose(active);
+    }
+  });
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) close(); // click on the backdrop
+  });
+  dialog.addEventListener("close", () => {
+    if (opener && document.contains(opener)) opener.focus();
+  });
+  paletteOpen.addEventListener("click", open);
+  document.addEventListener("keydown", (event) => {
+    if ((event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      if (dialog.open) close();
+      else open();
+    }
+  });
+}
+
+/* Scroll reveal for more of the page (enhancement only) ------------------- */
+if ("IntersectionObserver" in window && !reduceMotion.matches) {
+  const extra = $$(".section-head, .timeline > li, .toolkit > li, .principles > li, .building__card, .education > *, .fieldnote, .archive")
+    .filter((el) => !el.classList.contains("reveal"));
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        }
+      }
+    },
+    { rootMargin: "0px 0px -6% 0px" },
+  );
+  extra.forEach((el, i) => {
+    // Only animate what starts below the fold, so nothing visible on load jumps.
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+    el.classList.add("reveal");
+    el.style.setProperty("--reveal-delay", `${(i % 3) * 70}ms`);
+    io.observe(el);
+  });
+}
+
 /* Draft mode: ?draft outlines every TODO slot so missing content is easy to find */
 if (new URLSearchParams(location.search).has("draft")) document.documentElement.classList.add("draft");

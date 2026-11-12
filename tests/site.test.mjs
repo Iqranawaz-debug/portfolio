@@ -163,6 +163,11 @@ test("testimonial slot exists but stays hidden until filled", () => {
   assert.match(home, /<figure class="testimonial"[^>]*hidden/);
 });
 
+test("command palette button is on every page, hidden until the script enables it", () => {
+  for (const page of ["index.html", "work/deeptrace-ai.html", "work/resumeiq.html", "work/bank-marketing-intelligence.html"])
+    assert.match(docs[page], /<button class="palette-btn" id="paletteOpen"[^>]*aria-keyshortcuts="Control\+K Meta\+K"[^>]*hidden>/, page);
+});
+
 test("legacy anchors from the previous site still resolve", () => {
   const ids = idsOf(home);
   for (const id of [

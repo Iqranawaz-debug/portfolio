@@ -62,7 +62,11 @@
           ><span class="monogram" aria-hidden="true">in</span><span class="wordmark__name">Iqra Nawaz</span></a
         >
         <div class="masthead__actions">
-          <a class="btn" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf"
+          <button class="palette-btn" id="paletteOpen" type="button" aria-label="Jump to a section or project" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.2-4.2" /></svg>
+            <span class="palette-btn__label">Jump to</span><kbd class="palette-btn__kbd">Ctrl K</kbd>
+          </button>
+          <a class="btn masthead__resume" href="assets/Iqra-Nawaz-Resume.pdf" download="Iqra-Nawaz-Resume.pdf"
             >Resume <span class="arrow arrow--down" aria-hidden="true">↓</span
             ><span class="sr-only"> (PDF download)</span></a
           >
@@ -220,7 +224,7 @@
       <section id="projects" class="section" aria-labelledby="projects-title">
         <div class="wrap">
           <header class="grid section-head">
-            <p class="section-head__index"><span class="index">IN·01</span><span class="kicker">Selected work</span></p>
+            <p class="section-head__index"><span class="index">IN·01</span><span class="kicker">Selected work</span><span class="margin-note">n.b. every number here links to where it came from.</span></p>
             <h2 id="projects-title" class="section-head__title">Four projects, shown with their working.</h2>
             <p class="section-head__note">
               Three long case studies and one field note — problem, decisions,
@@ -252,10 +256,10 @@
               </p>
               <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
                    limitations and next steps documented in the project repository. -->
-              <aside class="differently" aria-label="What I’d do differently">
+              <div class="differently">
                 <span class="label">What I’d do differently</span>
                 <p>Get CI running on GitHub before building features, and plan for a busy free-tier model from day one — a fallback model, or a “retry the answer only” step that reuses the passages already read.</p>
-              </aside>
+              </div>
               <!-- TODO(iqra): DeepTrace AI — add a short looping screen recording (WebM, ideally < 2 MB)
                    as assets/work/deeptrace-demo.webm (+ a WebP poster), then replace this slot with:
                    <figure class="media-slot">
@@ -322,10 +326,10 @@
               </p>
               <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
                    limitations and next steps documented in the project repository. -->
-              <aside class="differently" aria-label="What I’d do differently">
+              <div class="differently">
                 <span class="label">What I’d do differently</span>
                 <p>Build and run the Docker images and CI in the same pass as writing them — the README still lists them as unverified — and ship a hosted demo so people can try it without cloning.</p>
-              </aside>
+              </div>
               <!-- TODO(iqra): ResumeIQ — add a short looping screen recording (WebM, ideally < 2 MB)
                    as assets/work/resumeiq-demo.webm (+ a WebP poster), then replace this slot with:
                    <figure class="media-slot">
@@ -391,10 +395,10 @@
               </ul>
               <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
                    limitations and next steps documented in the project repository. -->
-              <aside class="differently" aria-label="What I’d do differently">
+              <div class="differently">
                 <span class="label">What I’d do differently</span>
                 <p>Choose the decision threshold from campaign costs — the price of a call and the value of a subscription — instead of maximising F1, which the app itself labels exploratory.</p>
-              </aside>
+              </div>
               <!-- TODO(iqra): Bank Marketing Intelligence — add a short looping screen recording (WebM, ideally < 2 MB)
                    as assets/work/bank-demo.webm (+ a WebP poster), then replace this slot with:
                    <figure class="media-slot">
@@ -462,10 +466,10 @@
               </p>
               <!-- TODO(iqra): confirm or rewrite this note in your own words. It is drawn from the
                    limitations and next steps documented in the project repository. -->
-              <aside class="differently" aria-label="What I’d do differently">
+              <div class="differently">
                 <span class="label">What I’d do differently</span>
                 <p>Give the command-line watcher the same missed-file reconciliation that background mode already has, instead of relying on create and rename events alone.</p>
-              </aside>
+              </div>
               <!-- TODO(iqra): Screenshot Organizer — add a short looping screen recording (WebM, ideally < 2 MB)
                    as assets/work/screenshot-organizer-demo.webm (+ a WebP poster), then replace this slot with:
                    <figure class="media-slot">
@@ -512,7 +516,7 @@
       <section id="archive" class="section section--tint" aria-labelledby="archive-title">
         <div class="wrap">
           <header class="grid section-head">
-            <p class="section-head__index"><span class="index">IN·02</span><span class="kicker">Archive</span></p>
+            <p class="section-head__index"><span class="index">IN·02</span><span class="kicker">Archive</span><span class="margin-note">smallest claims first — on purpose.</span></p>
             <h2 id="archive-title" class="section-head__title">Everything else, smallest claims first.</h2>
             <p class="section-head__note">Eight more: coursework, experiments and side projects. Filter by area; where a preview exists, hover the row.</p>
           </header>
@@ -757,7 +761,7 @@
       <section id="skills" class="section" aria-labelledby="skills-title">
         <div class="wrap">
           <header class="grid section-head">
-            <p class="section-head__index"><span class="index">IN·05</span><span class="kicker">Toolkit</span></p>
+            <p class="section-head__index"><span class="index">IN·05</span><span class="kicker">Toolkit</span><span class="margin-note">no bars. the dots say how, the superscripts say where.</span></p>
             <h2 id="skills-title" class="section-head__title">Tools, with citations.</h2>
             <p class="section-head__note">No proficiency bars. Each skill says how I’ve used it and cites the work — the superscripts are links.</p>
           </header>

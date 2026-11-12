@@ -112,6 +112,26 @@ async function loadAllImages(page) {
   await desktop.locator('.notes li[data-note="2"]').hover();
   assert.equal(await desktop.locator('.pin[data-note="2"]').evaluate((e) => e.classList.contains("is-active")), true);
 
+  // Sticky nav highlights Education (06) when that section is reached.
+  await desktop.getByRole("navigation").getByRole("link", { name: /Education/ }).click();
+  await desktop.waitForFunction(
+    () => document.querySelector('.nav__link[href="#education"]').getAttribute("aria-current") === "location",
+  );
+
+  // Command palette: shortcut, typing, arrows, Enter, focus on target, Escape returns focus.
+  await desktop.keyboard.press("Control+k");
+  await desktop.waitForSelector("dialog.palette[open]");
+  assert.equal(await desktop.evaluate(() => document.activeElement.id), "paletteInput");
+  await desktop.keyboard.type("routewise");
+  await desktop.keyboard.press("Enter");
+  await desktop.waitForFunction(() => document.activeElement.id === "routewise-project");
+  assert.equal(await desktop.evaluate(() => document.querySelector("dialog.palette").open), false);
+  await desktop.locator("#paletteOpen").click();
+  await desktop.keyboard.type("zzzz");
+  assert.equal(await desktop.locator(".palette__empty").isVisible(), true);
+  await desktop.keyboard.press("Escape");
+  assert.equal(await desktop.evaluate(() => document.activeElement.id), "paletteOpen");
+
   // Theme toggle changes the palette and persists.
   const bg = () => desktop.evaluate(() => getComputedStyle(document.body).backgroundColor);
   const before = await bg();
