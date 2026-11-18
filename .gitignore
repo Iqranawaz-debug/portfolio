@@ -1,0 +1,10 @@
+# Private working files: never publish
+_source/
+.claude/
+CLAUDE.md
+
+# Original certificate files (optimised copies are in assets/certs/)
+Google Data Analytics.jpg
+Google Project Management.pdf
+Huawei_Certificate.pdf
+deliotte.pdf
